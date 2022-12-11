@@ -16,6 +16,7 @@ import ReadingNew from "./readings/ReadingNew";
 
 class App extends Component {
   componentDidMount(){
+    console.log("client app.js component did mount")
     this.props.fetchUser();
 
   }
