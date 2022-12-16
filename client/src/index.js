@@ -17,3 +17,4 @@ const root = createRoot(container);
 root.render(
     <Provider store = {store}><App /></Provider>
 );
+//console.log(process.env.REACT_APP_STRIPE_KEY);
