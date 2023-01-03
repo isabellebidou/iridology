@@ -2,24 +2,26 @@ import React, {Component} from "react";
 import {reduxForm, Field} from 'redux-form';
 //handleSubmit provided by redux form
 import { Link } from "react-router-dom";
-import ReadingField from "./ReadingField";
+import UserDataField from "./userDataField";
 
 import formFields from "./formFields";
 
-class ReadingForm extends Component {
+class UserDataForm extends Component {
 
     renderFields() {
         return (
           <div>
-            {formFields.map(({ name, label, type }) => {
+            {formFields.map(({ name, label, type, compulsory }) => {
               return (
                 <Field
                   key={name}
                   name={name}
                   label={label}
                   type={type}
-                  component={ReadingField}
+                  compulsory= {compulsory}
+                  component= {UserDataField}
                 />
+
               )
             })}
           </div>
@@ -28,7 +30,7 @@ class ReadingForm extends Component {
  render (){
     return(
         <div>
-            <form onSubmit={this.props.handleSubmit(this.props.onReadingSubmit)}>
+            <form onSubmit={this.props.handleSubmit(this.props.onUserDataSubmit)}>
                 {this.renderFields()}
                
                 <button type="submit" className="teal btn-flat right white-text">next
@@ -36,7 +38,7 @@ class ReadingForm extends Component {
                 
                 </button>
 
-                <Link to = "/readings" className="red btn-flat left white-text">cancel
+                <Link to = "/UserDatas" className="red btn-flat left white-text">cancel
                 <i className="material-icons left">cancel</i>
                 
                 </Link>
@@ -61,6 +63,6 @@ function validate(values) {
  }
 export default reduxForm({
     validate,
-    form: 'readingForm',
+    form: 'userDataForm',
     destroyOnUnmount: false
-}) (ReadingForm)
+}) (UserDataForm)

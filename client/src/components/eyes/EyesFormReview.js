@@ -37,7 +37,7 @@ const ReadingFormReview = ({onCancel, formValues, submitReading, history}) => {
 
 function mapStateToProps(state){
     return {
-        formValues :state.form.readingForm.values
+        formValues :state.form.surveyForm.values
     }
 }
 

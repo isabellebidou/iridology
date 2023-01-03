@@ -4,7 +4,7 @@ import formFields from "./formFields";
 import * as actions from "../../actions";
 import { withRouter } from "react-router-dom";
 
-const ReadingFormReview = ({onCancel, formValues, submitReading, history}) => {
+const UserDataFormReview = ({onCancel, formValues, submitUserData, history}) => {
     const reviewFields = formFields.map(({ name, label }) => {
         return (
           <div key = {name}>
@@ -25,10 +25,10 @@ const ReadingFormReview = ({onCancel, formValues, submitReading, history}) => {
             back
             </button>
             <button 
-            onClick={() => submitReading(formValues, history)}
+            onClick={() => submitUserData(formValues, history)}
             className="green btn-flat right white-text">
-            Send Reading
-            <i className="material-icons right">email</i>
+            OK
+            <i className="material-icons right"></i>
             </button>
         </div>
     )
@@ -37,8 +37,8 @@ const ReadingFormReview = ({onCancel, formValues, submitReading, history}) => {
 
 function mapStateToProps(state){
     return {
-        formValues :state.form.readingForm.values
+        formValues :state.form.userDataForm.values
     }
 }
 
-export default connect (mapStateToProps, actions) (withRouter(ReadingFormReview));
+export default connect (mapStateToProps, actions) (withRouter(UserDataFormReview));

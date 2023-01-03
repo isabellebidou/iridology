@@ -13,7 +13,7 @@ class ReadingNew extends Component {
             />;
         }
         return <ReadingForm
-        onSurveySubmit = { ()=> this.setState({showFormReview: true})}
+        onReadingSubmit = { ()=> this.setState({showFormReview: true})}
         />;
     }
  render (){

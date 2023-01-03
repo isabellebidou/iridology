@@ -5,7 +5,11 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 require('./models/User');
+require('./models/EyePic');
+require('./models/UserData');
+require('./models/Reading');
 require('./services/passport');
+mongoose.set('strictQuery', false);
 
 mongoose.connect(keys.mongoURI);
 
@@ -23,6 +27,9 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/readingRoutes')(app);
+require('./routes/eyeRoutes')(app);
+require('./routes/userDataRoutes')(app);
 if (process.env.NODE_ENV == 'production') {
   // express will serve up production assets
   app.use(express.static('client/build'));
