@@ -2,24 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReadingList from './readings/ReadingList';
 import UserData from './UserData';
+import UserDataList from './userData/UserDataList';
 import EyesList from './eyes/EyeList';
 import Eyes from './Eyes';
+import DataStored from './DataStored';
+import Buttons from './Buttons';
+import Instructions from './Instructions';
+//import Landing from './Landing';
+
 
 
 
 const Dashboard = () => {
     return(
-        <div>
-            <h2>Dashboard</h2>
+        <div className="dashboard">
+            <Instructions />
+            <ReadingList />
             <UserData />
             <EyesList />
-            <Eyes />
-            <ReadingList />
-            <div className="fixed-action-btn">
-                <Link to= "/readings/new" className="btn-floating btn large red">
-                    <i className="material-icons">add</i>
-                </Link>
-            </div>
+            <Buttons />
+            
+
         </div>
     )
 

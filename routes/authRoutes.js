@@ -12,7 +12,7 @@ module.exports = (app) => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/offer");
+      res.redirect("/");
     }
   );
   app.get("/api/logout", (req, res) => {
@@ -21,9 +21,12 @@ module.exports = (app) => {
   });
 
   app.get("/api/current_user", (req, res) => {
-    console.log("req.user.id");
-    console.log(req.user.id);
-    //res.send(req.session);
+    
+    if (req.user) {
+      //console.log("req.user.id");
+      //console.log(req.user.id);
+      //console.log(req.user.type);
+    }
     res.send(req.user);
   });
 };

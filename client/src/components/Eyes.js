@@ -16,10 +16,7 @@ const Eyes = () => {
   //  })
     return(
         <div>
-        <h2>eyes</h2>
-        
         <EyeForm />
-
         </div>
     )
 

@@ -11,10 +11,10 @@ const Eye = mongoose.model('eyepics');
 module.exports = (app) => {
 ///api/user_eye_pics
   app.get("/api/user_eye_pics",  async(req, res) => {
-    console.log("get  user_eye_pics");
+
 
     const eyes = await Eye.find({_user : req.user.id});
-    console.log(eyes.length);
+
 
     res.send(eyes);
 
@@ -23,8 +23,7 @@ module.exports = (app) => {
 //https://www.youtube.com/watch?v=NzROCbkvIE0
   app.post("/api/eyes", requireLogin,upload.single("testImage"), async (req, res) => {
     const {  eyePic } = req.body;
-    console.log(req.file.originalname);
-    console.log(req.file.filename);
+
     const eye = new Eye({
       
       side:req.body.side,
@@ -54,9 +53,8 @@ module.exports = (app) => {
 
   app.post("/api/eyes_left", requireLogin,upload.single("testImage"), async (req, res) => {
     const {  eyePic } = req.body;
-    //console.log(req);
-    console.log(req.file.originalname);
-    console.log(req.file.filename);
+
+
     const eye = new Eye({
       
       side:'left',
@@ -86,8 +84,7 @@ module.exports = (app) => {
 
   app.post("/api/eyes_right", requireLogin,upload.single("testImage"), async (req, res) => {
     const {  eyePic } = req.body;
-    console.log(req.file.originalname);
-    console.log(req.file.filename);
+
     const eye = new Eye({
       
       side:'right',
@@ -117,8 +114,7 @@ module.exports = (app) => {
 
   app.post("/api/upload/file",upload.single("testImage"), async (req, res) => {
     const {  eyePic } = req.body;
-    console.log(req.file.originalname);
-    console.log(req.file.filename);
+
     const eye = new Eye({
       
       side:'right',

@@ -3,6 +3,7 @@ const {Schema} = mongoose; // =const Schema = mongoose.Schema;  es2015 destructu
 
 
 const userDataSchema = new Schema ({
+    name: String,
     gender:String,
     dob: Date,
     weight: Number,
@@ -11,6 +12,7 @@ const userDataSchema = new Schema ({
     genetics: String,
     gluten: String,
     dairy: String,
+    eatingHabits:String,
     dentalHistory: String,
     bloodType: String,
     digestion: String,

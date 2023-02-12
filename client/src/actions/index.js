@@ -34,21 +34,25 @@ export const handleToken = (token) => async (dispatch) => {
 };
 
 export const submitReading = (values, history) => async (dispatch) => {
+  console.log('submitReading')
+  console.log(values)
   const res = await axios.post("/api/readings", values);
   history.push("/readings");
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_READINGS, payload: res.data });
 };
 export const submitUserData = (values, history) => async (dispatch) => {
   const res = await axios.post("/api/userdata", values);
+  console.log("actions/ index/ submitUserData   values")
+  console.log(values)
   history.push("/userdata");
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_USER_DATA, payload: res.data });
 };
 export const submitUserDataEdit = (values, history) => async (dispatch) => {
   console.log("actions/ index/ submitUserDataEdit   values")
   console.log(values)
   const res = await axios.post("/api/userdata/edit", values);
   history.push("/userdata");
-  dispatch({ type: FETCH_USER, payload: res.data });
+  dispatch({ type: FETCH_USER_DATA, payload: res.data });
 };
 export const fetchReadings = () => async (dispatch) => {
   const res = await axios.get("/api/readings");

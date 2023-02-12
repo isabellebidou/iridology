@@ -2,53 +2,68 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Payments from "./Payments";
+import { withRouter } from 'react-router-dom';
+import MenuButton from "./MenuButton";
+
 
 class Header extends Component {
 
 
-  renderContent(){
+
+  renderContent() {
+   
+
+    const otherRoute = this.props.location.pathname === '/readings'? '/': '/readings';
+    const otherRouteName = this.props.location.pathname === '/readings'? 'home': 'profile';
     switch (this.props.auth) {
       case null:
-        
-        return
-        case false:
-          return <li><a href="/auth/google">Login with google</a></li>;
-    
+
+        return <a href="/auth/google"><img  src="/btn_google_signin_dark_normal_web.png"/></a>
+      case false:
+        return <a href="/auth/google"><img  src="/btn_google_signin_dark_normal_web.png"/></a> ;
+
       default:
         return [
-          <li key={1}><Payments /></li>,
-          <li key={3} style={{margin: '0 10px'}}>Credits: {this.props.auth.credits}</li>,
-          <li key={2}><a href="/api/logout">Logout</a></li>
-          ];
+          
+          
+          
          
+          <span key={1}><Payments /></span>,
+          <Link key={3}
+            to={this.props.auth ? otherRoute : '/'}
+            className="button"
+          >
+            {otherRouteName}
+          </Link>,
+          <a key={4} className="button" href="/api/logout">Logout</a>,
+          
+        ];
+
     }
 
   }
   render() {
     return (
-      <div>
-        <nav>
-          <div className ="nav-wrapper">
-            <Link 
-            to = {this.props.auth ? '/readings': '/'}
-            className =" brand-logo Left "
-            >
-              Isabelle's iridology
-            </Link>
-            <ul id="nav-mobile" className="right ">
-              
-                {this.renderContent()}
-              
-              
-            </ul>
+      <div className="header">
+        <img className="logo" src="/iridologylogo.png" alt="logo"></img>
+        
+          <div className="authentication">
+            
+            {this.renderContent()}
+
           </div>
-        </nav>
+          <MenuButton />
+          
+        
       </div>
+
+      
     );
   }
 }
-function mapStateToProps({auth}){
-  return{ auth}
+function mapStateToProps({ auth  }) {
+  return { auth }
 
 };
-export default connect (mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
+

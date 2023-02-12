@@ -31,13 +31,13 @@ class ReadingForm extends Component {
             <form onSubmit={this.props.handleSubmit(this.props.onReadingSubmit)}>
                 {this.renderFields()}
                
-                <button type="submit" className="teal btn-flat right white-text">next
-                <i className="material-icons right">done</i>
+                <button type="submit" className="">
+                <i className="">next</i>
                 
                 </button>
 
-                <Link to = "/readings" className="red btn-flat left white-text">cancel
-                <i className="material-icons left">cancel</i>
+                <Link to = "/readings" className="">
+                <i className="">cancel</i>
                 
                 </Link>
             </form>
@@ -50,8 +50,8 @@ class ReadingForm extends Component {
 function validate(values) {
     const errors = {};
 
-    formFields.forEach(({name}) => {
-        if(!values[name]){
+    formFields.forEach(({name, mandatory}) => {
+        if(!values[name] && mandatory == true){
             errors[name] = 'you must provide a value'
         }
         
@@ -59,6 +59,8 @@ function validate(values) {
     
     return errors;  
  }
+
+
 export default reduxForm({
     validate,
     form: 'readingForm',

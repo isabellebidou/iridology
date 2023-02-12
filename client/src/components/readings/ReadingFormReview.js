@@ -27,8 +27,8 @@ const ReadingFormReview = ({onCancel, formValues, submitReading, history}) => {
             <button 
             onClick={() => submitReading(formValues, history)}
             className="green btn-flat right white-text">
-            Send Reading
-            <i className="material-icons right">email</i>
+            
+            <i className="material-icons right">order Reading</i>
             </button>
         </div>
     )

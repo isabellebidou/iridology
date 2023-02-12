@@ -36,9 +36,12 @@ class DataList extends Component {
                         <p>{data.genetics}</p>
                         <p>{data.gluten}</p>
                         <p>{data.dairy}</p>
+                        <p>{data.eatingHabits}</p>
                         <p>{data.dentalHistory}</p>
                         <p>{data.bloodType}</p>
                         <p>{data.digestion}</p>
+                        <p>{data.comments}</p>
+                        <p>{data.medication}</p>
                         <p className="right">
                         dob: {new Date(data.dob).toLocaleDateString()}</p>
                     </div>

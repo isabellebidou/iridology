@@ -1,0 +1,240 @@
+@media screen and (max-width: 800px) and (orientation: landscape) {
+  .maincontent {
+    font-size: large;
+  }
+  #login fieldset:first-child,
+  #upload fieldset:first-child,
+  #updatedb fieldset:first-child {
+    width: 50%;
+    padding: 2%;
+  }
+
+  .header {
+    width: 100%;
+    height: 10%;
+    top: 0%;
+    left: 0%;
+    margin-bottom: 0%;
+  }
+  .footer {
+    width: 100%;
+    height: 10%;
+    bottom: 0%;
+    left: 0%;
+    margin-bottom: 0%;
+  }
+
+  input {
+    padding: 0.5em;
+    width: 100%;
+    height: 2em;
+    font-size: large;
+  }
+   /* https://stackoverflow.com/questions/15901030/reset-remove-css-styles-for-element-only */
+ .usersetinput, .usersetlabel {
+  width: auto;
+}
+  .authentication {
+    display: none;
+  }
+  p {
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+  }
+  .grid-container {
+    color: rgba(248, 245, 245, 0.89);
+    margin: auto;
+    display: grid;
+    align-content: center;
+    grid-template-columns: auto auto;
+    grid-gap: 0em;
+    /* background-color: #2196F3;  Comment this out later to remove the background color when not needed */
+    padding-top: 1em;
+  }
+  fieldset {
+    padding-top: 0em;
+  }
+
+  .displayimage {
+    max-width: 75%;
+    left: 1%;
+    padding: 1em;
+  }
+  .uploadjsonbutton {
+    visibility: hidden;
+  }
+  #details {
+    position: fixed;
+    left: 1%;
+    top: 5%;
+    max-width: 10%;
+    max-height: 100%;
+    color: rgba(25, 98, 194, 0.356);
+    font-size: 1em;
+    z-index: 1.5;
+    font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  }
+  .frame {
+    padding-top: 0em;
+  }
+  .detailimage {
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    width: 20%;
+  }
+  .detailform {
+    position: absolute;
+    width: 76%;
+    right: 2%;
+    bottom: 0%;
+    overflow-y: scroll;
+  }
+  .submit {
+    margin-top: 1em;
+    width: 100%;
+  }
+  .headertitle {
+    position: absolute;
+    width: 35%;
+    font-style: oblique;
+    left: 5%;
+    font-size: 1.5em;
+    top: 1%;
+    font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  }
+  .tooltip {
+    height: 100%;
+    max-height: 90%;
+  }
+  .back {
+    position: fixed;
+    bottom: 0.5em;
+    left: 0.5em;
+    font-size: 1em;
+    visibility: visible;
+    z-index: 2;
+  }
+  .next {
+    position: fixed;
+    bottom: 0.5em;
+    right: 0.5em;
+    font-size: 1em;
+    visibility: visible;
+    z-index: 2;
+  }
+
+  .search {
+    position: fixed;
+    top: 6%;
+    z-index: 1;
+    width: 67%;
+    height: 2.5em;
+    left: 1%;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  .searchItem {
+    position: fixed;
+    top: 15%;
+    z-index: 25;
+    border-radius: 10%;
+    box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
+    -webkit-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
+    -moz-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
+  }
+  .searchbutton {
+    position: fixed;
+    top: 6%;
+    width: 15%;
+    left: 68%;
+    height: 2.5em;
+    z-index: 2;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+  #mobilemenu {
+    position: fixed;
+    top: 8%;
+    right: 0.5em;
+    background: -webkit-linear-gradient(
+      bottom,
+      rgba(217, 217, 217, 0.7),
+      white,
+      rgba(217, 217, 217, 0.7) white
+    ); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(
+      bottom,
+      rgba(217, 217, 217, 0.7),
+      rgba(255, 255, 255, 0.9),
+      white,
+      rgba(255, 255, 255, 0.9),
+      rgba(217, 217, 217, 0.7)
+    ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(
+      top,
+      rgba(217, 217, 217, 0.7),
+      rgba(255, 255, 255, 0.9),
+      white,
+      rgba(255, 255, 255, 0.9),
+      rgba(217, 217, 217, 0.7)
+    ); /* the standard */
+    background: linear-gradient(
+      to bottom,
+      rgba(217, 217, 217, 0.7),
+      rgba(255, 255, 255, 0.9),
+      white,
+      rgba(255, 255, 255, 0.9),
+      rgba(217, 217, 217, 0.7)
+    );
+    width: auto;
+    text-shadow: 0px 0px #000000;
+    -webkit-box-shadow: 14px 10px 24px 0px rgba(217, 217, 217, 0.3);
+    -moz-box-shadow: 14px 10px 24px 0px rgba(217, 217, 217, 0.3);
+    box-shadow: 14px 10px 24px 0px rgba(217, 217, 217, 0.3);
+    padding: 2%;
+    z-index: 70;
+    border-radius: 10%;
+    height: 92%;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .mobilemenuli {
+    padding: 1em;
+    margin: auto auto;
+    
+    width: 90%;
+    
+    z-index: 50;
+    font-style: italic;
+
+    border-radius: 5%;
+  }
+  #menubutton {
+    position: fixed;
+    font-style: oblique;
+    top: 0.5em;
+    right: 0.5em;
+    visibility: visible;
+    display: inline;
+    z-index: 50;
+    padding: 0.7em;
+    border-radius: 10%;
+  }
+  .actionbook {
+    display: none;
+  
+  }
+  .actionsign{
+    display: none;
+  
+  }
+  .landing, .dashboard{
+    padding-top: 10%;
+    padding-bottom: 5%;
+  }
+}

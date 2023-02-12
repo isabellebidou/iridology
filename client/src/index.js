@@ -1,4 +1,7 @@
-import  'materialize-css/dist/css/materialize.min.css';
+//import  'materialize-css/dist/css/materialize.min.css';
+import './scripts/app.css';
+import './scripts/mobile-landscape.css';
+import './scripts/mobile-portrait.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';

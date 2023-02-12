@@ -11,7 +11,12 @@ require('./models/Reading');
 require('./services/passport');
 mongoose.set('strictQuery', false);
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  () => {
+    console.log('Connected to MongoDB');
+  }
+  );
 
 const app = express();
 app.use(bodyParser.json());
@@ -41,5 +46,5 @@ if (process.env.NODE_ENV == 'production') {
   });
   }
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT);

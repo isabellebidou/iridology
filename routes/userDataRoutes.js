@@ -9,15 +9,15 @@ const UserData = mongoose.model("userdata");
 
 module.exports = (app) => {
   app.get("/api/user_data", requireLogin, async (req, res) => {
-    console.log("get  /api/user_data");
     const userData = await UserData.find({ _user: req.user.id });
    // console.log('userData')
    // console.log(userData)
     res.send(userData);
   });
   app.post("/api/userdata", requireLogin, async (req, res) => {
-    const {  gender, dob ,weight,height,history,genetics,gluten,dairy,dentalHistory,bloodType,digestion, medication, comments} = req.body;
+    const {  name,gender, dob ,weight,height,history,genetics,gluten,dairy,dentalHistory,bloodType,digestion, medication, comments} = req.body;
     const userdata = new UserData({
+      name,
       gender,
       dob, 
       weight,
@@ -26,11 +26,12 @@ module.exports = (app) => {
       genetics,
       gluten,
       dairy,
+      eatingHabits,
       dentalHistory,
       bloodType,
       digestion,
-      medication,
       comments,
+      medication,
       _user: req.user.id
     });
     
@@ -47,12 +48,15 @@ module.exports = (app) => {
   });
   // _user: req.user.id
   app.post("/api/userdata/edit", requireLogin, async (req, res) => {
-    console.log('api/userdata/edit')
+    let responseSent = false;
     console.log(req.body)
-    const {  gender ,weight,height,history,genetics,gluten,dairy,dentalHistory,bloodType,digestion, medication, comments} = req.body;
+    const {  name,gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication} = req.body;
+    console.log(bloodType)
     const userId = req.user.id;
+  
     UserData.updateOne({_user:userId},
     {$set:{
+      name,
       gender, 
       weight,
       height,
@@ -60,17 +64,27 @@ module.exports = (app) => {
       genetics,
       gluten,
       dairy,
+      eatingHabits,
       dentalHistory,
       bloodType,
       digestion,
-      medication,
-      comments
+      comments,
+      medication
     }}, (err,doc) => {
-      if(err) return console.error(err)
-      res.json(doc)
-    })
-    
+      if(err) {
+        if (!responseSent) {
+          responseSent = true;
+          res.status(422).send(err);
+        }
+      } else {
+        if (!responseSent) {
+          responseSent = true;
+          res.json(doc);
+        }
+      }
+    });
   });
+  
 
   
 

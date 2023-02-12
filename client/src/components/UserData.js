@@ -4,18 +4,15 @@ import {reduxForm} from 'redux-form';
 import { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUserData } from "../actions";
-import * as actions from "../actions";
 import fieldsArray from "./userData/formFields";
-import {submitUserDataEdit} from "../actions";
+
 
 
 
 class UserData extends Component {
   async componentDidMount() {
     await this.props.fetchUserData();
-    await this.updateStateValuesAll().then((userdata) => {
-      console.log(this.state);
-    });
+    await this.updateStateValuesAll();
   }
   constructor(props) {
     super(props);
@@ -27,6 +24,7 @@ class UserData extends Component {
       genetics: "",
       gluten: "",
       dairy: "",
+      eatingHabits:"",
       dentalHistory: "",
       bloodType: "",
       digestion: "",
@@ -68,11 +66,17 @@ class UserData extends Component {
       case "dairy":
         this.setState({ dairy: v });
         break;
+      case "eatingHabits":
+        this.setState({ eatingHabits: v });
+        break;
+      case "digestion":
+        this.setState({ digestion: v });
+        break;
       case "dentalHistory":
         this.setState({ dentalHistory: v });
         break;
       case "bloodType":
-        this.setState({ bloodtype: v });
+        this.setState({ bloodType: v });
         break;
       case "medication":
         this.setState({ medication: v });
@@ -84,7 +88,7 @@ class UserData extends Component {
   }
   updateStateValueWithData(field) {
     if (this.props.userdata) {
-      return this.props.userdata.map((data) => {
+      this.props.userdata.map((data) => {
         
         switch (field.name) {
           case "gender":
@@ -108,17 +112,23 @@ class UserData extends Component {
           case "dairy":
             this.setState({ dairy: data.dairy });
             break;
+          case "eatingHabits":
+              this.setState({ eatingHabits: data.eatingHabits });
+              break;
+          case "digestion":
+              this.setState({ digestion: data.digestion });
+              break;
           case "dentalHistory":
             this.setState({ dentalHistory: data.dentalHistory });
             break;
           case "bloodType":
-            this.setState({ bloodtype: data.bloodType });
+            this.setState({ bloodType: data.bloodType });
             break;
           case "medication":
             this.setState({ medication: data.medication });
             break;
           default:
-            this.setState({ digestion: data.comments });
+            this.setState({ comments: data.comments });
             break;
         }
       });
@@ -132,12 +142,10 @@ class UserData extends Component {
   }
   async handleClick() {
     console.log("handleClick");
-    console.log("this.state");
-    console.log(this.state);
 
-   // submitUserDataEdit(this.state, this.state.history);
+    //submitUserDataEdit(this.state, this.state.history);
 
-    const res = await axios.post("/api/userdata/edit", this.state);
+    await axios.post("/api/userdata/edit", this.state);
     //history.push("/userdata");
     //dispatch({ type: FETCH_USER, payload: res.data });
   }
@@ -149,105 +157,154 @@ class UserData extends Component {
       return this.props.userdata.map((data) => {
         return (
           <form>
-            <div className="card blue-grey darken-1" key={data._id}>
-              <div className="card-content white-text">
-                <span className="card-title">{data._user}</span>
-                <label htmlFor="gender">gender</label>
+            <div className="" key={'777'}>
+              <div className="" key={1}>
+              
+                
+
+                <label key={3} htmlFor="name">first and last name</label>
+                <input
+                  name="name"
+                  key={111}
+                  type="text"
+                  defaultValue={data.name ? data.name : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label  key={4} htmlFor="gender">gender</label>
                 <input
                   name="gender"
+                  key={112}
                   type="text"
                   defaultValue={data.gender ? data.gender : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="weight">weight</label>
+                <label key={5} htmlFor="weight">weight</label>
                 <input
                   name="weight"
+                  key={113}
                   type="number"
                   placeholder={data.weight ? data.weight : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="height">height</label>
+                <label key={6} htmlFor="height">height</label>
                 <input
                   name="height"
+                  key={114}
                   type="number"
                   defaultValue={data.height ? data.height : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="history">history</label>
+                <label key={7} htmlFor="history">history</label>
                 <input
                   name="history"
+                  key={115}
                   type="text"
                   defaultValue={data.history ? data.history : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="genetics">genetics</label>
+                <label key={8} htmlFor="genetics">genetics</label>
                 <input
                   name="genetics"
+                  key={116}
                   type="text"
                   defaultValue={data.genetics ? data.genetics : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="gluten">gluten</label>
+                <label key={9} htmlFor="gluten">gluten</label>
                 <input
                   name="gluten"
+                  key={117}
                   type="text"
                   defaultValue={data.gluten ? data.gluten : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
                 />
-                <label htmlFor="dairy">dairy</label>
+                <label key={10} htmlFor="dairy">dairy</label>
                 <input
                   name="dairy"
+                  key={118}
                   type="text"
                   defaultValue={data.dairy ? data.dairy : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="dentalHistory">dentalHistory</label>
+                <label key={11} htmlFor="eatingHabits">eating habits</label>
+                <input
+                  name="eatingHabits"
+                  key={119}
+                  type="text"
+                  defaultValue={data.eatingHabits ? data.eatingHabits : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={12} htmlFor="dentalHistory">dentalHistory</label>
                 <input
                   name="dentalHistory"
+                  key={120}
                   type="text"
                   defaultValue={data.dentalHistory ? data.dentalHistory : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label htmlFor="bloodType">bloodType</label>
+                <label key={23} htmlFor="bloodType">bloodType</label>
                 <input
                   name="bloodType"
+                  key={121}
                   type="text"
                   defaultValue={data.bloodType ? data.bloodType : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
                 />
-                <label htmlFor="digestion">digestion</label>
+                <label key={33} htmlFor="digestion">digestion</label>
                 <input
                   name="digestion"
+                  key={122}
                   type="text"
                   defaultValue={data.digestion ? data.digestion : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
                 />
-                <label htmlFor="medication">medication</label>
+                <label key={34} htmlFor="medication">medication</label>
                 <input
                   name="medication"
+                  key={123}
                   type="text"
                   defaultValue={data.medication ? data.medication : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
                 />
-                <label htmlFor="comments">comments</label>
+                <label key={53}  htmlFor="comments">comments</label>
                 <input
                   name="comments"
+                  key={124}
                   type="text"
                   defaultValue={data.comments ? data.comments : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
                 />
 
-                <p className="right">
-                  <button
+                <p key={63} >
+                  <button className="rightbutton"
                     onClick={() => {
                       this.handleClick();
                     }}
@@ -267,17 +324,19 @@ class UserData extends Component {
   }
 
   render() {
-    return <div>{this.renderUserData()}</div>;
+    return <div>
+      <fieldset>
+        <legend>information</legend>
+        <div className="col" key={333}>
+      {this.renderUserData()}
+      </div>
+      </fieldset>
+      
+      </div>;
   }
 }
 
 function mapStateToProps({ userdata }, state) {
-  console.log("mapStateToProps");
-  console.log("userdata");
-  console.log(userdata);
-  console.log("state");
-  console.log(state);
-
   return { userdata, state };
 }
 UserData = reduxForm({
