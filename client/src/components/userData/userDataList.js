@@ -25,9 +25,9 @@ class DataList extends Component {
     renderUserData() {
         return this.props.userData.reverse().map( data => {
             return (
-                <div className="card blue-grey darken-1" key={data._id}>
+                <div className="" key={data._id}>
                 
-                    <div className="card-content white-text">
+                    <div className="">
                         <span className="card-title">{data._user}</span>
                         <p>{data.gender}</p>
                         <p>{data.weight}</p>

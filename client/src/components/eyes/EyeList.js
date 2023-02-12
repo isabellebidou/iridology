@@ -3,13 +3,40 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUserEyePics } from "../../actions";
 import { Link } from "react-router-dom";
+import EyePic from "./ImageComponent";
+import { withRouter } from "react-router-dom";
+//import { history } from rom "../../actions";
+
 
 
 class EyeList extends Component {
+
   componentDidMount() {
     this.props.fetchUserEyePics();
 
   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false
+    };
+  }
+
+
+
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    });
+  };
+  handleMouseOver = () => {
+    this.setState({ width: "200%", height: "auto" });
+  };
+
+  handleMouseOut = () => {
+    this.setState({ width: "100%", height: "auto" });
+  };
+
   renderButton() {
     if (this.props.eyes) {
       return (
@@ -29,9 +56,13 @@ class EyeList extends Component {
     }
 
   }
+  imgClick() {
+    console.log(this)
+  }
   renderEyes() {
     if (this.props.eyes) {
       return this.props.eyes.map((eyePic) => {
+
         const eyePicData = eyePic.pic.data.data;
         const base64String = btoa(
           new Uint8Array(eyePicData).reduce(function (data, byte) {
@@ -40,12 +71,16 @@ class EyeList extends Component {
         );
 
         return (
-          <div className="" key={eyePic._id}>
+          <div className="" key={eyePic._id + '_container'} >
             <div className="item photoThumbnail">
-              <img
+
+              <EyePic
+                id="myImage"
                 src={`data:${eyePic.contentType};base64,${base64String}`}
-                alt={"eye pic"}
-                width="100%"
+                alt={eyePic.side + " eye pic"}
+                side={eyePic.side}
+                dateSent={eyePic.dateSent}
+
               />
               <p className="item">
                 {eyePic.side} eye pic sent on: {new Date(eyePic.dateSent).toLocaleDateString()}
@@ -64,7 +99,7 @@ class EyeList extends Component {
     return (
       <div>
 
-        
+
         <div className="grid-container">{this.renderEyes()}</div>
 
 
@@ -77,4 +112,4 @@ function mapStateToProps({ eyes }) {
   return { eyes };
 }
 
-export default connect(mapStateToProps, { fetchUserEyePics })(EyeList);
+export default withRouter(connect(mapStateToProps, { fetchUserEyePics })(EyeList));

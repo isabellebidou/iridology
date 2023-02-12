@@ -1,17 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Redirect, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ path, exact, children }) => {
-  const auth = useSelector((store) => store.authenticated);
+class ProtectedRoute extends Component {
+  render() {
+    const { component: Component, auth, ...rest } = this.props;
+    return (
+      <Route
+        {...rest}
+        render={props =>
+          auth ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to="/auth/google" />
+          )
+        }
+      />
+    );
+  }
+}
 
-  return auth ? (
-    <Route path={path} exact={exact}>
-      {children}
-    </Route>
-  ) : (
-    <Redirect to="/auth/google" />
-  );
-};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-export default ProtectedRoute;
+export default connect(mapStateToProps) (ProtectedRoute);
