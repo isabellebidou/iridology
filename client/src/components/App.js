@@ -8,14 +8,18 @@ import Landing from "./Landing";
 import { connect } from "react-redux";
 import * as actions from '../actions';
 import Dashboard from "./Dashboard";
+import SelectedUserDashboard from "./SelectedUserDashboard";
 import ReadingNew from "./readings/ReadingNew";
 import UserDataNew from "./userData/UserDataNew";
 import UserData from "./UserData";
+import UserList from "./users/UserList";
 import UserDataFormEdit from "./userData/UserDataFormEdit";
 import UserDataForm from "./userData/UserDataForm";
 import Eyes from "./Eyes";
 import EyePic from "./EyePic";
 import ProtectedRoute from "./ProtectedRoute";
+import RestrictedRoute from "./RestrictedRoute";
+import AdminDashboard  from "./AdminDashboard";
 
 
 
@@ -44,8 +48,10 @@ class App extends Component {
             <ProtectedRoute exact path="/userdata" component={UserData} />
             <ProtectedRoute exact path="/userdata/edit" component={UserDataFormEdit} />
             <ProtectedRoute exact path="/eyePic" component={EyePic} />
-
             <ProtectedRoute exact path="/eyes/new" component={Eyes} />
+            <ProtectedRoute exact path="/users/dashboard" component={SelectedUserDashboard} />
+            <Route exact path="/users/all" component={UserList} />
+            <Route exact path="/admin/dashboard" component={AdminDashboard} />
             <MobileMenu />
             
             <Footer />

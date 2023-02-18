@@ -22,8 +22,32 @@ class MobileMenu extends Component {
         const otherRouteName = currentlyOnProfile ? 'home' : 'profile';
         const enoughCredits = this.props.auth && this.props.auth.credits >= 80? true : false;
         const ready = this.props.auth && enoughCredits && this.props.userdata && this.props.eyes && currentlyOnProfile ? true : false;
+        const isAdmin = this.props.auth && this.props.auth.type === 'admin';
+        if (ready && isAdmin) {
 
-        if (ready) {
+            return (
+                <ul id="mobilemenuul">
+                     <li><Link key={6} to="/users/all" className="mobilemenuli button" >
+                        users
+                    </Link></li>
+
+                    <li><Link key={6} to="/readings/new" className="mobilemenuli button" >
+                        book a reading
+                    </Link></li>
+                    <li key={2} className="mobilemenuli button">
+                        <Payments />
+                    </li>
+                    <li>
+                        <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
+                    </li>
+                    <li>
+                        <a key={4} className="mobilemenuli button" href="/api/logout">Logout</a>
+                    </li>
+                </ul>
+            )
+            
+
+        } else if (ready) {
 
             return (
                 <ul id="mobilemenuul">
@@ -83,46 +107,8 @@ class MobileMenu extends Component {
             return <a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a>;
 
         }
-        /*switch (this.props.auth) {
-            case null:
+        
 
-
-                return
-            case false:
-                return <a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a>;
-
-            default:
-                return (
-                    <ul id="mobilemenuul">
-                        <li key={1} className="credits">
-                            credits: {this.props.auth.credits}
-                        </li>
-                        <li><Link key={6} to="/readings" className="mobilemenuli button" >
-                            book a reading
-                        </Link></li>
-                        <li key={2} className="mobilemenuli button">
-                            <Payments />
-                        </li>
-                        <li>
-                            <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
-                        </li>
-                        <li>
-                            <a key={4} className="mobilemenuli button" href="/api/logout">Logout</a>
-                        </li>
-                    </ul>
-                )
-
-
-
-
-
-
-
-
-
-
-
-        }*/
 
     }
 

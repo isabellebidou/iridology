@@ -10,9 +10,20 @@ const UserData = mongoose.model("userdata");
 module.exports = (app) => {
   app.get("/api/user_data", requireLogin, async (req, res) => {
     const userData = await UserData.find({ _user: req.user.id });
-   // console.log('userData')
-   // console.log(userData)
     res.send(userData);
+  });
+  app.get("/api/user_data/:id", requireLogin, async (req, res) => {
+
+    const userData = await UserData.find({ _user: req.params.id });
+
+
+    res.send(JSON.stringify(userData));
+  });
+  app.get("/api/user_data/name/:id", requireLogin, async (req, res) => {
+
+    const userDataName = await UserData.findOne({ _user: req.params.id },'name' );
+
+    res.send(userDataName);
   });
   app.post("/api/userdata", requireLogin, async (req, res) => {
     const {  name,gender, dob ,weight,height,history,genetics,gluten,dairy,dentalHistory,bloodType,digestion, medication, comments} = req.body;
@@ -49,9 +60,7 @@ module.exports = (app) => {
   // _user: req.user.id
   app.post("/api/userdata/edit", requireLogin, async (req, res) => {
     let responseSent = false;
-    console.log(req.body)
     const {  name,gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication} = req.body;
-    console.log(bloodType)
     const userId = req.user.id;
   
     UserData.updateOne({_user:userId},

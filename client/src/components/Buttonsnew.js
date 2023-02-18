@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 
 
-function ReadingList() {
+function Buttons() {
     useEffect(() => {
-        fetchItems();
+        fetchData();
     }, []);
-    const [items, setItems] = useState([]);
-    const fetchItems = async () => {
-        const userData = await fetch(`/api/readings/`);
-        const items = await userData.json();
-        setItems(items);
+    useEffect(() => {
+        fetchData();
+    }, []);
+    const [data, setData] = useState([]);
+    const [eyes, setEyes] = useState([]);
+    const fetchData = async () => {
+        const userData = await fetch(`/api/user_data/`);
+        const data = await userData.json();
+        setData(data);
 
     };
 
@@ -38,4 +42,4 @@ function ReadingList() {
     );
 }
 
-export default ReadingList
+export default Buttons

@@ -16,17 +16,26 @@ module.exports = (app) => {
     }
   );
   app.get("/api/logout", (req, res) => {
-    req.logout();
+    try {
+      req.logout();
     res.redirect("/");
+    } catch (error) {
+      console.error(error)
+    }
+    
   });
 
   app.get("/api/current_user", (req, res) => {
-    
-    if (req.user) {
-      //console.log("req.user.id");
-      //console.log(req.user.id);
-      //console.log(req.user.type);
+
+    try {
+      if (req.user) {
+      }
+      res.send(req.user);
+    } catch (error) {
+      console.error(error)
+      
     }
-    res.send(req.user);
+    
+
   });
 };

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import store from "./store";
 import fieldsArray from "./userData/formFields";
 
-function UserData() {
+function SelectedUserData() {
   useEffect(() => {
     fetchItems();
   }, []);
@@ -9,16 +10,13 @@ function UserData() {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-      const userData = await fetch(`/api/user_data/`);
+    if (store.getState().selectedUser) {
+      const userId = store.getState().selectedUser;
+      const userData = await fetch(`/api/user_data/${userId}`);
       const items = await userData.json();
       setItems(items);
-    
+    }
   };
-
-  const labels = fieldsArray.reduce((acc, field) => {
-    acc.push(field.label);
-    return acc;
-  }, []);
 
   return (
     <section>
@@ -28,7 +26,7 @@ function UserData() {
             <div className="col" key={'777'}>
               <div className="" key={1}>
 
-                <label key={1} htmlFor="name">first and last name</label>
+                <label key={3} htmlFor="name">first and last name</label>
                 <input
                   name="name"
                   key={111}
@@ -118,7 +116,7 @@ function UserData() {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}
                 />
-                <label key={10} htmlFor="dentalHistory">{(fieldsArray.find(f => f.name === 'dentalHistory')).label}</label>
+                  <label key={10} htmlFor="dentalHistory">{(fieldsArray.find(f => f.name === 'dentalHistory')).label}</label>
                 <input
                   name="dentalHistory"
                   key={120}
@@ -188,4 +186,4 @@ function UserData() {
   );
 }
 
-export default UserData
+export default SelectedUserData

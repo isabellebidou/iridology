@@ -10,13 +10,17 @@ require('./models/UserData');
 require('./models/Reading');
 require('./services/passport');
 mongoose.set('strictQuery', false);
-
-mongoose.connect(keys.mongoURI,
+//https://stackoverflow.com/questions/65408618/mongooseerror-operation-users-findone-buffering-timed-out-after-10000ms
+/*mongoose.connect(keys.mongoURI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('Connected to MongoDB');
   }
-  );
+  );*/
+
+  mongoose.connect(keys.mongoURI, () => {
+    console.log("Mongo connected");
+});
 
 const app = express();
 app.use(bodyParser.json());
@@ -35,6 +39,7 @@ require('./routes/billingRoutes')(app);
 require('./routes/readingRoutes')(app);
 require('./routes/eyeRoutes')(app);
 require('./routes/userDataRoutes')(app);
+require('./routes/usersRoutes')(app);
 if (process.env.NODE_ENV == 'production') {
   // express will serve up production assets
   app.use(express.static('client/build'));

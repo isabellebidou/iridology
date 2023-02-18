@@ -11,33 +11,49 @@ class Header extends Component {
 
 
   renderContent() {
-   
 
-    const otherRoute = this.props.location.pathname === '/readings'? '/': '/readings';
-    const otherRouteName = this.props.location.pathname === '/readings'? 'home': 'profile';
+    console.log(this.props.auth)
+    const otherRoute = this.props.location.pathname === '/readings' ? '/' : '/readings';
+    const otherRouteName = this.props.location.pathname === '/readings' ? 'home' : 'profile';
+    const isAdmin = this.props.auth && this.props.auth.type === 'admin';
+    const isOnProfile = this.props.location.pathname === '/readings';
+    const isOnUsers = this.props.location.pathname === '/users/all';
+    const isLanding = this.props.location.pathname === '/';
     switch (this.props.auth) {
       case null:
 
-        return <a href="/auth/google"><img  src="/btn_google_signin_dark_normal_web.png"/></a>
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a></div>
       case false:
-        return <a href="/auth/google"><img  src="/btn_google_signin_dark_normal_web.png"/></a> ;
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a></div>;
 
       default:
-        return [
-          
-          
-          
-         
-          <span key={1}><Payments /></span>,
-          <Link key={3}
-            to={this.props.auth ? otherRoute : '/'}
-            className="button"
-          >
-            {otherRouteName}
-          </Link>,
-          <a key={4} className="button" href="/api/logout">Logout</a>,
-          
-        ];
+        return (
+
+
+          <div className="authentication">
+            {isAdmin && (
+              <a key={9} className="button" href="/users/all">users</a>)}
+
+            <span key={1}><Payments /></span>
+            {isOnProfile || isOnUsers &&(
+                          <Link key={66}
+                          to={'/'}
+                          className="button"
+                        >
+                          home
+                        </Link>
+
+            )}
+            <Link key={3}
+              to={this.props.auth ? otherRoute : '/'}
+              className="button"
+            >
+              {otherRouteName}
+            </Link>
+            <a key={4} className="button" href="/api/logout">Logout</a>
+          </div>
+
+        );
 
     }
 
@@ -46,22 +62,14 @@ class Header extends Component {
     return (
       <div className="header">
         <img className="logo" src="/iridologylogo.png" alt="logo"></img>
-        
-          <div className="authentication">
-            
-            {this.renderContent()}
-
-          </div>
-          <MenuButton />
-          
-        
+        {this.renderContent()}
+        <MenuButton />
       </div>
 
-      
     );
   }
 }
-function mapStateToProps({ auth  }) {
+function mapStateToProps({ auth }) {
   return { auth }
 
 };

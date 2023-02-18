@@ -12,8 +12,18 @@ module.exports = (app) => {
 ///api/user_eye_pics
   app.get("/api/user_eye_pics",  async(req, res) => {
 
-
     const eyes = await Eye.find({_user : req.user.id});
+
+
+    res.send(eyes);
+
+  })
+
+  app.get("/api/user_eye_pics/:id",  async(req, res) => {
+
+
+
+    const eyes = await Eye.find({_user : req.params.id});
 
 
     res.send(eyes);

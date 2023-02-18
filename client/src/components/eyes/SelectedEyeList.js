@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import store from "../store";
 import EyePic from "./ImageComponent";
 
 
@@ -9,11 +10,16 @@ function SelectedEyeList() {
     }, []);
 
     const [items, setItems] = useState([]);
-    const fetchItems = async () => {
-        const userData = await fetch(`/api/user_eye_pics/`);
-        const items = await userData.json();
-        setItems(items);
 
+    const fetchItems = async () => {
+        if (store.getState().selectedUser) {
+            const userId = store.getState().selectedUser;
+            console.log(store.getState().selectedUser)
+            
+            const userData =  await fetch(`/api/user_eye_pics/${userId}`);
+            const items = await userData.json();
+        setItems(items);
+          }
     };
 
     return(
@@ -21,6 +27,7 @@ function SelectedEyeList() {
             <div className="grid-container">
             {
             items.map((eyePic) => {
+              console.log(eyePic)
 
                 const eyePicData = eyePic.pic.data.data;
                 const base64String = btoa(
