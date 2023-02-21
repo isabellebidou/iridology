@@ -14,17 +14,15 @@ import UserDataNew from "./userData/UserDataNew";
 import UserData from "./UserData";
 import UserList from "./users/UserList";
 import UserDataFormEdit from "./userData/UserDataFormEdit";
-import UserDataForm from "./userData/UserDataForm";
 import Eyes from "./Eyes";
 import EyePic from "./EyePic";
 import ProtectedRoute from "./ProtectedRoute";
 import RestrictedRoute from "./RestrictedRoute";
 import AdminDashboard  from "./AdminDashboard";
-
-
-
-
-
+import FaqList from "./faqs/FaqList";
+import FaqForm from "./faqs/FaqForm";
+import LinkList from "./links/LinkList";
+import LinkForm from "./links/LinkForm";
 
 
 
@@ -32,6 +30,7 @@ class App extends Component {
   componentDidMount(){
     console.log("client app.js component did mount")
     this.props.fetchUser();
+    
 
   }
   render() {
@@ -42,7 +41,7 @@ class App extends Component {
          
             <Header />
             <Route exact path="/" component={Landing} />
-            <ProtectedRoute exact path="/readings" component={Dashboard} />
+            <Route exact path="/readings" component={Dashboard} />
             <ProtectedRoute exact path="/readings/new" component={ReadingNew} />
             <ProtectedRoute exact path="/userdata/new" component={UserDataNew} />
             <ProtectedRoute exact path="/userdata" component={UserData} />
@@ -50,8 +49,13 @@ class App extends Component {
             <ProtectedRoute exact path="/eyePic" component={EyePic} />
             <ProtectedRoute exact path="/eyes/new" component={Eyes} />
             <ProtectedRoute exact path="/users/dashboard" component={SelectedUserDashboard} />
-            <Route exact path="/users/all" component={UserList} />
-            <Route exact path="/admin/dashboard" component={AdminDashboard} />
+           
+            <Route exact path="/users" component={UserList} />
+            <Route exact path="/faq/list" component={FaqList} />
+            <Route exact path="/link/list" component={LinkList} />
+            <Route exact path="/faq/add" component={FaqForm} />
+            <Route exact path="/link/add" component={LinkForm} />
+            <Route exact path="/admin" component={AdminDashboard} />
             <MobileMenu />
             
             <Footer />
@@ -63,5 +67,10 @@ class App extends Component {
     );
   }
 }
+function mapStateToProps({ auth }) {
+  return { auth }
 
-export default connect (null, actions)(App);
+};
+
+
+export default connect (mapStateToProps, actions)(App);

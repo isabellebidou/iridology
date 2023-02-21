@@ -4,20 +4,26 @@ import { Link } from "react-router-dom";
 import Payments from "./Payments";
 import { withRouter } from 'react-router-dom';
 import MenuButton from "./MenuButton";
+import store from "./store";
 
 
 class Header extends Component {
+  
+  /*componentDidMount() {
+    if (store.getState()) {
 
+    }
+
+  }*/
 
 
   renderContent() {
 
-    console.log(this.props.auth)
     const otherRoute = this.props.location.pathname === '/readings' ? '/' : '/readings';
     const otherRouteName = this.props.location.pathname === '/readings' ? 'home' : 'profile';
     const isAdmin = this.props.auth && this.props.auth.type === 'admin';
     const isOnProfile = this.props.location.pathname === '/readings';
-    const isOnUsers = this.props.location.pathname === '/users/all';
+    const isOnUsers = this.props.location.pathname === '/users';
     const isLanding = this.props.location.pathname === '/';
     switch (this.props.auth) {
       case null:
@@ -32,7 +38,7 @@ class Header extends Component {
 
           <div className="authentication">
             {isAdmin && (
-              <a key={9} className="button" href="/users/all">users</a>)}
+              <a key={9} className="button" href="/users">users</a>)}
 
             <span key={1}><Payments /></span>
             {isOnProfile || isOnUsers &&(

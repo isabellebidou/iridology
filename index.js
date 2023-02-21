@@ -8,6 +8,9 @@ require('./models/User');
 require('./models/EyePic');
 require('./models/UserData');
 require('./models/Reading');
+require('./models/Faq');
+require('./models/Link');
+require('./models/Offer');
 require('./services/passport');
 mongoose.set('strictQuery', false);
 //https://stackoverflow.com/questions/65408618/mongooseerror-operation-users-findone-buffering-timed-out-after-10000ms
@@ -40,6 +43,9 @@ require('./routes/readingRoutes')(app);
 require('./routes/eyeRoutes')(app);
 require('./routes/userDataRoutes')(app);
 require('./routes/usersRoutes')(app);
+require('./routes/faqRoutes')(app);
+require('./routes/linkRoutes')(app);
+require('./routes/offerRoutes')(app);
 if (process.env.NODE_ENV == 'production') {
   // express will serve up production assets
   app.use(express.static('client/build'));

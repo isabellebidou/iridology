@@ -1,11 +1,48 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import FaqList from "./faqs/FaqList";
+import FaqForm from "./faqs/FaqForm";
+import LinkList from "./links/LinkList";
+import LinkForm from "./links/LinkForm";
+import OfferList from "./offers/OfferList";
+//import $ from 'jquery';
+
+
 
 
 
 class Landing extends Component {
 
+/*handleClose(e){
+    $("#signInBlock").slideToggle();
+
+} */
+renderFaqForm(){
+    if (this.props.auth && this.props.auth.type ==="admin") {
+        return(
+
+                <FaqForm />
+        
+            );
+        
+
+    }
+
+}
+renderLinkForm(){
+    if (this.props.auth && this.props.auth.type ==="admin") {
+        return(
+
+                <LinkForm />
+        
+            );
+        
+
+    }
+
+}
 
     renderButton() {
         if (this.props.auth) {
@@ -18,13 +55,15 @@ class Landing extends Component {
                 );
             
 
-        } /*else {
+        } else {//<span className="closeWindow" onClick={this.handleClose}>x</span>
             return(
-                <a href="/auth/google" className="actionsign button"><img src="/btn_google_signin_dark_normal_web.png" /></a>
-            
+                <span className="actionsign button" id ='signInBlock'>
+                Sign in and book your reading today!<br />
+                <a href="/auth/google" ><img src="/btn_google_signin_dark_normal_web.png" /></a>
+                </span>
                 );
 
-        }*/
+        }
         
         
 
@@ -42,19 +81,21 @@ class Landing extends Component {
                         <li className="floatli" >
                             <a className="floata" href="#faq">Iridology FAQ</a>
                         </li>
-                        <li className="floatli" >
-                            <a className="floata" href="#remedies">Remedies</a>
-                        </li>
+
                         <li className="floatli" >
                             <a className="floata" href="#offer">Offer</a>
                         </li>
                         <li className="floatli" >
                             <a className="floata" href="#links">Resources & links</a>
                         </li>
+                        <li className="floatli" >
+                            <a className="floata" href="#contact">Contact</a>
+                        </li>
 
                     </ul>
 
                 </span>
+                
                 <h1>
                     Iridology Readings
                 </h1>
@@ -65,7 +106,7 @@ class Landing extends Component {
                     <p className="itemp">
                         You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you seen a result and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
                         <br />
-                        While in Arizona to Reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions ot ut in place.
+                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions ot ut in place.
 
                     </p>
 
@@ -89,7 +130,6 @@ class Landing extends Component {
                         <h2>The endocrine system</h2>
                         <p className="itemp">
                         The endocrine system is a network of glands that secrete hormones to regulate various bodily functions such as growth, metabolism, sexual development and function, and response to stress. These hormones act as chemical messengers to target organs and tissues, regulating their activity.
-                        You can
                       <br />
                         In the context of a detox program an iridology reading will help you or your therapist:
 
@@ -141,41 +181,49 @@ class Landing extends Component {
                     <span id="faq" >
 
                     </span>
+                    <FaqList />
+                    {this.renderFaqForm()}
 
-                    <dl>
-                        <dt className="question">Can I take a picture of my irides myself with a smartphone?</dt>
-
-                        <dd className="answer">Yes. If you are on your own, you can use a miror and see the reflection of the picture taken in the miror. take the picture when you can see the whole iris and the image is clear. It's a bit tricky but with a bit of patience and a few attempts you can achieve a good result.</dd>
-
-                        <dt className="question">What device do I need to take the pictures ?</dt>
-
-                        <dd className="answer">You can use a smartphone, a camera or iriscope.</dd>
-
-                        <dt className="question">What kind of Iridology do I offer?</dt>
-
-                        <dd className="answer">I learnt iridology from my two mentors : - Dr Morse with the International School of the Healing Arts and Science. - Thierry Casasnovas.</dd>
-
-                        <dt className="question">What kind of protocols do I recommend?</dt>
-
-                        <dd className="answer">Herbs, bentonite clay.. Depending on your needs I will usually recommend herbs that will help the body to detox and or regenerate itself. You should always consult your doctor before taking any supplement.</dd>
-                        <dt className="question">how often should I get an iridology reading?</dt>
-
-                        <dd className="answer">once every 6 months. If you are on a detox journey, it provides a visual of the progress you are making.
-                            When you are making efforts to get better it is sometimes hard and sometimes you get worse and it can be very frustrating if you are in the blind and you if you don't see that you you are actually making progress.
-                            After a few months, or a few years when you are on that your recovery journey you can get discouraged if you don't see that you're actually making progress. You could get so discouraged that you would actually give up instead of going on and working on your health recovery.
-                        </dd>
-                    </dl>
+                    
                 </fieldset>
 
+        
 
-                <h2>Health Myths</h2>
-                <p className="itemp" id="healthmyths">
 
-                </p>
-                <h2>Remedies</h2>
-                <p className="itemp" id="remedies">
+                <fieldset>
+                    <legend><h2> Offer </h2></legend>
 
-                </p>
+                    <span id="offer" >
+
+                    </span>
+                    <OfferList />
+
+                    
+                </fieldset>
+
+                <fieldset>
+                    <legend><h2> Links </h2></legend>
+
+                    <span id="links" >
+
+                    </span>
+
+                    <LinkList />
+                    {this.renderLinkForm()}
+
+                    
+                </fieldset>
+
+                <fieldset>
+                    <legend><h2> Contact </h2></legend>
+
+                    <span id="contact" >
+                    <p className="itemp">If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">email me</a></p>
+
+                    </span>
+
+                    
+                </fieldset>
                 <div >
                     {this.renderButton()}
                 </div>
@@ -194,4 +242,3 @@ function mapStateToProps({ auth }) {
 };
 
 export default connect(mapStateToProps)(Landing);
-//export default Landing;

@@ -384,7 +384,8 @@
   
   }
   .actionsign{
-    display: none;
+    margin: auto;
+    display: block;
   
   }
   .landing, .dashboard, .uploadeyepics{

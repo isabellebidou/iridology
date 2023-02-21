@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import fieldsArray from "./userData/formFields";
+import store from "./store";
 
 function UserData() {
   useEffect(() => {
+    console.log('UserData')
+    if (store.getState()) {
+      console.log(store.getState().auth)
+    }
+    
     fetchItems();
   }, []);
 

@@ -20,8 +20,10 @@ class RestrictedRoute extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+function mapStateToProps({ auth }) {
+  
+  return { auth }
+
+};
 
 export default connect(mapStateToProps) (RestrictedRoute);

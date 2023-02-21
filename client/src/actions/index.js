@@ -4,6 +4,8 @@ import {
   FETCH_USERS,
   SELECT_USER,
   FETCH_READINGS,
+  FETCH_LINKS,
+  FETCH_FAQS,
 
   FETCH_USER_DATA,
 
@@ -48,10 +50,11 @@ export const handleToken = (token) => async (dispatch) => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-export const submitReading = (values, history) => async (dispatch) => {
-  const res = await axios.post("/api/readings", values);
-  history.push("/readings");
-  dispatch({ type: FETCH_READINGS, payload: res.data });
+
+export const submitLink = (values, history) => async (dispatch) => {
+  const res = await axios.post("/api/links", values);
+  history.push("/");
+  dispatch({ type: FETCH_LINKS, payload: res.data });
 };
 export const submitUserData = (values, history) => async (dispatch) => {
   const res = await axios.post("/api/userdata", values);
