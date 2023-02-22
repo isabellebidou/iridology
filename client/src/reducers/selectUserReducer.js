@@ -6,7 +6,6 @@ export default function (state = [], action){
     let newState = [...state];
     switch (action.type) {
         case SELECT_USER:
-            console.log("return", action.payload);
             newState = action.payload;
             return newState;
         default: 

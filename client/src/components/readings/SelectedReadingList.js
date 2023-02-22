@@ -12,8 +12,6 @@ function SelectedReadingList() {
     const fetchItems = async () => {
         if (store.getState().selectedUser) {
             const userId = store.getState().selectedUser;
-            console.log(store.getState().selectedUser)
-            console.log(userId)
             const userData =  await fetch(`/api/readings/${userId}`);
             const items = await userData.json();
         setItems(items);

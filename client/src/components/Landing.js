@@ -7,7 +7,7 @@ import FaqForm from "./faqs/FaqForm";
 import LinkList from "./links/LinkList";
 import LinkForm from "./links/LinkForm";
 import OfferList from "./offers/OfferList";
-//import $ from 'jquery';
+import $ from 'jquery';
 
 
 
@@ -15,10 +15,11 @@ import OfferList from "./offers/OfferList";
 
 class Landing extends Component {
 
-/*handleClose(e){
-    $("#signInBlock").slideToggle();
+handleClose(e){
 
-} */
+$( ".actionsign" ).slideToggle();
+
+} 
 renderFaqForm(){
     if (this.props.auth && this.props.auth.type ==="admin") {
         return(
@@ -55,11 +56,12 @@ renderLinkForm(){
                 );
             
 
-        } else {//<span className="closeWindow" onClick={this.handleClose}>x</span>
+        } else {//
             return(
-                <span className="actionsign button" id ='signInBlock'>
+                <span className="actionsign button" >
                 Sign in and book your reading today!<br />
-                <a href="/auth/google" ><img src="/btn_google_signin_dark_normal_web.png" /></a>
+                <span className="closeWindow" onClick={this.handleClose}>x</span>
+                <a href="/auth/google" ><img alt="google sign in"src="/btn_google_signin_dark_normal_web.png" /></a>
                 </span>
                 );
 

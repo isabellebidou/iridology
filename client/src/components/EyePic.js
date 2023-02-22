@@ -1,4 +1,5 @@
 import React from 'react';
+
 class EyePic extends React.Component {
     componentDidMount() {
 
@@ -7,21 +8,24 @@ class EyePic extends React.Component {
             const src = this.props.location.state.src;
         }
     }
-
+    
     render() {
         return (
             <div>
-                <p className="item">
+                <p className="itemp">
                     {this.props.location.state.side} eye pic sent on: {new Date(this.props.location.state.dateSent).toLocaleDateString()}
                 </p>
+                
                 <img className="item"
                     id={this.props.location.state.id}
                     src={this.props.location.state.src}
                     alt={this.props.location.state.alt}
-                    eyePic={this.props.location.state.eyePic}
+                    eyepic={this.props.location.state.eyePic}
                 />
+                <a className='closeEyeWindow'  href='/readings'>x</a>
             </div>
         );
     }
 }
+
 export default EyePic;

@@ -33,7 +33,7 @@ class ImageComponent extends React.Component {
 
   handleClick = () => {
     this.props.history.push({
-      pathname: '/eyePic',
+      pathname: '/eyepic',
       state: {
         id: this.props.id,
         src: this.props.src,

@@ -13,9 +13,7 @@ function SelectedEyeList() {
 
     const fetchItems = async () => {
         if (store.getState().selectedUser) {
-            const userId = store.getState().selectedUser;
-            console.log(store.getState().selectedUser)
-            
+            const userId = store.getState().selectedUser;          
             const userData =  await fetch(`/api/user_eye_pics/${userId}`);
             const items = await userData.json();
         setItems(items);
@@ -27,7 +25,6 @@ function SelectedEyeList() {
             <div className="grid-container">
             {
             items.map((eyePic) => {
-              console.log(eyePic)
 
                 const eyePicData = eyePic.pic.data.data;
                 const base64String = btoa(

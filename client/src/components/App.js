@@ -17,7 +17,7 @@ import UserDataFormEdit from "./userData/UserDataFormEdit";
 import Eyes from "./Eyes";
 import EyePic from "./EyePic";
 import ProtectedRoute from "./ProtectedRoute";
-import RestrictedRoute from "./RestrictedRoute";
+//import RestrictedRoute from "./RestrictedRoute";
 import AdminDashboard  from "./AdminDashboard";
 import FaqList from "./faqs/FaqList";
 import FaqForm from "./faqs/FaqForm";
@@ -46,7 +46,7 @@ class App extends Component {
             <ProtectedRoute exact path="/userdata/new" component={UserDataNew} />
             <ProtectedRoute exact path="/userdata" component={UserData} />
             <ProtectedRoute exact path="/userdata/edit" component={UserDataFormEdit} />
-            <ProtectedRoute exact path="/eyePic" component={EyePic} />
+            <ProtectedRoute exact path="/eyepic" component={EyePic} />
             <ProtectedRoute exact path="/eyes/new" component={Eyes} />
             <ProtectedRoute exact path="/users/dashboard" component={SelectedUserDashboard} />
            

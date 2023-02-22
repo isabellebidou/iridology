@@ -6,7 +6,7 @@ function FaqList() {
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetchItems();
-    }, [items]);
+    }, []);
     
     const fetchItems = async () => {
         const userData = await fetch(`/api/faqs/`);

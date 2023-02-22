@@ -299,9 +299,9 @@ form {
   display: inline;
 }
 
-.closeWindow {
+.closeEyeWindow {
   position: fixed;
-  top: 12%;
+  top: 15%;
   right: 2%;
   width: 10%;
   height: 10%;
@@ -369,6 +369,10 @@ form {
 .searchbutton:active {
   border-color: #96ccba;
   color: rgb(151, 206, 63);
+}
+#rightEyeButton,#leftEyeButton{
+  visibility:hidden;
+ 
 }
 
 .direction,
@@ -756,8 +760,8 @@ button:hover,
   color: #fff;
 }
 .closeWindow {
-  position: relative;
-  top: 1%;
+  position: fixed;
+  bottom: 0%;
   right: 1%;
   width: 10%;
   height: 10%;

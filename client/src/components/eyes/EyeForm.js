@@ -3,14 +3,18 @@ import axios from "axios";
 
 const EyeForm = () => {
   const [leftEye, setLeftEye] = useState('');
-  const [rightEye, setRightEye] = useState('')
+  const [rightEye, setRightEye] = useState('');
+
+
   function handleRightPic(e) {
-    console.log(e.target.files[0]);
     setRightEye(e.target.files[0]);
+
+    document.getElementById('rightEyeButton').style.visibility = 'visible';
   }
   function handleLeftPic(e) {
-    console.log(e.target.files[0]);
     setLeftEye(e.target.files[0]);
+
+    document.getElementById('leftEyeButton').style.visibility = 'visible';
   }
   const handleLeftSubmit = async (event) => {
     event.preventDefault()
@@ -22,7 +26,20 @@ const EyeForm = () => {
         url: "/api/eyes_left",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
-      });
+      }).then(function (response) {
+        // handle success
+        setLeftEye('');
+        document.getElementById('leftEyeInput').value = '';
+        document.getElementById('leftEyeButton').style.visibility = 'hidden';
+
+        console.log(response);
+      }).catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+        .finally(function () {
+          // always executed
+        });
     } catch (error) {
       console.log(error)
     }
@@ -37,7 +54,22 @@ const EyeForm = () => {
         url: "/api/eyes_right",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
-      });
+      }).then(function (response) {
+        // handle success
+        setRightEye('');
+        document.getElementById('rightEyeInput').value = '';
+        document.getElementById('rightEyeButton').style.visibility = 'hidden';
+
+
+
+        console.log(response);
+      }).catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+        .finally(function () {
+          // always executed
+        });
     } catch (error) {
       console.log(error)
     }
@@ -47,22 +79,24 @@ const EyeForm = () => {
     <div className="uploadeyepics ">
       <div className="grid-container">
 
+        <fieldset className="item photoThumbnail">
+          <legend >Select a picture of the right iris:</legend>
+          <input type="file" name="rightEye" id="rightEyeInput" onChange={handleRightPic} />
 
+          <button onClick={handleRightSubmit} className="" id="rightEyeButton">
+            upload right eye
+          </button>
+        </fieldset>
+        <fieldset className="item photoThumbnail">
+          <legend >Select a picture of the left iris:</legend>
 
-      <fieldset className="item photoThumbnail">
-        <legend >Select a picture of the right iris:</legend>
-        <input type="file" name="rightEye" onChange={handleRightPic} />
-        <button onClick={handleRightSubmit} className="">
-          upload right eye
-        </button></fieldset>
-      <fieldset className="item photoThumbnail">
-        <legend >Select a picture of the left iris:</legend>
+          <input type="file" name="leftEye" id="leftEyeInput" onChange={handleLeftPic} />
 
-        <input type="file" name="leftEye" onChange={handleLeftPic} />
-        <button onClick={handleLeftSubmit} className="">
-          upload left eye
-        </button></fieldset>
-        </div>
+          <button onClick={handleLeftSubmit} className="" id="leftEyeButton">
+            upload left eye
+          </button>
+        </fieldset>
+      </div>
     </div>
   );
 

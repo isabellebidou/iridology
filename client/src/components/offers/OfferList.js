@@ -7,7 +7,7 @@ function OfferList() {
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetchItems();
-    }, [items]);
+    }, []);
 
     const fetchItems = async () => {
         try {
@@ -29,19 +29,16 @@ function OfferList() {
                         return (
 
                             <div className="" key={offer._id}>
-                                <div className="item photoThumbnail">
-                                    <p className="itemp">
+                                <div className="itemp photoThumbnail">
 
-                                        <h2>{offer.name}</h2>
-                                            
+                                    <h2>{offer.name}</h2>
+                                    
+                                    {offer.description}
 
-                                        
-                                            {offer.description}
-                                       
-                                        <br />
-                                        {offer.price &&
+                                    <br />
+                                    {offer.price &&
                                         <span>{offer.price} $</span>}
-                                    </p>
+
                                 </div>
                             </div>
 

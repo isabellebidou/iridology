@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 
 
 
@@ -7,7 +6,7 @@ function LinkList() {
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetchItems();
-    }, [items]);
+    }, []);
 
     const fetchItems = async () => {
         try {
@@ -29,19 +28,16 @@ function LinkList() {
                         return (
 
                             <div className="" key={link._id}>
-                                <div className="item photoThumbnail">
-                                    <p className="itemp">
-
+                                <div className="itemp photoThumbnail">
+                                    
                                         <a href={link.url} key={3}
-                                            
-
                                         >
                                             {link.name}
                                         </a>
                                         <br />
                                         {link.comment &&
                                         <span>{link.comment}</span>}
-                                    </p>
+                                    
                                 </div>
                             </div>
 
