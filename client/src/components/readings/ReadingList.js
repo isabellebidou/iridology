@@ -16,24 +16,28 @@ function ReadingList() {
 
     return (
         <section>
+           <fieldset>
+           <legend><h2> Iridology Readings </h2></legend>
             <div className="grid-container">
+                
                 {
                     items.map(reading => {
                         return (
 
-                            <div className="" key={reading._id}>
-                                <div className="item photoThumbnail">
-                                    <p className="item">
+                            
+                                <div key={reading._id} className="item photoThumbnail">
+                                    
                                         {reading.comments} reading ordered on: {new Date(reading.dateSent).toLocaleDateString()}
-                                    </p>
+                                   
                                 </div>
-                            </div>
+                            
 
                         );
 
                     })
                 }
             </div>
+            </fieldset>
         </section>
     );
 }

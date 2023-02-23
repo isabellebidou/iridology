@@ -2,7 +2,14 @@ p {
   text-align: justify;
 }
 
+.userdatadl dt{
+  font-size: medium;
 
+}
+.userdatadl dd {
+  font-size: larger;
+  color: #45a049;
+}
 
 .col {
 
@@ -16,11 +23,11 @@ p {
   -webkit-column-gap: 40px;
   /* Safari and Chrome */
   column-gap: 40px;
-  -moz-column-rule: 4px outset white;
+  -moz-column-rule: 2px outset rgb(230, 226, 226);
   /* Firefox */
-  -webkit-column-rule: 4px outset white;
+  -webkit-column-rule: 2px outset rgb(230, 226, 226);
   /* Safari and Chrome */
-  column-rule: 4px outset white;
+  column-rule: 2px outset rgb(230, 226, 226);
   width: 100%;
 }
 
@@ -456,7 +463,9 @@ h3 {
 }
 
 .landing,
-.dashboard {
+.dashboard,
+.readingadd
+{
   margin-bottom: 18%;
 }
 
@@ -521,6 +530,7 @@ h3 {
 .dashboard,
 .landing,
 .readingnew,
+.readingadd,
 .uploadeyepics {
   margin-top: 10%;
   margin-left: 5%;

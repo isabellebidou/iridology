@@ -3,7 +3,7 @@ import React from "react";
 import ReadingList from './readings/ReadingList';
 import UserData from './UserData';
 
-import EyesList from './eyes/EyeList';
+import EyeList from './eyes/EyeList';
 
 import Buttons from './Buttons';
 import Instructions from './Instructions';
@@ -18,7 +18,7 @@ const Dashboard = () => {
             <Instructions />
             <ReadingList />
             <UserData />
-            <EyesList />
+            <EyeList />
             <Buttons />
             
 

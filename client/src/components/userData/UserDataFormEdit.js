@@ -1,192 +1,364 @@
-import React, {Component} from "react";
-import {reduxForm, Field} from 'redux-form';
-import  {fetchUserData}  from "../../actions";
-//handleSubmit provided by redux form
-import { Link } from "react-router-dom";
-import UserDataField from "./userDataField";
+import React from "react";
+import axios from "axios";
+import { reduxForm } from 'redux-form';
+import { Component } from "react";
 import { connect } from "react-redux";
-
-import formFields from "./formFields";
+import { fetchUserData } from "../../actions";
+import fieldsArray from "./formFields";
+import { Link } from "react-router-dom";
 
 
 class UserDataFormEdit extends Component {
-  
 
+  async componentDidMount() {
+    await this.props.fetchUserData();
+    await this.updateStateValuesAll();
+  }
   constructor(props) {
     super(props);
-    
-    this.props.fetchUserData();
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      gender: "",
+      weight: 0,
+      height: 0,
+      history: "",
+      genetics: "",
+      gluten: "",
+      dairy: "",
+      eatingHabits: "",
+      dentalHistory: "",
+      bloodType: "",
+      digestion: "",
+      medication: "",
+      comments: "",
+    };
   }
 
-
-
-
-  handleChange(event) {
-    this.setState({weight: event.target.value});
+  updateValueSingle(e) {
+    console.log(e.target.name);
   }
-
-
-  handleSubmit(event) {
-    //alert('A name was submitted: ' + this.state.value);
-    console.log(event)
-    event.preventDefault();
+  updateStateValue(field, v) {
+    console.log("updateStateValue");
+    console.log(field);
+    console.log(v);
+    switch (field) {
+      case "gender":
+        this.setState({ gender: v });
+        break;
+      // case "dob":
+      //   this.setState({ dob: v });
+      //   break;
+      case "height":
+        console.log("height");
+        this.setState({ height: v });
+        break;
+      case "weight":
+        this.setState({ weight: v });
+        break;
+      case "history":
+        this.setState({ history: v });
+        break;
+      case "genetics":
+        this.setState({ genetics: v });
+        break;
+      case "gluten":
+        this.setState({ gluten: v });
+        break;
+      case "dairy":
+        this.setState({ dairy: v });
+        break;
+      case "eatingHabits":
+        this.setState({ eatingHabits: v });
+        break;
+      case "digestion":
+        this.setState({ digestion: v });
+        break;
+      case "dentalHistory":
+        this.setState({ dentalHistory: v });
+        break;
+      case "bloodType":
+        this.setState({ bloodType: v });
+        break;
+      case "medication":
+        this.setState({ medication: v });
+        break;
+      default:
+        this.setState({ comments: v });
+        break;
+    }
   }
-  componentDidMount() {
-   
-   
-   console.log(formFields)
+  updateStateValueWithData(field) {
+    if (this.props.userdata) {
+      this.props.userdata.map((data) => {
 
-}
-findState(str){
-  switch (str) {
-    case 'height':
-      return this.state.height
-    case 'weight':
-      return this.state.weight
-
-   
-    default:
-      return this.state.gender
-
-   }
-  
-
- }
- findData(data,name){
-  
-   switch (name) {
-    case 'height':
-      console.log('findData '+data.height)
-      return this.props.userdata.height
-    case 'weight':
-      console.log('findData '+data.weight)
-      return data.weight
-
-   
-    default:
-      console.log('findData '+this.props.userdata.gender)
-      return data.gender
-
-   }
-  
- }
-
-
-
-    renderFields(onCancel, submitUserDataEdit) {
-      
-        return (
-         
-              <div>
-              <h5>please confirm your entries</h5>
-              
-              {formFields.map(({ name, label, type, compulsory }) => {
-              //  console.log('userdata: '+userdata);
-                return (
-                  <Field
-                    key={name}
-                    name={name}
-                    label={label}
-                    type={type}
-                    compulsory= {compulsory}
-                  //  {this.props.userdata.name &&
-                //  placeholder={this.state.weight}
-                     onChange={this.handleChange}
-                    //defaultValue={findData(this.props.userdata,name.toString())}
-              
-                  //  }
-                    
-                    component= {UserDataField}
-                  />
-              
-                )
-              })}
-                  <button className="yellow darken-3 btn flat white-text"
-                  onClick={onCancel}>
-                  back
-                  </button>
-                  <button 
-                  onClick={() => submitUserDataEdit()}
-                  className="green btn-flat right white-text">
-                  OK
-                  <i className="material-icons right"></i>
-                  </button>
-              </div>
-         
-        ) ;
-      }
- render (){
-    return(
-        <div>
-            <form >
-                {this.renderFields()}
-               
-                <button type="submit" className="teal btn-flat right white-text">next
-                <i className="material-icons right">done</i>
-                
-                </button>
-
-                <Link to = "/UserDatas" className="red btn-flat left white-text">cancel
-                <i className="material-icons left">cancel</i>
-                
-                </Link>
-            </form>
-        </div>
-    )
-
- }
-}
-
-function validate(values) {
-    const errors = {};
-
-    formFields.forEach(({name}) => {
-        if(!values[name]){
-            errors[name] = 'you must provide a value'
+        switch (field.name) {
+          case "gender":
+            this.setState({ gender: data.gender });
+            break;
+          case "height":
+            this.setState({ height: data.height });
+            break;
+          case "weight":
+            this.setState({ weight: data.weight });
+            break;
+          case "history":
+            this.setState({ history: data.history });
+            break;
+          case "genetics":
+            this.setState({ genetics: data.genetics });
+            break;
+          case "gluten":
+            this.setState({ gluten: data.gluten });
+            break;
+          case "dairy":
+            this.setState({ dairy: data.dairy });
+            break;
+          case "eatingHabits":
+            this.setState({ eatingHabits: data.eatingHabits });
+            break;
+          case "digestion":
+            this.setState({ digestion: data.digestion });
+            break;
+          case "dentalHistory":
+            this.setState({ dentalHistory: data.dentalHistory });
+            break;
+          case "bloodType":
+            this.setState({ bloodType: data.bloodType });
+            break;
+          case "medication":
+            this.setState({ medication: data.medication });
+            break;
+          default:
+            this.setState({ comments: data.comments });
+            break;
         }
-        
-    });
-    
-    return errors;  
- }
- 
- /*function mapStateToProps ({userdata}) {
-  console.log(userdata)
-  
-  
-  
- 
-  return { userdata }
-}*/
-const mapStateToProps =  (state,{userdata}) => {
-  console.log(state.userdata)
-  return {
-  userdata: userdata,
-    initialValues: {
-      height: state.userdata.height,
-      weight: state.userdata.weight,
-      gender: state.userdata.gender
+      });
+    }
+  }
+  updateStateValuesAll() {
+    for (let index = 0; index < fieldsArray.length; index++) {
+      const field = fieldsArray[index];
+      this.updateStateValueWithData(field);
+    }
+  }
+  async handleClick() {
+    console.log("handleClick");
+
+    //submitUserDataEdit(this.state, this.state.history);
+
+    await axios.post("/api/userdata/edit", this.state);
+    //history.push("/userdata");
+    //dispatch({ type: FETCH_USER, payload: res.data });
+  }
+
+
+
+  renderUserData() {
+
+
+
+    {
+      if (this.props.userdata) {
+        return this.props.userdata.map(data => (
+          <form key={888}>
+            <div className="col" key={'777'}>
+              <div className="" key={1}>
+
+                <label key={1} htmlFor="name">first and last name</label>
+                <input
+                  name="name"
+                  key={111}
+                  type="text"
+                  defaultValue={data.name ? data.name : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={2} htmlFor="gender">{(fieldsArray.find(f => f.name === 'gender')).label}</label>
+                <input
+                  name="gender"
+                  key={112}
+                  type="text"
+                  defaultValue={data.gender ? data.gender : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={3} htmlFor="weight">{(fieldsArray.find(f => f.name === 'weight')).label}</label>
+                <input
+                  name="weight"
+                  key={113}
+                  type="number"
+                  placeholder={data.weight ? data.weight : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={4} htmlFor="height">{(fieldsArray.find(f => f.name === 'height')).label}</label>
+                <input
+                  name="height"
+                  key={114}
+                  type="number"
+                  defaultValue={data.height ? data.height : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={5} htmlFor="history">{(fieldsArray.find(f => f.name === 'history')).label}</label>
+                <input
+                  name="history"
+                  key={115}
+                  type="text"
+                  defaultValue={data.history ? data.history : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={6} htmlFor="genetics">{(fieldsArray.find(f => f.name === 'genetics')).label}</label>
+                <input
+                  name="genetics"
+                  key={116}
+                  type="text"
+                  defaultValue={data.genetics ? data.genetics : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={7} htmlFor="gluten">{(fieldsArray.find(f => f.name === 'gluten')).label}</label>
+                <input
+                  name="gluten"
+                  key={117}
+                  type="text"
+                  defaultValue={data.gluten ? data.gluten : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={8} htmlFor="dairy">{(fieldsArray.find(f => f.name === 'dairy')).label}</label>
+                <input
+                  name="dairy"
+                  key={118}
+                  type="text"
+                  defaultValue={data.dairy ? data.dairy : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={9} htmlFor="eatingHabits">{(fieldsArray.find(f => f.name === 'eatingHabits')).label}</label>
+                <input
+                  name="eatingHabits"
+                  key={119}
+                  type="text"
+                  defaultValue={data.eatingHabits ? data.eatingHabits : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={10} htmlFor="dentalHistory">{(fieldsArray.find(f => f.name === 'dentalHistory')).label}</label>
+                <input
+                  name="dentalHistory"
+                  key={120}
+                  type="text"
+                  defaultValue={data.dentalHistory ? data.dentalHistory : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={11} htmlFor="bloodType">{(fieldsArray.find(f => f.name === 'bloodType')).label}</label>
+                <input
+                  name="bloodType"
+                  key={121}
+                  type="text"
+                  defaultValue={data.bloodType ? data.bloodType : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={12} htmlFor="digestion">{(fieldsArray.find(f => f.name === 'digestion')).label}</label>
+                <input
+                  name="digestion"
+                  key={122}
+                  type="text"
+                  defaultValue={data.digestion ? data.digestion : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={13} htmlFor="medication">{(fieldsArray.find(f => f.name === 'medication')).label}</label>
+                <input
+                  name="medication"
+                  key={123}
+                  type="text"
+                  defaultValue={data.medication ? data.medication : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+                <label key={14} htmlFor="comments">{(fieldsArray.find(f => f.name === 'comments')).label}</label>
+                <input
+                  name="comments"
+                  key={124}
+                  type="text"
+                  defaultValue={data.comments ? data.comments : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+
+                <p key={63} >
+                  <button className="rightbutton"
+                    onClick={() => {
+                      this.handleClick();
+                    }}
+                    type="submit"
+                  >
+                    edit
+                  </button>
+                  <Link className="leftbutton" to="/readings" >
+                    <button >{" cancel "}</button>
+                  </Link>
+
+                </p>
+              </div>
+            </div>
+          </form>
+        ))
+      } else {
+        return []
+      }
+
 
     }
   }
+
+  render() {
+    return <div>
+      <fieldset>
+        <legend>information</legend>
+        <div className="col" key={333}>
+          {this.renderUserData()}
+        </div>
+      </fieldset>
+
+    </div>;
+  }
 }
 
+function mapStateToProps({ userdata }, state) {
+  return { userdata, state };
+}
 UserDataFormEdit = reduxForm({
-  form: 'UserDataFormEdit',
-  validate,
+  form: 'UserData',
+  // validate,
   enableReinitialize: true,
   destroyOnUnmount: false
 })(UserDataFormEdit);
+
 /*export default connect(mapStateToProps,  fetchUserData)(reduxForm({
   form: 'userDataFormEdit',
-  validate, 
+ // validate, 
   destroyOnUnmount: false
-})(UserDataFormEdit));*/
-//https://stackoverflow.com/questions/40262564/how-to-export-mapstatetoprops-and-redux-form
-// default connect (mapStateToProps, {fetchUserData}) reduxForm({validate, form: 'userDataFormEdit', destroyOnUnmount: false})(UserDataFormEdit) ; 
+})(UserData));*/
+export default connect(mapStateToProps, { fetchUserData })(UserDataFormEdit);
 
-//reduxForm({validate, form: 'userDataFormEdit', destroyOnUnmount: false})(UserDataFormEdit);
-export default connect (mapStateToProps, {fetchUserData})(UserDataFormEdit);
+
+

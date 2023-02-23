@@ -93,9 +93,34 @@ module.exports = (app) => {
     res.send(readings);
 
   })
-
-
   app.post("/api/readings", requireLogin, requireCredits, async (req, res) => {
+    const {  comments, expectations, offerId } = req.body;
+    console.log(offerId+ "  from server")
+    const reading = new Reading({
+      comments,
+      expectations, 
+      _offer: offerId,
+      _user: req.user.id,
+      dateSent: Date.now()
+    });
+    reading.save().then((res) => {
+      console.log('reading is saved')
+      
+    }).catch((err) => {console.error(err)});
+    try {
+      
+      req.user.credits -= 80;
+      const user = await req.user.save();
+      res.send(user);
+      
+    } catch (error) {
+      res.status(422).send(error);
+    }
+
+  });
+    
+
+  /*app.post("/api/readings", requireLogin, requireCredits, async (req, res) => {
     const {  comments, expectations, leftEye, rightEye } = req.body;
     const reading = new Reading({
       comments,
@@ -120,7 +145,7 @@ module.exports = (app) => {
       res.status(422).send(error);
     }
     
-  });
+  });*/
 
   
 

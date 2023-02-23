@@ -28,7 +28,12 @@ export const fetchUserData = () => async (dispatch) => {
   const res = await axios.get("/api/user_data");
   dispatch({ type: FETCH_USER_DATA, payload: res.data });
 };
-
+export const submitReading = (values, history) => async (dispatch) => {
+  console.log('submitReading')
+  console.log(values)
+  const res = await axios.post("/api/readings", values);
+  history.push("/readings");
+}
 
 export const fetchUserEyePics = () => async (dispatch) => {
   const res = await axios.get("api/user_eye_pics");
