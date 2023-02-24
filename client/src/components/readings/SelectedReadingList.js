@@ -29,7 +29,7 @@ function SelectedReadingList() {
                     <div className="item photoThumbnail">
                       
                       <p className="item">
-                      {reading.comments} reading ordered on: {new Date(reading.dateSent).toLocaleDateString()}
+                      {reading.expectations} reading ordered on: {new Date(reading.dateSent).toLocaleDateString()}
                       </p>
                     </div>
                   </div>

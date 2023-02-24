@@ -24,6 +24,8 @@ import FaqList from "./faqs/FaqList";
 import FaqForm from "./faqs/FaqForm";
 import LinkList from "./links/LinkList";
 import LinkForm from "./links/LinkForm";
+import Payment from "./Payment";
+import Completion from "./Completion";
 
 
 
@@ -43,6 +45,8 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/readings" component={Dashboard} />
+            <Route path="/payment" component={Payment } />
+            <Route exact path="/completion" component={Completion } />
             <ProtectedRoute exact path="/readings/new" component={ReadingNew} />
             <ProtectedRoute exact path="/userdata/new" component={UserDataNew} />
             <ProtectedRoute exact path="/userdata" component={UserData} />

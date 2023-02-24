@@ -17,7 +17,7 @@ class Instructions extends Component {
 
 
   renderInstructions() {
-    const enoughCredits = this.props.auth && this.props.auth.credits >= 80 ? '' : 'Before you book a reading you must have  80 dollars as credits';
+   // const enoughCredits = this.props.auth && this.props.auth.credits >= 80 ? '' : 'Before you book a reading you must have  80 dollars as credits';
     const credits = this.props.auth && this.props.auth.credits? this.props.auth.credits: 'no '
     const profileType = this.props.auth && this.props.auth.type ? this.props.auth.type: null
 
@@ -44,10 +44,7 @@ class Instructions extends Component {
         <div>
           <p className="itemp">
           {profileType === 'admin' && <span>{profileType}</span>}
-            < br />
-            {credits && <span>{credits} of credits available</span> }< br />
             
-            {enoughCredits}
             < br />
             Before you book a reading check that you have uploaded at least one recent picture for each iris. Update your personal information if you need too.</p>
         </div>

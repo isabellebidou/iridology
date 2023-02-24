@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function UserData() {
   useEffect(() => {
     if (store.getState()) {
-      console.log(store.getState().auth)
     }
 
     fetchItems();

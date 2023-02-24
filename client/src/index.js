@@ -2,6 +2,7 @@
 import './scripts/app.css';
 import './scripts/mobile-landscape.css';
 import './scripts/mobile-portrait.css';
+import './scripts/stripe.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';

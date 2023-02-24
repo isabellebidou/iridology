@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Payment from "../Payment";
 
 const ReadingNew = () => {
 
-  const [comments, setComments] = useState('');
   const [expectations, setExpectations] = useState('');
   const [offers, setOffers] = useState([]);
   const [offerId, setOfferId] = useState('');
@@ -21,12 +21,13 @@ const ReadingNew = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    // 1) payment  /api/create-payment-intent
 
     try {
-      axios.post("/api/readings", {  comments, expectations, offerId}).then(function (response) {
+      axios.post("/api/readings", {  expectations, offerId})
+      .then(function (response) {
         // handle success
         console.log(response);
-        setComments('')
         setExpectations('')
         setOfferId(offers.length > 0 ? offers[0]._id : '');
 
@@ -53,7 +54,7 @@ const ReadingNew = () => {
         }}>
           {offers.map(offer => {
             return (
-              <option key={offer._id} value={offer._id}>{offer.name}</option>
+              <option key={offer._id} value={offer._id}>{offer.name} at {offer.price} $</option>
             );
           })}
         </select>
@@ -70,25 +71,19 @@ const ReadingNew = () => {
           }}
         />
 
-        <label key={13} htmlFor="comments">additional comments? </label>
-        <input
-          name="comments"
-          key={1244}
-          type="text"
-          value={comments} 
-          onChange={(e) => {
-            setComments(e.target.value)
-          }}
-        />
 
-        <button type="submit" className="rightbutton">
-          order reading
+        <button type="submit" className="rightbutton" >
+          Payment
         </button>
 
         <Link to="/readings" className="leftbutton">
         <button >{" cancel "}</button>
         </Link>
       </form>
+      <Payment 
+      expectations={expectations}
+      offerId={offerId}
+      />
     </div>
 
   );

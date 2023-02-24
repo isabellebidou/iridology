@@ -38,7 +38,6 @@ const LinkForm = () => {
   return (
 
     <div className=" ">
-      {console.log('return')}
       <div className="itemp">
         name: {name}<br />
         url:{url}<br />

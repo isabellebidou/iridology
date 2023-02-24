@@ -380,11 +380,13 @@
 
   }
   .actionbook {
-    display: none;
+    position: sticky;
+    margin: auto;
+ 
   
   }
   .actionsign{
-    margin: auto;
+    margin: auto auto;
     display: block;
   
   }

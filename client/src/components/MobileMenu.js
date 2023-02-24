@@ -2,7 +2,7 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import Payments from "./Payments";
+//import Payments from "./Payments";
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import $ from 'jquery';
@@ -20,8 +20,7 @@ class MobileMenu extends Component {
         const currentlyOnProfile = this.props.location.pathname === '/readings'? true: false;
         const otherRoute = currentlyOnProfile ? '/' : '/readings';
         const otherRouteName = currentlyOnProfile ? 'home' : 'profile';
-        const enoughCredits = this.props.auth && this.props.auth.credits >= 80? true : false;
-        const ready = this.props.auth && enoughCredits && this.props.userdata && this.props.eyes && currentlyOnProfile ? true : false;
+        const ready = this.props.auth && this.props.userdata && this.props.eyes && currentlyOnProfile ? true : false;
         const isAdmin = this.props.auth && this.props.auth.type === 'admin';
         if (ready && isAdmin) {
 
@@ -34,9 +33,7 @@ class MobileMenu extends Component {
                     <li><Link key={6} to="/readings/new" className="mobilemenuli button" >
                         book a reading
                     </Link></li>
-                    <li key={2} className="mobilemenuli button">
-                        <Payments />
-                    </li>
+                    
                     <li>
                         <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
                     </li>
@@ -55,9 +52,7 @@ class MobileMenu extends Component {
                     <li><Link key={6} to="/readings/new" className="mobilemenuli button" >
                         book a reading
                     </Link></li>
-                    <li key={2} className="mobilemenuli button">
-                        <Payments />
-                    </li>
+                    
                     <li>
                         <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
                     </li>
@@ -76,9 +71,7 @@ class MobileMenu extends Component {
                         first steps
                     </Link></li>
 
-                    <li key={2} className="mobilemenuli button">
-                        <Payments />
-                    </li>
+                    
                     <li>
                         <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
                     </li>
@@ -92,9 +85,7 @@ class MobileMenu extends Component {
             <ul id="mobilemenuul">
                     
 
-                    <li key={2} className="mobilemenuli button">
-                        <Payments />
-                    </li>
+                    
                     <li>
                         <Link key={3} className="mobilemenuli button" to={this.props.auth ? otherRoute : '/'}> {otherRouteName} </Link>
                     </li>

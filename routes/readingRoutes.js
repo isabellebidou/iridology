@@ -93,11 +93,10 @@ module.exports = (app) => {
     res.send(readings);
 
   })
-  app.post("/api/readings", requireLogin, requireCredits, async (req, res) => {
-    const {  comments, expectations, offerId } = req.body;
+  app.post("/api/readings", requireLogin, async (req, res) => {
+    const { expectations, offerId } = req.body;
     console.log(offerId+ "  from server")
     const reading = new Reading({
-      comments,
       expectations, 
       _offer: offerId,
       _user: req.user.id,

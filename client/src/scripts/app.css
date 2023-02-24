@@ -302,9 +302,7 @@ legend {
   font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
 }
 
-form {
-  display: inline;
-}
+
 
 .closeEyeWindow {
   position: fixed;

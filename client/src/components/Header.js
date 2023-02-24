@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Payments from "./Payments";
+//import Payments from "./Payments";
 import { withRouter } from 'react-router-dom';
 import MenuButton from "./MenuButton";
 import store from "./store";
@@ -40,7 +40,7 @@ class Header extends Component {
             {isAdmin && (
               <a key={9} className="button" href="/users">users</a>)}
 
-            <span key={1}><Payments /></span>
+            
             {isOnProfile || isOnUsers &&(
                           <Link key={66}
                           to={'/'}

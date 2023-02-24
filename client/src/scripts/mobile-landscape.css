@@ -225,12 +225,10 @@
     padding: 0.7em;
     border-radius: 10%;
   }
-  .actionbook {
-    display: none;
-  
-  }
+
   .actionsign{
-    display: none;
+    position: sticky;
+    margin: auto;
   
   }
   .landing, .dashboard{

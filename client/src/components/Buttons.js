@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchUserEyePics } from "../actions";
 import { fetchUserData } from "../actions";
 import { Link } from "react-router-dom";
-import Payments from "./Payments";
+//import Payments from "./Payments";
 
 
 class Buttons extends Component {
@@ -16,7 +16,7 @@ class Buttons extends Component {
 
 
   renderButton() {
-    const enoughCredits = this.props.auth && this.props.auth.credits >= 80?  true :false;
+   // const enoughCredits = this.props.auth && this.props.auth.credits >= 80?  true :false;
 
 
     if (!this.props.userdata) {
@@ -40,10 +40,7 @@ class Buttons extends Component {
         </div>
       );
 
-    } else if (!enoughCredits){
-      return []
-
-    } else {
+    }  else {
       return (<div className="">
         
         <Link to="/readings/new" className="">
