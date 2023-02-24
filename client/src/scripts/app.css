@@ -642,7 +642,7 @@ p {
 
 .grid-container {
   margin: auto;
-  color: rgba(193, 217, 188);
+  color: rgb(90, 149, 79);
   display: grid;
   align-content: center;
   grid-template-columns: auto auto;

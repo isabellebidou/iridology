@@ -42,7 +42,7 @@
 
   .sets-grid-container {
     margin: auto;
-    color: rgba(248, 245, 245, 0.89);
+    color: rgba(43, 135, 98, 0.89);
     display: grid;
     align-content: center;
     grid-template-columns: auto;
@@ -71,7 +71,7 @@
   }
 
   .grid-container {
-    color: rgba(248, 245, 245, 0.89);
+    color: rgba(26, 152, 61, 0.89);
     margin: auto;
     display: grid;
     align-content: center;
