@@ -119,7 +119,7 @@ function StarReview({ auth }) {
             <div className="product">
             </div>
             <div>
-              <span style={{ visibility }} className="closeWindow" onClick={handleClose}>x</span>
+              <span style={{ visibility }} className="closePopupWindow" onClick={handleClose}>x</span>
               <h1>{handleText()}</h1>
               {Array(5)
                 .fill()

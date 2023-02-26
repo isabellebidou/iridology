@@ -72,7 +72,7 @@ function UploadLeftEye({ auth }) {
             <div className="product">
             </div>
             <div>
-              <span style={{ visibility }} className="closeWindow" onClick={handleClose}>x</span>
+              <span style={{ visibility }} className="closePopupWindow" onClick={handleClose}>x</span>
               <h1>Upload left eye pic</h1>
               <input type="file" name="leftEye" id="leftEyeInput" onChange={handleLeftPic} />
             </div>
