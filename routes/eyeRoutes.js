@@ -10,6 +10,20 @@ const Eye = mongoose.model('eyepics');
 
 module.exports = (app) => {
 ///api/user_eye_pics
+
+
+app.delete("/api/user_eye_pics/delete", async (req, res) => {
+  //const idsToDelete = req.body.idsToDelete;
+  const idsToDelete = req.body.idsToDelete.map((id) => mongoose.Types.ObjectId(id));
+
+  try {
+    const result = await Eye.deleteMany({ _id: { $in: idsToDelete } });
+    res.send(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Failed to delete eye pics");
+  }
+});
   app.get("/api/user_eye_pics",  async(req, res) => {
 
     const eyes = await Eye.find({_user : req.user.id});
