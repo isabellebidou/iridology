@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from "react-redux";
 import EyePic from "./ImageComponent";
-import { Link } from "react-router-dom";
+import UploadRightEye from './UploadRightEye';
+import UploadLeftEye from './UploadLeftEye';
+import { fetchUserEyePics } from "../../actions";
 
 
 
-function EyeList() {
+
+function EyeList({eyes}) {
+
   useEffect(() => {
-    fetchItems();
-  }, []);
-
-  const [items, setItems] = useState([]);
-  const fetchItems = async () => {
-    const userData = await fetch(`/api/user_eye_pics/`);
-    const items = await userData.json();
-    setItems(items);
-
-  };
+    fetchUserEyePics();
+  }, [eyes]);
+  //const [eyes, setItems] = useState([]);
 
   return (
     <section>
       <fieldset>
       <legend><h2>Eye Pics</h2></legend>
+      <UploadRightEye />
+      <UploadLeftEye />
      
-      <div>
-        <Link to="/eyes/new" className="">
-          <button className="actionupload">upload eye pics</button>
-        </Link>
-      </div>
+
       <div className="grid-container">
         {
-          items.map((eyePic) => {
+          eyes.map((eyePic) => {
 
             const eyePicData = eyePic.pic.data.data;
             const base64String = btoa(
@@ -50,6 +46,7 @@ function EyeList() {
                     dateSent={eyePic.dateSent}
 
                   />
+                  
                   <p className="item">
                     {eyePic.side} eye pic sent on: {new Date(eyePic.dateSent).toLocaleDateString()}
                   </p>
@@ -64,4 +61,8 @@ function EyeList() {
   );
 }
 
-export default EyeList
+function mapStateToProps({ eyes }) {
+
+  return { eyes };
+}
+export default connect(mapStateToProps, {fetchUserEyePics})(EyeList);
