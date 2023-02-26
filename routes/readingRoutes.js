@@ -1,4 +1,4 @@
-const _ = require ('lodash')
+const _ = require('lodash')
 
 
 
@@ -46,78 +46,89 @@ module.exports = (app) => {
 
   })*/
 
-  app.get("/api/readings", requireLogin, async(req, res) => {
- 
-      const readings = await Reading.find(({_user : req.user.id}))
-      res.send(readings);
+  app.get("/api/readings", requireLogin, async (req, res) => {
 
-  })
-
-
-  app.get("/api/readings/pending", requireLogin, async(req, res) => {
-    try{
-    const readings = await Reading.find({ dateCompleted: null }).aggregate( [
-    {
-       $lookup:
-          {
-             from: "users",
-             localField: "_user",
-             foreignField: "_id",
-             as: "user"
-          }
-    },
-    {
-      $unwind: "$user"
-    },
-    {
-      $sort: {
-        "name": 1
-      }
-    }
-  ] ).exec((err, users) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(users);
-    }
-  });
-} catch (err) {
-  console.log(err);
-  res.status(500).send('Server error');
-}
+    const readings = await Reading.find(({ _user: req.user.id }))
     res.send(readings);
 
   })
-  app.get("/api/readings/:id", requireLogin, async(req, res) => {
-    const readings = await Reading.find({_user : req.params.id});
+
+  app.get("/api/readings/completed", requireLogin, async (req, res) => {
+    try {
+      const readings = await Reading.find({ dateCompleted: { $ne: null }, _user: req.user.id });
+      res.send(readings);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send('Server error');
+    }
+
+  })
+
+
+  app.get("/api/readings/pending", requireLogin, async (req, res) => {
+    try {
+      const readings = await Reading.find({ dateCompleted: null }).aggregate([
+        {
+          $lookup:
+          {
+            from: "users",
+            localField: "_user",
+            foreignField: "_id",
+            as: "user"
+          }
+        },
+        {
+          $unwind: "$user"
+        },
+        {
+          $sort: {
+            "name": 1
+          }
+        }
+      ]).exec((err, users) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(users);
+        }
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).send('Server error');
+    }
+    res.send(readings);
+
+  })
+  app.get("/api/readings/:id", requireLogin, async (req, res) => {
+    const readings = await Reading.find({ _user: req.params.id });
     res.send(readings);
 
   })
   app.post("/api/readings", requireLogin, async (req, res) => {
     const { expectations, offerId } = req.body;
-    console.log(offerId+ "  from server")
+    console.log(offerId + "  from server")
     const reading = new Reading({
-      expectations, 
+      expectations,
       _offer: offerId,
       _user: req.user.id,
       dateSent: Date.now()
     });
     reading.save().then((res) => {
       console.log('reading is saved')
-      
-    }).catch((err) => {console.error(err)});
+
+    }).catch((err) => { console.error(err) });
     try {
-      
-      req.user.credits -= 80;
+
+      req.user.numberOfReadings += 1;
       const user = await req.user.save();
       res.send(user);
-      
+
     } catch (error) {
       res.status(422).send(error);
     }
 
   });
-    
+
 
   /*app.post("/api/readings", requireLogin, requireCredits, async (req, res) => {
     const {  comments, expectations, leftEye, rightEye } = req.body;
@@ -146,7 +157,7 @@ module.exports = (app) => {
     
   });*/
 
-  
+
 
 
 

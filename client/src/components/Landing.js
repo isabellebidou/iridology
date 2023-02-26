@@ -7,6 +7,7 @@ import FaqForm from "./faqs/FaqForm";
 import LinkList from "./links/LinkList";
 import LinkForm from "./links/LinkForm";
 import OfferList from "./offers/OfferList";
+import StarReviewList from "./starreviews/StarReviewList";
 import $ from 'jquery';
 
 
@@ -15,70 +16,68 @@ import $ from 'jquery';
 
 class Landing extends Component {
 
-handleClose(e){
+    handleClose(e) {
 
-$( ".actionsign" ).slideToggle();
+        $(".actionsign").slideToggle();
 
-} 
-renderFaqForm(){
-    if (this.props.auth && this.props.auth.type ==="admin") {
-        return(
+    }
+    renderFaqForm() {
+        if (this.props.auth && this.props.auth.type === "admin") {
+            return (
 
                 <FaqForm />
-        
+
             );
-        
+
+
+        }
 
     }
-
-}
-renderLinkForm(){
-    if (this.props.auth && this.props.auth.type ==="admin") {
-        return(
+    renderLinkForm() {
+        if (this.props.auth && this.props.auth.type === "admin") {
+            return (
 
                 <LinkForm />
-        
+
             );
-        
+
+        }
 
     }
-
-}
 
     renderButton() {
         if (this.props.auth) {
-            return(
+            return (
 
-                    <Link to="/readings" className="">
+                <Link to="/readings" className="">
                     <button className="actionbook" >book your reading today</button>
-                  </Link>
-            
-                );
-            
+                </Link>
 
-        } else {//
-            return(
+            );
+
+
+        } else {
+            return (
                 <span className="actionsign button" >
-                Sign in and book your reading today!<br />
-                <span className="closeWindow" onClick={this.handleClose}>x</span>
-                <a href="/auth/google" ><img alt="google sign in"src="/btn_google_signin_dark_normal_web.png" /></a>
+                    Sign in and book your reading today!<br />
+                    <span className="closeWindow" onClick={this.handleClose}>x</span>
+                    <a href="/auth/google" ><img alt="google sign in" src="/btn_google_signin_dark_normal_web.png" /></a>
                 </span>
-                );
+            );
 
         }
-        
-        
 
     }
     render() {
         return (
             <div className="landing" >
-
-
                 <span data-role="navigation" className="" >
                     <ul className="navigationul">
                         <li className="floatli" >
                             <a className="floata" href="#can">What iridology can do</a>
+                        </li>
+                        <li className="floatli" >
+                            <a className="floata" href="#reviews">Reviews</a>
                         </li>
                         <li className="floatli" >
                             <a className="floata" href="#faq">Iridology FAQ</a>
@@ -97,7 +96,7 @@ renderLinkForm(){
                     </ul>
 
                 </span>
-                
+
                 <h1>
                     Iridology Readings
                 </h1>
@@ -123,16 +122,16 @@ renderLinkForm(){
                         <br />
                         I have Studied iridology with Dr Morse and Thierry Casasnovas. The type of iridology I have learnt focusses on the endoctrine and lymphatic systems.
 
-                     </p>
-                        <h2>The lymphatic system</h2>
-                        <p className="itemp">
+                    </p>
+                    <h2>The lymphatic system</h2>
+                    <p className="itemp">
                         The lymphatic system is a network of vessels, tissues, and organs that helps maintain fluid balance, filters waste and  toxins, and aids the body's immune response. It circulates lymph, a clear fluid that carries waste and immune cells, to the bloodstream for elimination.
                         The lymphatic system plays a very important role in detoxination and immunity.
-                        </p>
-                        <h2>The endocrine system</h2>
-                        <p className="itemp">
+                    </p>
+                    <h2>The endocrine system</h2>
+                    <p className="itemp">
                         The endocrine system is a network of glands that secrete hormones to regulate various bodily functions such as growth, metabolism, sexual development and function, and response to stress. These hormones act as chemical messengers to target organs and tissues, regulating their activity.
-                      <br />
+                        <br />
                         In the context of a detox program an iridology reading will help you or your therapist:
 
                     </p>
@@ -142,10 +141,7 @@ renderLinkForm(){
                         <li>Track progress and monitor the effectiveness of a detox program</li>
                     </ul>
 
-
                     <span id="cant" ></span>
-
-
 
                     <img className="imgleft" src="/iridologypic2.png" alt="eye"></img>
                     <p className="itemp">Iridology readings CANNOT diagnose: diseases, blood sugar levels, B 12 levels, cancers, viruses, parasites,pregnancy ...</p>
@@ -156,13 +152,8 @@ renderLinkForm(){
                     <br />
                     <h2>What an iridology reading can do for you</h2>
 
-                  
-                        <p className='itemp'>Identifying the areas of lymphatic congestions in your body gives clues about your detox capacities and needs, and reveals the main priorities to reach your health goals. Iridology can tell about :</p>
 
-                   
-
-
-
+                    <p className='itemp'>Identifying the areas of lymphatic congestions in your body gives clues about your detox capacities and needs, and reveals the main priorities to reach your health goals. Iridology can tell about :</p>
 
                     <ul id="canul" className="ulp">
                         <li>your constitution,</li>
@@ -174,9 +165,24 @@ renderLinkForm(){
                     </ul>
                     <img className="imgright" src="/iridologypic3.png" alt="eye"></img>
                     <p className="itemp">Stop wasting your time, book your your iridology reading today and get a real time insight into what is going on in your body. Just sign in, fill in a form with basic information, upload your eye pics, buy credit and order your reading now.
-                    {this.renderButton()}</p>
+                        {this.renderButton()}</p>
                     <br />
                 </div>
+                <fieldset>
+                    <legend><h2> Reviews </h2></legend>
+
+                    <span id="reviews" >
+
+                    </span>
+                    <StarReviewList />
+                    {this.props.auth &&
+                        <Link to="/readings" className="">
+                            <button className="actionupload" >leave a review on your profile</button>
+                        </Link>}
+                    {!this.props.auth &&
+                        <span className="reviewinstructions">login to post a review</span>}
+
+                </fieldset>
                 <fieldset>
                     <legend><h2> Frequently Asked Questions </h2></legend>
 
@@ -186,10 +192,8 @@ renderLinkForm(){
                     <FaqList />
                     {this.renderFaqForm()}
 
-                    
-                </fieldset>
 
-        
+                </fieldset>
 
 
                 <fieldset>
@@ -200,7 +204,7 @@ renderLinkForm(){
                     </span>
                     <OfferList />
 
-                    
+
                 </fieldset>
 
                 <fieldset>
@@ -213,25 +217,21 @@ renderLinkForm(){
                     <LinkList />
                     {this.renderLinkForm()}
 
-                    
+
                 </fieldset>
 
                 <fieldset>
                     <legend><h2> Contact </h2></legend>
 
                     <span id="contact" >
-                    <p className="itemp">If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">email me</a></p>
+                        <p className="itemp">If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">email me</a></p>
 
                     </span>
 
-                    
                 </fieldset>
                 <div >
                     {this.renderButton()}
                 </div>
-
-
-
 
             </div>
         );

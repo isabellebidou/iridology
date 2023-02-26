@@ -4,9 +4,10 @@ const {Schema} = mongoose; // =const Schema = mongoose.Schema;  es2015 destructu
 
 const userSchema = new Schema ({
     googleId : String,
-    credits: {type: Number, default: 0},
+    numberOfReadings: {type: Number, default: 0},
     type: {type: String, default: 'user'},
-    email: String
+    email: String,
+    hasReviews: {type: Boolean, default: false},
   
 
 
