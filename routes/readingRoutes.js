@@ -3,48 +3,87 @@ const _ = require('lodash')
 
 
 const mongoose = require('mongoose');
-
+const nodemailer = require('nodemailer');
+const keys = require('../config/keys');
 const requireLogin = require('../middlewares/requireLogin');
-const requireCredits = require("../middlewares/requireCredits");
 const Reading = mongoose.model('readings');
-const UserData = mongoose.model("userdata");
-const User = mongoose.model('users');
+
+const { response } = require('express');
 
 module.exports = (app) => {
 
-  /*app.get("/api/readings", requireLogin, async(req, res) => {
-    try {
-      const readings = await Reading.find({ dateCompleted: null }).aggregate( [
-        {
-           $lookup:
-              {
-                 from: "users",
-                 localField: "_user",
-                 foreignField: "_id",
-                 as: "user"
-              }
-        },
-        {
-          $unwind: "$user"
-        },
-        {
-          $sort: {
-            "name": 1
-          }
-        }
-      ] ).exec((err, users) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(users);
-        }
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(500).send('Server error');
-    }
+const sendTestEmail = () => {
+  return new Promise((resolve, reject) => {
 
-  })*/
+    var transporter = nodemailer.createTransport({
+      service:'gmail',
+      auth:{
+        type: 'OAuth2',
+        user:'isa.bidou@gmail.com',
+        pass: keys.nodemailer,
+        clientId: keys.googleClientID,
+        clientSecret: keys.googleClientSecret,
+        refreshToken: keys.refreshToken
+      },
+      from: 'isa.bidou@gmail.com',
+    })
+
+    const mail_option = {
+      from:'isa.bidou@gmai.com',
+      to: 'isa.bidou@gmai.com',
+      subject: 'new reading booked !',
+      text: 'a reading was booked'
+
+    }
+    transporter.sendMail(mail_option, (error, info) => {
+      if (error) {
+        console.error(error)
+        return reject({message: `an error has occured`})
+      }
+      return resolve({message: `email sent successfully`})
+
+    })
+
+  })
+
+}
+
+const sendNewReadingEmail = (offer, user, order) => {
+  return new Promise((resolve, reject) => {
+
+    var transporter = nodemailer.createTransport({
+      service:'gmail',
+      auth:{
+        user:'isa.bidou@gmail.com',
+        pass: keys.nodemailer
+      }
+    })
+
+    const mail_option = {
+      from:'isa.bidou@gmai.com',
+      to: 'isa.bidou@gmai.com',
+      subject: 'new reading booked',
+      text: 'a reading was booked. offer id: '+ offer + ' user id: '+user+ ' reading id: '+order
+    }
+    transporter.sendMail(mail_option, (error, info) => {
+      if (error) {
+        console.error(error)
+        return reject({message: `an error has occured`})
+      }
+      return resolve({message: `email sent successfully`})
+
+    })
+
+  })
+
+}
+app.get("/api/testemail",  (req, res) => {
+
+  sendTestEmail()
+  .then(response => res.send(response.message))
+  .catch(error => res.status(500).send(error.message))
+
+})
 
   app.get("/api/readings", requireLogin, async (req, res) => {
 
@@ -114,14 +153,18 @@ module.exports = (app) => {
       dateSent: Date.now()
     });
     reading.save().then((res) => {
+      
+      
       console.log('reading is saved')
+      console.log(res)
 
     }).catch((err) => { console.error(err) });
     try {
 
       req.user.numberOfReadings += 1;
+      sendNewReadingEmail(offerId,req.user.id, reading._id)
       const user = await req.user.save();
-      res.send(user);
+      res.send(reading);
 
     } catch (error) {
       res.status(422).send(error);

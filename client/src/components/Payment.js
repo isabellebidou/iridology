@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
-
+//https://github.com/matthewling-stripe/react-stripe-payment-element
 function Payment(props) {
-  console.log(props.expectations+ 'from Payment')
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 

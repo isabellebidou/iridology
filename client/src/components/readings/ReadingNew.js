@@ -71,11 +71,6 @@ const ReadingNew = () => {
           }}
         />
 
-
-        <button type="submit" className="rightbutton" >
-          Payment
-        </button>
-
         <Link to="/readings" className="leftbutton">
         <button >{" cancel "}</button>
         </Link>
