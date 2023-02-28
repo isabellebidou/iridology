@@ -26,9 +26,10 @@ module.exports = (app) => {
     res.send(userDataName);
   });
   app.post("/api/userdata", requireLogin, async (req, res) => {
-    const {  name,gender, dob ,weight,height,history,genetics,gluten,dairy,dentalHistory,bloodType,digestion, medication, comments} = req.body;
+    const {  fname,lname,gender, dob ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion, medication, comments} = req.body;
     const userdata = new UserData({
-      name,
+      fname,
+      lname,
       gender,
       dob, 
       weight,
@@ -50,7 +51,7 @@ module.exports = (app) => {
     try {
       
       userdata.save().then((res) => {console.log('user data is saved')}).catch((err) => {console.error(err)});
-      //res.send(user);
+      res.send(userdata);
       
     } catch (error) {
       res.status(422).send(error);
@@ -60,12 +61,13 @@ module.exports = (app) => {
   // _user: req.user.id
   app.post("/api/userdata/edit", requireLogin, async (req, res) => {
     let responseSent = false;
-    const {  name,gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication} = req.body;
+    const {  fname,lname, gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication} = req.body;
     const userId = req.user.id;
   
     UserData.updateOne({_user:userId},
     {$set:{
-      name,
+      fname,
+      lname,
       gender, 
       weight,
       height,

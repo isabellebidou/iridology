@@ -27,15 +27,18 @@ class UserList extends Component {
     return this.props.users.map(user => {
       return (
 
-        <div key={user.user._id} className=" " onClick={() => this.handleClick(user.user._id)}>
+        <div key={user._id} className=" " onClick={() => this.handleClick(user._id)}>
 
           <p className="itemp photoThumbnail">
-            {user.name}, dob: {new Date(user.dob).toLocaleDateString()}
-            <br />
 
-            credits: {user.user.credits}, type: {user.user.type}
+            type: {user.type} email: {user.email}
             <br />
-            {user.user._id}
+            id: {user._id}
+            {user.data &&
+            <span>
+            {user.data.fname} {user.data.lname}, dob: {new Date(user.data.dob).toLocaleDateString()}
+            <br />
+            </span>}
           </p>
 
         </div>
@@ -48,7 +51,7 @@ class UserList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="page">
 
         <div className="grid-container">{this.renderUsers()}</div>
 

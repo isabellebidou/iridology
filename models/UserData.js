@@ -3,7 +3,8 @@ const {Schema} = mongoose; // =const Schema = mongoose.Schema;  es2015 destructu
 
 
 const userDataSchema = new Schema ({
-    name: String,
+    fname: String,
+    lname: String,
     gender:String,
     dob: Date,
     weight: Number,

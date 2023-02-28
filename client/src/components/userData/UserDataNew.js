@@ -13,7 +13,10 @@ class UserDataNew extends Component {
             />;
         }
         return <UserDataForm
-        onUserDataSubmit = { ()=> this.setState({showUserDataReview: true})}
+        onUserDataSubmit = { 
+            ()=> this.setState({showUserDataReview: false}, console.log(this.form.values+'submit'))
+            
+        }
         />;
     }
  render (){

@@ -22,10 +22,15 @@ function StarReview({ auth }) {
         if (toggleReviewDiv) {
           toggleReviewDiv.style.visibility = 'hidden';
         }
-      } else {
+      } else if (hasCompletedReadings){
         if (toggleReviewDiv) {
           toggleReviewDiv.style.visibility = 'visible';
         }
+      } else {
+        if (toggleReviewDiv) {
+          toggleReviewDiv.style.visibility = 'hidden';
+        }
+
       }
     }
 

@@ -10,7 +10,7 @@ class SelectedUserDashboard extends React.Component{
 
    render() {
     return(
-        <div className="dashboard">
+        <div className="page">
             <SelectedUserReadingList />
             <SelectedUserUserData />
             <SelectedEyeList />

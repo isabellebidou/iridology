@@ -19,7 +19,7 @@ class Buttons extends Component {
    // const enoughCredits = this.props.auth && this.props.auth.credits >= 80?  true :false;
 
 
-    if (!this.props.userdata) {
+    if (this.props.userdata.length === 0) {
         return (
         
           <div className="">
@@ -30,17 +30,17 @@ class Buttons extends Component {
         );
   
       } 
-      else if (!this.props.eyes) {
+      else if (this.props.eyes.length < 2) {
       return (
         <div className="">
-            <Link to="/eyes/new" className="">
+            <a href="#eyes" className="">
           <button className="actionbook ">upload eye pics</button>
-        </Link>
+        </a>
           
         </div>
-      );
+      )}
 
-    }  else {
+     else if (this.props.eyes.length >= 2){
       return (<div className="">
         
         <Link to="/readings/new" className="">

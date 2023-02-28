@@ -1,4 +1,6 @@
 const  fieldsArray =[
+    {label: "first name", name: "fname" ,type:"text" , compulsory: true},
+    {label: "last name", name: "lname" ,type:"text" , compulsory: true},
 
     {label: "gender", name: "gender" ,type:"text" , compulsory: true},
     {label: "dob", name: "dob",type:"date" ,compulsory: true},

@@ -139,6 +139,38 @@ app.delete("/api/user_eye_pics/delete", async (req, res) => {
     
   });
 
+  app.post("/api/eyes_left/:id", requireLogin,upload.single("testImage"), async (req, res) => {
+    const {  eyePic } = req.body;
+console.log(req.params.userId)
+
+    const eye = new Eye({
+      
+      side:'left',
+      _user: req.params.userId,
+      dateSent: Date.now(),
+      //_reading:req.body.reading,
+      pic: {
+        data: fs.readFileSync('uploads/'+req.file.filename),
+        contentType:'image/png'
+    }
+    });
+
+    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    
+
+    try {
+      
+      
+      //const user = await req.user.save();
+      sendNewEyeUploadEmail(req.file.filename,req.user.id, eye.side)
+      res.send(eye);
+      
+    } catch (error) {
+      res.status(422).send(error);
+    }
+    
+  });
+
   app.post("/api/eyes_right", requireLogin,upload.single("testImage"), async (req, res) => {
     const {  eyePic } = req.body;
 
@@ -146,6 +178,37 @@ app.delete("/api/user_eye_pics/delete", async (req, res) => {
       
       side:'right',
       _user: req.user.id,
+      dateSent: Date.now(),
+      //_reading:req.body.reading,
+      pic: {
+        data: fs.readFileSync('uploads/'+req.file.filename),
+        contentType:'image/png'
+    }
+    });
+
+    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    
+
+    try {
+      
+      
+     // const user = await req.user.save();
+      res.send(eye);
+      sendNewEyeUploadEmail(req.file.filename,req.user.id, eye.side)
+      
+    } catch (error) {
+      res.status(422).send(error);
+    }
+    
+  });
+
+  app.post("/api/eyes_right/:id", requireLogin,upload.single("testImage"), async (req, res) => {
+    const {  eyePic } = req.body;
+
+    const eye = new Eye({
+      
+      side:'right',
+      _user: req.params.userId,
       dateSent: Date.now(),
       //_reading:req.body.reading,
       pic: {

@@ -62,8 +62,9 @@ export const submitLink = (values, history) => async (dispatch) => {
   dispatch({ type: FETCH_LINKS, payload: res.data });
 };
 export const submitUserData = (values, history) => async (dispatch) => {
+  console.log(values)
   const res = await axios.post("/api/userdata", values);
-  history.push("/userdata");
+  history.push("/readings");
   dispatch({ type: FETCH_USER_DATA, payload: res.data });
 };
 export const submitUserDataEdit = (values, history) => async (dispatch) => {

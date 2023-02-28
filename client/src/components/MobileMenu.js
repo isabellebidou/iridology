@@ -26,7 +26,7 @@ class MobileMenu extends Component {
 
             return (
                 <ul id="mobilemenuul">
-                     <li><Link key={6} to="/users/all" className="mobilemenuli button" >
+                     <li><Link key={6} to="/users" className="mobilemenuli button" >
                         users
                     </Link></li>
 

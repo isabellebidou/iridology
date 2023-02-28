@@ -15,6 +15,7 @@ import UserDataNew from "./userData/UserDataNew";
 import UserData from "./UserData";
 import UserList from "./users/UserList";
 import UserDataFormEdit from "./userData/UserDataFormEdit";
+import UserDataFormNew from "./userData/UserDataFormNew";
 import Eyes from "./Eyes";
 import EyePic from "./EyePic";
 import ProtectedRoute from "./ProtectedRoute";
@@ -48,7 +49,7 @@ class App extends Component {
             <Route path="/payment" component={Payment } />
             <Route exact path="/completion" component={Completion } />
             <ProtectedRoute exact path="/readings/new" component={ReadingNew} />
-            <ProtectedRoute exact path="/userdata/new" component={UserDataNew} />
+            <ProtectedRoute exact path="/userdata/new" component={UserDataFormNew} />
             <ProtectedRoute exact path="/userdata" component={UserData} />
             <ProtectedRoute exact path="/userdata/edit" component={UserDataFormEdit} />
             <ProtectedRoute exact path="/eyepic" component={EyePic} />

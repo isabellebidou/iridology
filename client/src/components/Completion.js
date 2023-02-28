@@ -32,7 +32,7 @@ const Completion = () => {
   // Use the offerId and expectations to update the database or display on the page
 
   return (
-    <div>
+    <div className='page'>
       <h1>Thank you! 🎉</h1>
       <p className='itemp'>Offer Id: {offerId}</p>
       <p className='itemp'>Expectations: {expectations}</p>

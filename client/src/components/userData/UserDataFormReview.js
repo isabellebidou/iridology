@@ -20,15 +20,15 @@ const UserDataFormReview = ({onCancel, formValues, submitUserData, history}) => 
         <h5>please confirm your entries</h5>
 
             <div>{reviewFields}</div>
-            <button className="yellow darken-3 btn flat white-text"
+            <button className=""
             onClick={onCancel}>
             back
             </button>
             <button 
             onClick={() => submitUserData(formValues, history)}
-            className="green btn-flat right white-text">
+            className="">
             OK
-            <i className="material-icons right"></i>
+            
             </button>
         </div>
     )

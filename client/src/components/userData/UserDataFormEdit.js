@@ -30,11 +30,13 @@ class UserDataFormEdit extends Component {
       digestion: "",
       medication: "",
       comments: "",
+      lname: "",
+      fname: ""
     };
   }
 
   updateValueSingle(e) {
-    console.log(e.target.name);
+    console.log(e.target.fname);
   }
   updateStateValue(field, v) {
     console.log("updateStateValue");
@@ -47,6 +49,14 @@ class UserDataFormEdit extends Component {
       // case "dob":
       //   this.setState({ dob: v });
       //   break;
+      case "lname":
+        console.log("lname");
+        this.setState({ lname: v });
+        break;
+      case "fname":
+        console.log("fname");
+        this.setState({ fname: v });
+        break;
       case "height":
         console.log("height");
         this.setState({ height: v });
@@ -91,45 +101,51 @@ class UserDataFormEdit extends Component {
       this.props.userdata.map((data) => {
 
         switch (field.name) {
+          case "fname":
+            return this.setState({ fname: data.fname });
+
+          case "lname":
+            return this.setState({ lname: data.lname });
+
           case "gender":
-            this.setState({ gender: data.gender });
-            break;
+            return this.setState({ gender: data.gender });
+
           case "height":
-            this.setState({ height: data.height });
-            break;
+            return this.setState({ height: data.height });
+
           case "weight":
-            this.setState({ weight: data.weight });
-            break;
+            return this.setState({ weight: data.weight });
+
           case "history":
-            this.setState({ history: data.history });
-            break;
+            return this.setState({ history: data.history });
+
           case "genetics":
-            this.setState({ genetics: data.genetics });
-            break;
+            return this.setState({ genetics: data.genetics });
+
           case "gluten":
-            this.setState({ gluten: data.gluten });
-            break;
+            return this.setState({ gluten: data.gluten });
+
           case "dairy":
-            this.setState({ dairy: data.dairy });
-            break;
+            return this.setState({ dairy: data.dairy });
+
           case "eatingHabits":
-            this.setState({ eatingHabits: data.eatingHabits });
-            break;
+            return this.setState({ eatingHabits: data.eatingHabits });
+
           case "digestion":
-            this.setState({ digestion: data.digestion });
-            break;
+            return this.setState({ digestion: data.digestion });
+
           case "dentalHistory":
-            this.setState({ dentalHistory: data.dentalHistory });
-            break;
+            return this.setState({ dentalHistory: data.dentalHistory });
+
           case "bloodType":
-            this.setState({ bloodType: data.bloodType });
-            break;
+            return this.setState({ bloodType: data.bloodType });
+
           case "medication":
-            this.setState({ medication: data.medication });
-            break;
+            return this.setState({ medication: data.medication });
+
           default:
-            this.setState({ comments: data.comments });
-            break;
+            return this.setState({ comments: data.comments });
+
         }
       });
     }
@@ -156,178 +172,192 @@ class UserDataFormEdit extends Component {
 
 
 
-    {
-      if (this.props.userdata) {
-        return this.props.userdata.map(data => (
-          <form key={888}>
-            <div className="col" key={'777'}>
-              <div className="" key={1}>
 
-                <label key={1} htmlFor="name">first and last name</label>
-                <input
-                  name="name"
-                  key={111}
-                  type="text"
-                  defaultValue={data.name ? data.name : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={2} htmlFor="gender">{(fieldsArray.find(f => f.name === 'gender')).label}</label>
-                <input
-                  name="gender"
-                  key={112}
-                  type="text"
-                  defaultValue={data.gender ? data.gender : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={3} htmlFor="weight">{(fieldsArray.find(f => f.name === 'weight')).label}</label>
-                <input
-                  name="weight"
-                  key={113}
-                  type="number"
-                  placeholder={data.weight ? data.weight : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={4} htmlFor="height">{(fieldsArray.find(f => f.name === 'height')).label}</label>
-                <input
-                  name="height"
-                  key={114}
-                  type="number"
-                  defaultValue={data.height ? data.height : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={5} htmlFor="history">{(fieldsArray.find(f => f.name === 'history')).label}</label>
-                <input
-                  name="history"
-                  key={115}
-                  type="text"
-                  defaultValue={data.history ? data.history : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={6} htmlFor="genetics">{(fieldsArray.find(f => f.name === 'genetics')).label}</label>
-                <input
-                  name="genetics"
-                  key={116}
-                  type="text"
-                  defaultValue={data.genetics ? data.genetics : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={7} htmlFor="gluten">{(fieldsArray.find(f => f.name === 'gluten')).label}</label>
-                <input
-                  name="gluten"
-                  key={117}
-                  type="text"
-                  defaultValue={data.gluten ? data.gluten : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={8} htmlFor="dairy">{(fieldsArray.find(f => f.name === 'dairy')).label}</label>
-                <input
-                  name="dairy"
-                  key={118}
-                  type="text"
-                  defaultValue={data.dairy ? data.dairy : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={9} htmlFor="eatingHabits">{(fieldsArray.find(f => f.name === 'eatingHabits')).label}</label>
-                <input
-                  name="eatingHabits"
-                  key={119}
-                  type="text"
-                  defaultValue={data.eatingHabits ? data.eatingHabits : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={10} htmlFor="dentalHistory">{(fieldsArray.find(f => f.name === 'dentalHistory')).label}</label>
-                <input
-                  name="dentalHistory"
-                  key={120}
-                  type="text"
-                  defaultValue={data.dentalHistory ? data.dentalHistory : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={11} htmlFor="bloodType">{(fieldsArray.find(f => f.name === 'bloodType')).label}</label>
-                <input
-                  name="bloodType"
-                  key={121}
-                  type="text"
-                  defaultValue={data.bloodType ? data.bloodType : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={12} htmlFor="digestion">{(fieldsArray.find(f => f.name === 'digestion')).label}</label>
-                <input
-                  name="digestion"
-                  key={122}
-                  type="text"
-                  defaultValue={data.digestion ? data.digestion : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={13} htmlFor="medication">{(fieldsArray.find(f => f.name === 'medication')).label}</label>
-                <input
-                  name="medication"
-                  key={123}
-                  type="text"
-                  defaultValue={data.medication ? data.medication : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
-                <label key={14} htmlFor="comments">{(fieldsArray.find(f => f.name === 'comments')).label}</label>
-                <input
-                  name="comments"
-                  key={124}
-                  type="text"
-                  defaultValue={data.comments ? data.comments : ""}
-                  onChange={(e) => {
-                    this.updateStateValue(e.target.name, e.target.value);
-                  }}
-                />
+    if (this.props.userdata) {
+      return this.props.userdata.map(data => (
+        <form key={888}>
+          <div className="col" key={'777'}>
+            <div className="" key={1}>
 
-                <p key={63} >
-                  <button className="rightbutton"
-                    onClick={() => {
-                      this.handleClick();
-                    }}
-                    type="submit"
-                  >
-                    edit
-                  </button>
-                  <Link className="leftbutton" to="/readings" >
-                    <button >{" cancel "}</button>
-                  </Link>
+              <label key={0} htmlFor="fname">{(fieldsArray.find(f => f.name === 'fname')).label}</label>
+              <input
+                name="fname"
+                key={'fname' + 111}
+                type="text"
+                defaultValue={data.fname ? data.fname : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={1} htmlFor="lname">{(fieldsArray.find(f => f.name === 'lname')).label}</label>
+              <input
+                name="lname"
+                key={111}
+                type="text"
+                defaultValue={data.lname ? data.lname : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={2} htmlFor="gender">{(fieldsArray.find(f => f.name === 'gender')).label}</label>
+              <input
+                name="gender"
+                key={112}
+                type="text"
+                defaultValue={data.gender ? data.gender : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={3} htmlFor="weight">{(fieldsArray.find(f => f.name === 'weight')).label}</label>
+              <input
+                name="weight"
+                key={113}
+                type="number"
+                placeholder={data.weight ? data.weight : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={4} htmlFor="height">{(fieldsArray.find(f => f.name === 'height')).label}</label>
+              <input
+                name="height"
+                key={114}
+                type="number"
+                defaultValue={data.height ? data.height : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={5} htmlFor="history">{(fieldsArray.find(f => f.name === 'history')).label}</label>
+              <input
+                name="history"
+                key={115}
+                type="text"
+                defaultValue={data.history ? data.history : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={6} htmlFor="genetics">{(fieldsArray.find(f => f.name === 'genetics')).label}</label>
+              <input
+                name="genetics"
+                key={116}
+                type="text"
+                defaultValue={data.genetics ? data.genetics : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={7} htmlFor="gluten">{(fieldsArray.find(f => f.name === 'gluten')).label}</label>
+              <input
+                name="gluten"
+                key={117}
+                type="text"
+                defaultValue={data.gluten ? data.gluten : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={8} htmlFor="dairy">{(fieldsArray.find(f => f.name === 'dairy')).label}</label>
+              <input
+                name="dairy"
+                key={118}
+                type="text"
+                defaultValue={data.dairy ? data.dairy : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={9} htmlFor="eatingHabits">{(fieldsArray.find(f => f.name === 'eatingHabits')).label}</label>
+              <input
+                name="eatingHabits"
+                key={119}
+                type="text"
+                defaultValue={data.eatingHabits ? data.eatingHabits : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={10} htmlFor="dentalHistory">{(fieldsArray.find(f => f.name === 'dentalHistory')).label}</label>
+              <input
+                name="dentalHistory"
+                key={120}
+                type="text"
+                defaultValue={data.dentalHistory ? data.dentalHistory : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={11} htmlFor="bloodType">{(fieldsArray.find(f => f.name === 'bloodType')).label}</label>
+              <input
+                name="bloodType"
+                key={121}
+                type="text"
+                defaultValue={data.bloodType ? data.bloodType : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={12} htmlFor="digestion">{(fieldsArray.find(f => f.name === 'digestion')).label}</label>
+              <input
+                name="digestion"
+                key={122}
+                type="text"
+                defaultValue={data.digestion ? data.digestion : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={13} htmlFor="medication">{(fieldsArray.find(f => f.name === 'medication')).label}</label>
+              <input
+                name="medication"
+                key={123}
+                type="text"
+                defaultValue={data.medication ? data.medication : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+              <label key={14} htmlFor="comments">{(fieldsArray.find(f => f.name === 'comments')).label}</label>
+              <input
+                name="comments"
+                key={124}
+                type="text"
+                defaultValue={data.comments ? data.comments : ""}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
 
-                </p>
-              </div>
+
+
+
+              <p key={63} >
+                <Link to="/readings" className="actionupload button">
+                  cancel
+                </Link>
+                <button className="actionupload button rightbutton"
+                  onClick={() => {
+                    this.handleClick();
+                  }}
+                  type="submit"
+                >
+                  edit
+                </button>
+
+
+              </p>
             </div>
-          </form>
-        ))
-      } else {
-        return []
-      }
-
-
+          </div>
+        </form>
+      ))
+    } else {
+      return []
     }
+
+
+
   }
 
   render() {

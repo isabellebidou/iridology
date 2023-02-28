@@ -15,8 +15,7 @@ import StarReview from './StarReview';
 
 const Dashboard = () => {
     return(
-        <div className="dashboard">
-            <Instructions />
+        <div className="page">
             <StarReview />
             <Buttons />
             <ReadingList />

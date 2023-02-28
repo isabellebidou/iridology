@@ -76,7 +76,7 @@ const EyeForm = () => {
   }
 
   return (
-    <div className="uploadeyepics ">
+    <div className="page">
       <div className="grid-container">
 
         <fieldset className="item photoThumbnail">

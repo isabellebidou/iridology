@@ -26,12 +26,23 @@ function SelectedUserData() {
             <div className="col" key={'777'}>
               <div className="" key={1}>
 
-                <label key={3333} htmlFor="name">first and last name</label>
+                <label key={3333} htmlFor="fname">{(fieldsArray.find(f => f.name === 'fname')).label}</label>
                 <input
-                  name="name"
+                  name="fname"
+                  key={1111}
+                  type="text"
+                  defaultValue={data.fname ? data.fname : ""}
+                  onChange={(e) => {
+                    this.updateStateValue(e.target.name, e.target.value);
+                  }}
+                />
+
+                <label key={4433} htmlFor="lname">{(fieldsArray.find(f => f.name === 'lname')).label}</label>
+                <input
+                  name="lname"
                   key={111}
                   type="text"
-                  defaultValue={data.name ? data.name : ""}
+                  defaultValue={data.lname ? data.lname : ""}
                   onChange={(e) => {
                     this.updateStateValue(e.target.name, e.target.value);
                   }}

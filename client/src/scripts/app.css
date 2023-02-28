@@ -471,12 +471,6 @@ h3 {
   font-style: oblique;
 }
 
-.landing,
-.dashboard,
-.readingadd
-{
-  margin-bottom: 18%;
-}
 
 #addcredits {
   color: #45a049;
@@ -524,8 +518,7 @@ h3 {
   height: 100%;
   width: 100%;
   right: 0%;
-  top: 0%;
-  margin-top: 10%;
+  
   margin-bottom: 10%;
   line-height: 1.5em;
   font-size: large;
@@ -535,15 +528,12 @@ h3 {
 
 
 }
-
-.dashboard,
-.landing,
-.readingnew,
-.readingadd,
-.uploadeyepics {
+.page,
+.readingnew {
   margin-top: 10%;
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 18%;
 }
 
 #can,
@@ -678,7 +668,8 @@ label {
   /*background-color: rgba(255, 255, 255, 0.4);*/
   border-radius: 1%;
 }
-
+.left{float:left}
+.right{float:rights}
 .button,
 button {
   background-color: rgba(248, 245, 245, 0.89);

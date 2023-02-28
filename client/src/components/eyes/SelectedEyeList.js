@@ -1,61 +1,131 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import store from "../store";
 import EyePic from "./ImageComponent";
+import UploadSelectedRightEye from './UploadSelectedRightEye';
+import UploadSelectedLeftEye from './UploadSelectedLeftEye';
+//import { fetchUserEyePics } from "../../actions";
+import axios from "axios";
 
 
 
 function SelectedEyeList() {
-    useEffect( () => {
-        fetchItems();
-    }, []);
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
-    const [items, setItems] = useState([]);
+  const [eyes, setEyes] = useState([]);
+  const [visibility, setVisibility] = useState("hidden");
+  const [editMode, setEditMode] = useState(false);
+  const [selectedPics, setSelectedPics] = useState([]);
+  const userId = store.getState().selectedUser ? store.getState().selectedUser : null
 
-    const fetchItems = async () => {
-        if (store.getState().selectedUser) {
-            const userId = store.getState().selectedUser;          
-            const userData =  await fetch(`/api/user_eye_pics/${userId}`);
-            const items = await userData.json();
-        setItems(items);
-          }
-    };
+  const fetchItems = async () => {
+    if (store.getState().selectedUser) {
+      const userId = store.getState().selectedUser;
+      const userData = await fetch(`/api/user_eye_pics/${userId}`);
+      const items = await userData.json();
+      setEyes(items);
+    }
+  };
 
-    return(
-        <section>
-            <div className="grid-container">
-            {
-            items.map((eyePic) => {
+  const handleEditButtonToggleText = () => {
+    return editMode ? 'Disable edit' : 'Enable edit';
+  }
+  const toggleEditMode = () => {
+    setEditMode(!editMode)
+    setVisibility(visibility === 'visible' ? 'hidden' : 'visible');
+    //fetchUserEyePics();
+  }
+  const deletePics = async () => {
 
-                const eyePicData = eyePic.pic.data.data;
-                const base64String = btoa(
-                  new Uint8Array(eyePicData).reduce(function (data, byte) {
-                    return data + String.fromCharCode(byte);
-                  }, "")
-                );
-        
-                return (
-                  <div className="" key={eyePic._id + '_container'} >
-                    <div className="item photoThumbnail">
-        
-                      <EyePic
-                        id="myImage"
-                        src={`data:${eyePic.contentType};base64,${base64String}`}
-                        alt={eyePic.side + " eye pic"}
-                        side={eyePic.side}
-                        dateSent={eyePic.dateSent}
-        
-                      />
-                      <p className="item">
-                        {eyePic.side} eye pic sent on: {new Date(eyePic.dateSent).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })
-            }
-            </div>
-        </section>
-    );
+    try {
+      await axios.delete("/api/user_eye_pics/delete", {
+        data: { idsToDelete: selectedPics }
+      })
+        .then(function (response) {
+          // handle success
+          setSelectedPics([])
+          ///fetchUserEyePics();
+
+        }).catch(function (error) {
+          // handle error
+          console.error(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+    } catch (error) {
+      console.error(error)
+    }
+
+  }
+  const handleSelected = (e) => {
+    if (selectedPics.includes(e.target.value)) {
+      //remove item
+      // find index
+      var myIndex = selectedPics.indexOf(e.target.value);
+      var myArray = [...selectedPics];
+      myArray.splice(myIndex, 1);
+      setSelectedPics(myArray);
+    } else {
+      // add item
+      setSelectedPics([...selectedPics, e.target.value]);
+    }
+  }
+
+  return (
+    <section>
+      {userId &&
+        <UploadSelectedRightEye
+          userId={userId} />}
+      {userId &&
+        <UploadSelectedLeftEye
+          userId={userId} />}
+      <div className="grid-container">
+        {eyes.length > 0 &&
+          eyes.map((eyePic) => {
+
+            const eyePicData = eyePic.pic.data.data;
+            const base64String = btoa(
+              new Uint8Array(eyePicData).reduce(function (data, byte) {
+                return data + String.fromCharCode(byte);
+              }, "")
+            );
+
+            return (
+              <div className="" key={eyePic._id + '_container'} >
+                <div className="item photoThumbnail">
+
+                  <EyePic
+                    id="myImage"
+                    src={`data:${eyePic.contentType};base64,${base64String}`}
+                    alt={eyePic.side + " eye pic"}
+                    side={eyePic.side}
+                    dateSent={eyePic.dateSent}
+
+                  />
+                  <input type={'checkbox'} value={eyePic._id} style={{ visibility }} onChange={handleSelected}></input>
+                  <p className="item">
+                    {eyePic.side} eye pic sent on: {new Date(eyePic.dateSent).toLocaleDateString()}
+                  </p>
+
+                  <a href={`data:${eyePic.contentType};base64,${base64String}`} download={`${eyePic.side}-eye-pic.png`}>
+                    Download {eyePic.side} Eye Pic
+                  </a>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+      {eyes.length >= 2 &&
+        <>
+          <button id="editeyes" className="editeyes" onClick={toggleEditMode}>{handleEditButtonToggleText()}</button>
+          <button id="deleteeyes" className="deleteeyes" onClick={deletePics} style={{ visibility }} >Delete Selected</button>
+        </>
+      }
+    </section>
+  );
 }
 
 export default SelectedEyeList

@@ -46,7 +46,7 @@ const ReadingNew = () => {
 
   return (
 
-    <div className="readingadd">
+    <div className="page">
       <form onSubmit={handleSubmit}>
 
         <select id="offerSelect" name="offerselect" value={offerId} onChange={(e) => {

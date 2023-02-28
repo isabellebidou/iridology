@@ -70,7 +70,7 @@ class Landing extends Component {
     }
     render() {
         return (
-            <div className="landing" >
+            <div className="page" >
                 <span data-role="navigation" className="" >
                     <ul className="navigationul">
                         <li className="floatli" >
@@ -105,9 +105,9 @@ class Landing extends Component {
 
 
                     <p className="itemp">
-                        You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you seen a result and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
+                        You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you experienced differnet symptoms and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
                         <br />
-                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions ot ut in place.
+                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to ah healthy and painfree life is long and this can be confusing. 
 
                     </p>
 
@@ -164,7 +164,7 @@ class Landing extends Component {
                         <li>sulfur, drug deposits...</li>
                     </ul>
                     <img className="imgright" src="/iridologypic3.png" alt="eye"></img>
-                    <p className="itemp">Stop wasting your time, book your your iridology reading today and get a real time insight into what is going on in your body. Just sign in, fill in a form with basic information, upload your eye pics, buy credit and order your reading now.
+                    <p className="itemp">Stop wasting your time, book your your iridology reading today and get a real time insight into what is going on in your body. Just sign in, fill in a form with basic information, upload your eye pics and order your reading now.
                         {this.renderButton()}</p>
                     <br />
                 </div>
@@ -175,12 +175,11 @@ class Landing extends Component {
 
                     </span>
                     <StarReviewList />
-                    {this.props.auth &&
+                    {(this.props.auth && this.props.auth.numberOfReadings > 0) &&
                         <Link to="/readings" className="">
                             <button className="actionupload" >leave a review on your profile</button>
                         </Link>}
-                    {!this.props.auth &&
-                        <span className="reviewinstructions">login to post a review</span>}
+                    
 
                 </fieldset>
                 <fieldset>
