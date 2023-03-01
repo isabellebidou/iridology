@@ -91,6 +91,8 @@ function SelectedEyeList() {
                 return data + String.fromCharCode(byte);
               }, "")
             );
+            const date = new Date(eyePic.dateSent).toLocaleDateString();
+            const name = userId+'-'+date+'-'+eyePic.side;
 
             return (
               <div className="" key={eyePic._id + '_container'} >
@@ -106,10 +108,11 @@ function SelectedEyeList() {
                   />
                   <input type={'checkbox'} value={eyePic._id} style={{ visibility }} onChange={handleSelected}></input>
                   <p className="item">
-                    {eyePic.side} eye pic sent on: {new Date(eyePic.dateSent).toLocaleDateString()}
+                    
+                    {eyePic.side} eye pic sent on: {date}
                   </p>
 
-                  <a href={`data:${eyePic.contentType};base64,${base64String}`} download={`${eyePic.side}-eye-pic.png`}>
+                  <a href={`data:${eyePic.contentType};base64,${base64String}`} download={`${name}-eye-pic.png`}>
                     Download {eyePic.side} Eye Pic
                   </a>
                 </div>

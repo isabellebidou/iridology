@@ -31,7 +31,8 @@ class UserDataFormEdit extends Component {
       medication: "",
       comments: "",
       lname: "",
-      fname: ""
+      fname: "",
+      dob: "",
     };
   }
 
@@ -46,9 +47,13 @@ class UserDataFormEdit extends Component {
       case "gender":
         this.setState({ gender: v });
         break;
-      // case "dob":
-      //   this.setState({ dob: v });
-      //   break;
+      case "dob":
+          console.log("dob");
+          console.log(v);
+          this.setState({ dob: v }, () => {
+            console.log("updated state:", this.state.dob);
+          });
+          break;
       case "lname":
         console.log("lname");
         this.setState({ lname: v });
@@ -142,6 +147,8 @@ class UserDataFormEdit extends Component {
 
           case "medication":
             return this.setState({ medication: data.medication });
+          case "dob":
+              return this.setState({ dob: data.dob });
 
           default:
             return this.setState({ comments: data.comments });
@@ -160,6 +167,7 @@ class UserDataFormEdit extends Component {
     console.log("handleClick");
 
     //submitUserDataEdit(this.state, this.state.history);
+    console.log(this.state.dob)
 
     await axios.post("/api/userdata/edit", this.state);
     //history.push("/userdata");
@@ -178,6 +186,19 @@ class UserDataFormEdit extends Component {
         <form key={888}>
           <div className="col" key={'777'}>
             <div className="" key={1}>
+
+
+            <label key={'dob' +0} htmlFor="dob">{(fieldsArray.find(f => f.name === 'dob')).label}</label>
+            {data.dob &&
+              <input
+                name="dob"
+                key={'dob' + 111}
+                type="date"
+                value={this.state.dob ? new Date(this.state.dob).toISOString().substr(0, 10) : new Date(data.dob).toISOString().substr(0, 10)}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />}
 
               <label key={0} htmlFor="fname">{(fieldsArray.find(f => f.name === 'fname')).label}</label>
               <input
@@ -374,6 +395,7 @@ class UserDataFormEdit extends Component {
 }
 
 function mapStateToProps({ userdata }, state) {
+  console.log(userdata[0].dob)
   return { userdata, state };
 }
 UserDataFormEdit = reduxForm({

@@ -32,11 +32,13 @@ class UserList extends Component {
           <p className="itemp photoThumbnail">
 
             type: {user.type} email: {user.email}
-            <br />
-            id: {user._id}
-            {user.data &&
+            
+            <br />id: {user._id}
+            {user.data.length > 0 &&
             <span>
-            {user.data.fname} {user.data.lname}, dob: {new Date(user.data.dob).toLocaleDateString()}
+            <br />{user.data[0].fname} {user.data[0].lname} 
+            <br />dob: {new Date(user.data[0].dob).toLocaleDateString()}
+
             <br />
             </span>}
           </p>

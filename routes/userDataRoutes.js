@@ -61,7 +61,7 @@ module.exports = (app) => {
   // _user: req.user.id
   app.post("/api/userdata/edit", requireLogin, async (req, res) => {
     let responseSent = false;
-    const {  fname,lname, gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication} = req.body;
+    const {  fname,lname, gender ,weight,height,history,genetics,gluten,dairy,eatingHabits,dentalHistory,bloodType,digestion,comments,medication, dob} = req.body;
     const userId = req.user.id;
   
     UserData.updateOne({_user:userId},
@@ -80,7 +80,8 @@ module.exports = (app) => {
       bloodType,
       digestion,
       comments,
-      medication
+      medication,
+      dob
     }}, (err,doc) => {
       if(err) {
         if (!responseSent) {

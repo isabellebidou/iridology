@@ -33,7 +33,8 @@ class UserDataFormNew extends Component {
       medication: "",
       comments: "",
       lname: "",
-      fname: ""
+      fname: "",
+      dob: null,
     };
   }
 
@@ -44,17 +45,17 @@ class UserDataFormNew extends Component {
       case "gender":
         this.setState({ gender: v });
         break;
-      // case "dob":
-      //   this.setState({ dob: v });
-      //   break;
       case "lname":
-        console.log("lname");
         this.setState({ lname: v });
         break;
       case "fname":
-        console.log("fname");
         this.setState({ fname: v });
         break;
+      case "dob":
+          console.log("dob");
+          console.log(v);
+          this.setState({ dob: v });
+          break;
       case "height":
         console.log("height");
         this.setState({ height: v });
@@ -140,6 +141,8 @@ class UserDataFormNew extends Component {
 
           case "medication":
             return this.setState({ medication: data.medication });
+          case "dob":
+              return this.setState({ dob: data.dob });
 
           default:
             return this.setState({ comments: data.comments });

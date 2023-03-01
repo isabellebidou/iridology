@@ -62,10 +62,17 @@ function UserData() {
                   {data.gender ? data.gender : ""}
 
                 </dd>
+                <dt key={3+'dob'} htmlFor="dob">{(fieldsArray.find(f => f.name === 'dob')).label}</dt>
+                <dd
+                  name="dob"
+                  key={"dob"+119}>
+                  {data.dob ? new Date(data.dob).toLocaleDateString() : ""}
+
+                </dd>
                 <dt key={3} htmlFor="weight">{(fieldsArray.find(f => f.name === 'weight')).label}</dt>
                 <dd
                   name="weight"
-                  key={113}>
+                  key={11118}>
                   {data.weight ? data.weight : ""}
 
                 </dd>

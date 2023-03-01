@@ -91,7 +91,10 @@ app.delete("/api/user_eye_pics/delete", async (req, res) => {
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save().then((res) => {
+      console.log('image is saved')
+      fs.unlinkSync('uploads/'+req.file.filename);
+    }).catch((err) => {console.error(err)});
     
 
     try {
@@ -116,20 +119,29 @@ app.delete("/api/user_eye_pics/delete", async (req, res) => {
       side:'left',
       _user: req.user.id,
       dateSent: Date.now(),
-      //_reading:req.body.reading,
       pic: {
         data: fs.readFileSync('uploads/'+req.file.filename),
         contentType:'image/png'
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save()
+    .then((res) => {
+      console.log('image is saved')
+      //delete file from uploads
+      try {
+        fs.unlinkSync('uploads/'+req.file.filename);
+      //  console.log(`Delete File ${req.file.filename} successfully.`);
+      } catch (error) {
+        console.log(error);
+      }
+
+    })
+    .catch((err) => {console.error(err)});
     
 
     try {
-      
-      
-      //const user = await req.user.save();
+ 
       sendNewEyeUploadEmail(req.file.filename,req.user.id, eye.side)
       res.send(eye);
       
@@ -155,7 +167,12 @@ console.log(req.params.userId)
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save().then((res) => {
+      console.log('image is saved')
+              fs.unlinkSync('uploads/'+req.file.filename);
+      //  console.log(`Delete File ${req.file.filename} successfully.`);
+      
+    }).catch((err) => {console.error(err)});
     
 
     try {
@@ -186,7 +203,10 @@ console.log(req.params.userId)
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save().then((res) => {
+      console.log('image is saved')
+      fs.unlinkSync('uploads/'+req.file.filename);
+    }).catch((err) => {console.error(err)});
     
 
     try {
@@ -217,7 +237,10 @@ console.log(req.params.userId)
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save().then((res) => {
+      console.log('image is saved')
+      fs.unlinkSync('uploads/'+req.file.filename);
+    }).catch((err) => {console.error(err)});
     
 
     try {
@@ -248,7 +271,10 @@ console.log(req.params.userId)
     }
     });
 
-    eye.save().then((res) => {console.log('image is saved')}).catch((err) => {console.error(err)});
+    eye.save().then((res) => {
+      console.log('image is saved')
+      fs.unlinkSync('uploads/'+req.file.filename);
+    }).catch((err) => {console.error(err)});
     
 
     try {

@@ -46,6 +46,29 @@ module.exports = (app) => {
       res.status(500).send('Server error');
     }*/
 
+     /*try {
+      const users = await UserData.aggregate([
+        {
+          $lookup:
+          {
+            from: "users",
+            localField: "_user",
+            foreignField: "_id",
+            as: "user"
+          }
+        }
+      ]).exec((err, users) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(users);
+        }
+      })
+    } catch (err) {
+      console.log(err);
+      res.status(500).send('Server error');
+    }*/
+
     const users = await User.aggregate([
       {
         $lookup: {
@@ -69,31 +92,8 @@ module.exports = (app) => {
       }
       
     ]);
+   // console.log(users)
     res.send(users);
   });
 }
-    
-
-//
-    /*try {
-      const users = await UserData.aggregate([
-        {
-          $lookup:
-          {
-            from: "users",
-            localField: "_user",
-            foreignField: "_id",
-            as: "user"
-          }
-        }
-      ]).exec((err, users) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(users);
-        }
-      })
-    } catch (err) {
-      console.log(err);
-      res.status(500).send('Server error');
-    }*/
+  

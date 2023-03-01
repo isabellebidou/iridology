@@ -15,7 +15,6 @@ module.exports = (app) => {
 
 
 app.get("/api/starreviews", async(req, res) => {
- 
     const starreviews = await StarReview.find()
     res.send(starreviews);
 
