@@ -22,9 +22,12 @@ mongoose.set('strictQuery', false);
   }
   );*/
 
-  mongoose.connect(keys.mongoURI, () => {
-    console.log("Mongo connected");
-});
+mongoose.connect(keys.mongoURI);
+const db = mongoose.connection;
+
+// Listen for the MongoDB connection events here
+db.on('error', (error) => console.error('MongoDB connection error:', error));
+db.once('open', () => console.log('MongoDB connected!'));
 
 const app = express();
 app.use(bodyParser.json());
@@ -38,16 +41,16 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/authRoutes')(app);
-require('./routes/billingRoutes')(app);
-require('./routes/readingRoutes')(app);
-require('./routes/eyeRoutes')(app);
-require('./routes/userDataRoutes')(app);
-require('./routes/usersRoutes')(app);
-require('./routes/faqRoutes')(app);
-require('./routes/linkRoutes')(app);
-require('./routes/offerRoutes')(app);
-require('./routes/starReviewRoutes')(app);
+require('./routes/authRoutes')(app, db);
+require('./routes/billingRoutes')(app, db);
+require('./routes/readingRoutes')(app, db);
+require('./routes/eyeRoutes')(app, db);
+require('./routes/userDataRoutes')(app, db);
+require('./routes/usersRoutes')(app, db);
+require('./routes/faqRoutes')(app, db);
+require('./routes/linkRoutes')(app, db);
+require('./routes/offerRoutes')(app, db);
+require('./routes/starReviewRoutes')(app, db);
 if (process.env.NODE_ENV == 'production') {
   // express will serve up production assets
   app.use(express.static('client/build'));

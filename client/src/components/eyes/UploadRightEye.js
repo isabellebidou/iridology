@@ -8,13 +8,14 @@ import axios from "axios";
 function UploadRightEye({ auth }) {
     const [rightEye, setRightEye] = useState('');
     const [visibility, setVisibility] = useState("hidden");
+   
   useEffect(() => {
   }, [auth]);
 
 
    const handleRightPic= (e) => {
     setRightEye(e.target.files[0]);
-
+    
   }
 
   const handleRightSubmit = async (event) => {
@@ -79,7 +80,7 @@ function UploadRightEye({ auth }) {
 
             </div>
             
-            <button id="reviewbutton" className={"reviewbutton"} onClick={handleRightSubmit}>Submit</button>
+            <button id="reviewbutton"   className={` ${!rightEye && "disabled"} ` } onClick={handleRightSubmit}>Submit</button>
           </div>
         </div>
 

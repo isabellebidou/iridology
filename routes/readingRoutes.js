@@ -2,15 +2,16 @@ const _ = require('lodash')
 
 
 
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const keys = require('../config/keys');
 const requireLogin = require('../middlewares/requireLogin');
-const Reading = mongoose.model('readings');
+
 
 const { response } = require('express');
 
-module.exports = (app) => {
+module.exports = (app, db) => {
+  const Reading = db.model('readings');
 
 const sendTestEmail = () => {
   return new Promise((resolve, reject) => {

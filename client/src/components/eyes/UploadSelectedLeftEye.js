@@ -77,7 +77,7 @@ function UploadSelectedLeftEye({ auth ,userId }) {
               <h1>Upload left eye pic</h1>
               <input type="file" name="leftEye" id="leftEyeInput" onChange={handleLeftPic} />
             </div>
-            <button id="reviewbutton" className={"reviewbutton"} onClick={handleLeftSubmit}>Submit</button>
+            <button id="reviewbutton" className={` ${!leftEye && "disabled"} ` } onClick={handleLeftSubmit}>Submit</button>
           </div>
         </div>
 

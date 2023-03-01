@@ -79,7 +79,7 @@ function UploadRightEye({ auth ,userId}) {
 
             </div>
             
-            <button id="reviewbutton" className={"reviewbutton"} onClick={handleRightSubmit}>Submit</button>
+            <button id="reviewbutton" className={` ${!rightEye && "disabled"} ` } onClick={handleRightSubmit}>Submit</button>
           </div>
         </div>
 
