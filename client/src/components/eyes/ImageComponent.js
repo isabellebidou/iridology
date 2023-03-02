@@ -16,21 +16,6 @@ class ImageComponent extends React.Component {
 
 
 
-  handleMouseOver = () => {
-    this.setState({
-      className: 'focus'
-
-    });
-
-  };
-
-  handleMouseOut = () => {
-    this.setState({
-      className: 'simple'
-    });
-
-  };
-
   handleClick = () => {
     this.props.history.push({
       pathname: '/eyepic',
@@ -55,8 +40,6 @@ class ImageComponent extends React.Component {
         height={this.state.height + '%'}
         className={this.state.className}
         onClick={this.handleClick}
-      // onMouseOver={this.handleMouseOver}
-      // onMouseOut={this.handleMouseOut}
 
       />
     );

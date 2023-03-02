@@ -37,33 +37,26 @@ class UserDataFormEdit extends Component {
   }
 
   updateValueSingle(e) {
-    console.log(e.target.fname);
+
   }
   updateStateValue(field, v) {
-    console.log("updateStateValue");
-    console.log(field);
-    console.log(v);
+
     switch (field) {
       case "gender":
         this.setState({ gender: v });
         break;
       case "dob":
-          console.log("dob");
-          console.log(v);
           this.setState({ dob: v }, () => {
-            console.log("updated state:", this.state.dob);
+            //console.log("updated state:", this.state.dob);
           });
           break;
       case "lname":
-        console.log("lname");
         this.setState({ lname: v });
         break;
       case "fname":
-        console.log("fname");
         this.setState({ fname: v });
         break;
       case "height":
-        console.log("height");
         this.setState({ height: v });
         break;
       case "weight":
@@ -164,14 +157,7 @@ class UserDataFormEdit extends Component {
     }
   }
   async handleClick() {
-    console.log("handleClick");
-
-    //submitUserDataEdit(this.state, this.state.history);
-    console.log(this.state.dob)
-
     await axios.post("/api/userdata/edit", this.state);
-    //history.push("/userdata");
-    //dispatch({ type: FETCH_USER, payload: res.data });
   }
 
 
@@ -395,7 +381,6 @@ class UserDataFormEdit extends Component {
 }
 
 function mapStateToProps({ userdata }, state) {
-  console.log(userdata[0].dob)
   return { userdata, state };
 }
 UserDataFormEdit = reduxForm({

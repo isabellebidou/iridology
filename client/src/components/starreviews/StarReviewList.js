@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillStar } from "react-icons/ai";
+import { logError } from "../../utils/utils";
 
 
 
@@ -15,7 +16,7 @@ function StarReviewList() {
             const items = await reviews.json();
             setItems(items);
         } catch (error) {
-            console.error(error)
+            logError(error)
         }
 
     };

@@ -1,4 +1,4 @@
-//import  'materialize-css/dist/css/materialize.min.css';
+
 import './scripts/app.css';
 import './scripts/stripe.css';
 import './scripts/starreview.css';

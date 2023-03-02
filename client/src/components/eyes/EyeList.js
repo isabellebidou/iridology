@@ -9,6 +9,8 @@ import axios from "axios";
 
 
 
+
+
 function EyeList({ eyes, fetchUserEyePics }) {
 
   useEffect(() => {
@@ -42,13 +44,13 @@ function EyeList({ eyes, fetchUserEyePics }) {
 
         }).catch(function (error) {
           // handle error
-          console.error(error);
+          error(error)
         })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.error(error)
+      error(error)
     }
 
   }

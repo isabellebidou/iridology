@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const keys = require('../config/keys');
 const upload = require("../config/storage-config");
 const requireLogin = require('../middlewares/requireLogin');
+const logError = require("../services/utils");
 //const zlib = require('zlib');
 //const { spawn } = require('child_process');
 //const requireCredits = require("../middlewares/requireCredits");
@@ -42,7 +43,7 @@ const sendNewEyeUploadEmail = (file, user, side) => {
 
       transporter.sendMail(mail_option, (error, info) => {
         if (error) {
-          console.error(error)
+          logError(error)
           return reject({ message: `an error has occured` })
         }
         return resolve({ message: `email sent successfully` })
@@ -59,7 +60,7 @@ const sendNewEyeUploadEmail = (file, user, side) => {
       const result = await Eye.deleteMany({ _id: { $in: idsToDelete } });
       res.send(result);
     } catch (err) {
-      console.error(err);
+      logError(err);
       res.status(500).send("Failed to delete eye pics");
     }
   });
@@ -100,10 +101,9 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side, 'uploads/' + req.file.filename).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { console.error(err) });
-    }).catch((err) => { console.error(err) });
+        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
+    }).catch((err) => { logError(err) });
 
 
     try {
@@ -134,10 +134,9 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { console.error(err) });
-    }).catch((err) => { console.error(err) });
+        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
+    }).catch((err) => { logError(err) });
 
     try {
       res.send(eye);
@@ -163,10 +162,9 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { console.error(err) });
-    }).catch((err) => { console.error(err) });
+        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
+    }).catch((err) => { logError(err) });
 
 
     try {
@@ -198,10 +196,9 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { console.error(err) });
-    }).catch((err) => { console.error(err) });
+        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
+    }).catch((err) => { logError(err) });
 
 
     try {
@@ -233,10 +230,9 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { console.error(err) });
-    }).catch((err) => { console.error(err) });
+        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
+    }).catch((err) => { logError(err) });
 
 
     try {
@@ -268,9 +264,8 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     });
 
     eye.save().then((res) => {
-      console.log('image is saved')
       fs.unlinkSync('uploads/' + req.file.filename);
-    }).catch((err) => { console.error(err) });
+    }).catch((err) => { logError(err) });
 
 
     try {

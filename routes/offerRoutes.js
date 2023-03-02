@@ -2,6 +2,7 @@ const _ = require('lodash')
 //const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireAdminAccess = require("../middlewares/requireAdminAccess");
+const logError = require("../services/utils");
 
 
 
@@ -23,9 +24,8 @@ module.exports = (app, db) => {
             price
         });
         offer.save().then((res) => {
-            console.log('offer is saved')
 
-        }).catch((err) => { console.error(err) });
+        }).catch((err) => { logError(err) });
         try {
             res.send(offer);
         } catch (error) {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { log, logError } from '../../utils';
 
 const EyeForm = () => {
   const [leftEye, setLeftEye] = useState('');
@@ -32,16 +33,17 @@ const EyeForm = () => {
         document.getElementById('leftEyeInput').value = '';
         document.getElementById('leftEyeButton').style.visibility = 'hidden';
 
-        console.log(response);
+
       }).catch(function (error) {
         // handle error
-        console.log(error);
+        logError(error)
       })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.log(error)
+      logError(error)
+      
     }
   }
   const handleRightSubmit = async (event) => {
@@ -60,18 +62,15 @@ const EyeForm = () => {
         document.getElementById('rightEyeInput').value = '';
         document.getElementById('rightEyeButton').style.visibility = 'hidden';
 
-
-
-        console.log(response);
       }).catch(function (error) {
         // handle error
-        console.log(error);
+        error(error)
       })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.log(error)
+      logError(error)
     }
   }
 

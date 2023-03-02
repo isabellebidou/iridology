@@ -11,7 +11,7 @@ const requireAdminAccess = require("../middlewares/requireAdminAccess");
 module.exports = (app, db) => {
 
   const User = db.model('users');
-const UserData = db.model("userdata");
+  const UserData = db.model("userdata");
 
   app.get("/api/users_all", requireLogin, requireAdminAccess, async (req, res) => {
 
@@ -35,12 +35,11 @@ const UserData = db.model("userdata");
         $sort: {
           "data.name": 1
         }
-        
+
       }
-      
+
     ]);
-   // console.log(users)
     res.send(users);
   });
 }
-  
+

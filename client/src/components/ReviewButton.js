@@ -9,13 +9,7 @@ class ReviewButton extends Component {
   componentDidMount() {
     this.props.fetchUserEyePics();
     this.props.fetchUserData();
-
   }
-
-
-
-
-
 
   render() {
     return (

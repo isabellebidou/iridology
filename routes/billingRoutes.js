@@ -21,7 +21,6 @@ module.exports = app => {
      });*/
 
   app.get("/api/customer/:email", requireLogin, (req, res) => {
-    console.log("/api/config")
     res.send({
       publishableKey: keys.stripePublishableKey,
     });
@@ -29,19 +28,14 @@ module.exports = app => {
 
 
   app.get("/api/config", requireLogin, (req, res) => {
-    console.log("/api/config")
     res.send({
       publishableKey: keys.stripePublishableKey,
     });
   });
 
   app.post("/api/create-payment-intent", requireLogin, async (req, res) => {
-    console.log("/api/create-payment-intent")
-
-
 
     try {
-
 
       // Retrieve the customer object using the email address
       /*const customer = await stripe.customers.list({

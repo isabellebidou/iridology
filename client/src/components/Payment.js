@@ -11,7 +11,6 @@ function Payment(props) {
   useEffect(() => {
     fetch("/api/config").then(async (r) => {
       const { publishableKey } = await r.json();
-      console.log(publishableKey);
       setStripePromise(loadStripe(publishableKey));
     });
   }, []);
@@ -22,7 +21,6 @@ function Payment(props) {
       body: JSON.stringify({}),
     }).then(async (result) => {
       var { clientSecret } = await result.json();
-      console.log('create-payment-intent  then');
       setClientSecret(clientSecret);
     });
   }, []);

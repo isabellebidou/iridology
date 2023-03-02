@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { logError } from "../../utils/utils";
 
 import axios from "axios";
 //https://www.youtube.com/watch?v=McF22__Jz_I&t=372s&ab_channel=V%E1%BB%89%C4%90%E1%BA%B7ng
@@ -31,16 +32,15 @@ function UploadRightEye({ auth ,userId}) {
         // handle success
         setRightEye('');
         handleClose();
-        console.log(response);
       }).catch(function (error) {
         // handle error
-        console.log(error);
+        logError(error);
       })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.log(error)
+      logError(error)
     }
   }
 

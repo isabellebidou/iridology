@@ -1,4 +1,5 @@
 const passport = require("passport");
+const logError = require("../services/utils");
 
 module.exports = (app) => {
   app.get(
@@ -20,7 +21,7 @@ module.exports = (app) => {
       req.logout();
     res.redirect("/");
     } catch (error) {
-      console.error(error)
+      logError(error)
     }
     
   });
@@ -32,7 +33,7 @@ module.exports = (app) => {
       }
       res.send(req.user);
     } catch (error) {
-      console.error(error)
+      logError(error)
       
     }
     

@@ -2,9 +2,8 @@ const _ = require("lodash");
 
 const fs = require("fs");
 
-//const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
-//const requireCredits = require("../middlewares/requireCredits");
+const logError = require("../services/utils");
 
 
 module.exports = (app, db) => {
@@ -52,7 +51,7 @@ module.exports = (app, db) => {
   
     try {
       
-      userdata.save().then((res) => {console.log('user data is saved')}).catch((err) => {console.error(err)});
+      userdata.save().then((res) => {}).catch((err) => {logError(err)});
       res.send(userdata);
       
     } catch (error) {

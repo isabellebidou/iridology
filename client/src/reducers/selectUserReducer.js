@@ -1,5 +1,4 @@
 import { SELECT_USER } from "../actions/types";
-//const initialState = null;
 
 export default function (state = [], action){
     //console.log("selectedUserReducer called with action: ", action);
@@ -9,7 +8,6 @@ export default function (state = [], action){
             newState = action.payload;
             return newState;
         default: 
-        //console.log("return", state);
         return state;
     }
 }

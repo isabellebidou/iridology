@@ -176,26 +176,7 @@
     width: 50%;
   }
 
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 150px;
-    height: 2em;
-    background-color: rgba(0, 0, 0, 0.664);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    bottom: -220px;
-    right: 100px;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+  
 
   .footer {
     width: 100%;
@@ -206,45 +187,9 @@
 
   }
 
-  .searchItem {
-    position: fixed;
-    top: 9%;
-    text-decoration: none;
-    left: 1%;
-    padding: 0em;
-    height: 3em;
-    z-index: 2;
-    color: rgba(25, 98, 194, 0.456);
-    font-size: 1.3em;
-    font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
-    box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-    -webkit-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-    -moz-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-  }
 
-  .search {
-    position: fixed;
-    top: 3%;
-    z-index: 1;
-    width: 60%;
-    height: 2.5em;
-    left: 1%;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
 
-  .searchbutton {
-    position: fixed;
-    top: 3%;
-    width: 20%;
-    left: 61%;
-    height: 2.5em;
-    z-index: 2;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
+  
 
   .button,
   button {
@@ -400,9 +345,9 @@
     display: block;
   
   }
-  .landing, .dashboard, .uploadeyepics{
-    padding-top: 5%;
-    padding-bottom: 5%;
+  .page{
+    padding-top: 6%;
+    padding-bottom: 6%;
   }
   .content {
     position: absolute;

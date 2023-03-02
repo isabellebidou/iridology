@@ -9,6 +9,7 @@ const requireLogin = require('../middlewares/requireLogin');
 
 
 const { response } = require('express');
+const logError = require("../services/utils");
 
 module.exports = (app, db) => {
   const Reading = db.model('readings');
@@ -38,7 +39,7 @@ const sendTestEmail = () => {
     }
     transporter.sendMail(mail_option, (error, info) => {
       if (error) {
-        console.error(error)
+        logError(error)
         return reject({message: `an error has occured`})
       }
       return resolve({message: `email sent successfully`})
@@ -51,7 +52,6 @@ const sendTestEmail = () => {
 
 const sendNewReadingEmail = (offer, user, order) => {
   return new Promise((resolve, reject) => {
-
     var transporter = nodemailer.createTransport({
       service:'gmail',
       auth:{
@@ -68,7 +68,7 @@ const sendNewReadingEmail = (offer, user, order) => {
     }
     transporter.sendMail(mail_option, (error, info) => {
       if (error) {
-        console.error(error)
+        logError(error)
         return reject({message: `an error has occured`})
       }
       return resolve({message: `email sent successfully`})
@@ -98,7 +98,7 @@ app.get("/api/testemail",  (req, res) => {
       const readings = await Reading.find({ dateCompleted: { $ne: null }, _user: req.user.id });
       res.send(readings);
     } catch (err) {
-      console.log(err);
+      logError(err);
       res.status(500).send('Server error');
     }
 
@@ -127,13 +127,13 @@ app.get("/api/testemail",  (req, res) => {
         }
       ]).exec((err, users) => {
         if (err) {
-          console.log(err);
+          logError(err);
         } else {
           res.send(users);
         }
       });
     } catch (err) {
-      console.log(err);
+      logError(err);
       res.status(500).send('Server error');
     }
     res.send(readings);
@@ -146,7 +146,6 @@ app.get("/api/testemail",  (req, res) => {
   })
   app.post("/api/readings", requireLogin, async (req, res) => {
     const { expectations, offerId } = req.body;
-    console.log(offerId + "  from server")
     const reading = new Reading({
       expectations,
       _offer: offerId,
@@ -155,11 +154,8 @@ app.get("/api/testemail",  (req, res) => {
     });
     reading.save().then((res) => {
       
-      
-      console.log('reading is saved')
-      console.log(res)
 
-    }).catch((err) => { console.error(err) });
+    }).catch((err) => { logError(err) });
     try {
 
       req.user.numberOfReadings += 1;
@@ -172,37 +168,5 @@ app.get("/api/testemail",  (req, res) => {
     }
 
   });
-
-
-  /*app.post("/api/readings", requireLogin, requireCredits, async (req, res) => {
-    const {  comments, expectations, leftEye, rightEye } = req.body;
-    const reading = new Reading({
-      comments,
-      expectations, 
-      eyes : [({side:"left", _user: req.user.id, dateSent: Date.now(),pic: leftEye},{side:"right", _user: req.user.id, dateSent: Date.now(),pic: rightEye})],
-      _user: req.user.id,
-      dateSent: Date.now()
-    });
-    reading.save().then((res) => {
-      console.log('reading is saved')
-      
-    }).catch((err) => {console.error(err)});
-    
-
-    try {
-      
-      req.user.credits -= 80;
-      const user = await req.user.save();
-      res.send(user);
-      
-    } catch (error) {
-      res.status(422).send(error);
-    }
-    
-  });*/
-
-
-
-
 
 };

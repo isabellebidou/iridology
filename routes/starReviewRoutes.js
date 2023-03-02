@@ -1,4 +1,5 @@
 const _ = require('lodash')
+const logError = require("../services/utils");
 
 
 
@@ -12,9 +13,6 @@ module.exports = (app, db) => {
   const StarReview = db.model('starreviews');
   const UserData = db.model("userdata");
   const User = db.model('users');
-
-
-
   app.get("/api/starreviews", async (req, res) => {
     const starreviews = await StarReview.find()
     res.send(starreviews);
@@ -31,9 +29,8 @@ module.exports = (app, db) => {
       _user: req.user.id
     });
     starreview.save().then((res) => {
-      console.log('starreview is saved')
 
-    }).catch((err) => { console.error(err) });
+    }).catch((err) => { logError(err) });
     try {
 
       req.user.hasReviews = true;

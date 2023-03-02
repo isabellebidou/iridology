@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { logError } from "../../utils/utils";
 
 
 
@@ -15,7 +16,7 @@ function OfferList() {
             const items = await userData.json();
             setItems(items);
         } catch (error) {
-            console.error(error)
+            logError(error)
         }
 
 

@@ -5,6 +5,7 @@ import UploadSelectedRightEye from './UploadSelectedRightEye';
 import UploadSelectedLeftEye from './UploadSelectedLeftEye';
 //import { fetchUserEyePics } from "../../actions";
 import axios from "axios";
+import { logError } from "../../utils/utils";
 
 
 
@@ -49,13 +50,13 @@ function SelectedEyeList() {
 
         }).catch(function (error) {
           // handle error
-          console.error(error);
+          logError(error);
         })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.error(error)
+      logError(error)
     }
 
   }

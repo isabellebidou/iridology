@@ -18,7 +18,6 @@ const UserDataFormReview = ({onCancel, formValues, submitUserData, history}) => 
     return (
         <div>
         <h5>please confirm your entries</h5>
-
             <div>{reviewFields}</div>
             <button className=""
             onClick={onCancel}>
@@ -28,7 +27,6 @@ const UserDataFormReview = ({onCancel, formValues, submitUserData, history}) => 
             onClick={() => submitUserData(formValues, history)}
             className="">
             OK
-            
             </button>
         </div>
     )

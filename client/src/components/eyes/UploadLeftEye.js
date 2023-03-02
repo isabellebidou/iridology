@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { logError } from "../../utils/utils";
 //https://www.youtube.com/watch?v=McF22__Jz_I&t=372s&ab_channel=V%E1%BB%89%C4%90%E1%BA%B7ng
 //https://codesandbox.io/s/comment-product-yelj6?file=/package.json
 function UploadLeftEye({ auth }) {
@@ -31,16 +32,15 @@ function UploadLeftEye({ auth }) {
         // handle success
         setLeftEye('');
         handleClose();
-        console.log(response);
       }).catch(function (error) {
         // handle error
-        console.log(error);
+        logError(error);
       })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.log(error)
+      logError(error)
     }
   }
 

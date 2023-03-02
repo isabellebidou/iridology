@@ -8,6 +8,7 @@ import formFields from "./formFields";
 import UserDataField from "./userDataField";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import { logError } from "../../utils/utils";
 
 
 
@@ -52,12 +53,9 @@ class UserDataFormNew extends Component {
         this.setState({ fname: v });
         break;
       case "dob":
-          console.log("dob");
-          console.log(v);
           this.setState({ dob: v });
           break;
       case "height":
-        console.log("height");
         this.setState({ height: v });
         break;
       case "weight":
@@ -157,17 +155,14 @@ class UserDataFormNew extends Component {
       this.updateStateValueWithData(field);
     }
   }
-  async handleClick() {
-    console.log("handleClick");
-  
+  async handleClick() {  
     try {
       await axios.post("/api/userdata/", this.state).then((response) => {
         // handle success
         this.props.history.push("/readings");
-        console.log(response);
       });
     } catch (error) {
-      console.log(error);
+      logError(error);
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { logError } from "../../utils/utils";
 
 const LinkForm = () => {
   const [name, setName] = useState('');
@@ -29,7 +30,7 @@ const LinkForm = () => {
         setType('');
         setComment('');
       })
-      .catch(error => console.error(error));
+      .catch(error => logError(error));
   };
   
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Payment from "../Payment";
+import { logError } from "../../utils/utils";
 
 const ReadingNew = () => {
 
@@ -27,19 +28,18 @@ const ReadingNew = () => {
       axios.post("/api/readings", {  expectations, offerId})
       .then(function (response) {
         // handle success
-        console.log(response);
         setExpectations('')
         setOfferId(offers.length > 0 ? offers[0]._id : '');
 
       }).catch(function (error) {
         // handle error
-        console.log(error);
+        logError(error);
       })
         .finally(function () {
           // always executed
         });
     } catch (error) {
-      console.log(error)
+      logError(error)
     }
   }
 

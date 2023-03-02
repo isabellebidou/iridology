@@ -37,6 +37,7 @@ hr {
 
 .maincontentk div:first-child :not(.frame) :not(.mobilemenuul) :not(.mobilemenuli) :not(.btn) {
   /* https://css-tricks.com/almanac/selectors/n/not/ */
+  
   color: red;
   position: fixed;
   z-index: 1;
@@ -128,24 +129,9 @@ input {
 
 }
 
-.tooltip {}
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 20%;
-  height: 20%;
-  background-color: rgba(0, 0, 0, 0.664);
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
 
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  top: 40%;
-  right: 40%;
-}
+
 
 .back {
   position: fixed;
@@ -251,18 +237,7 @@ legend {
   width: auto;
 }
 
-/* .userSets, .availableSets{
-   float: right;
- } 
- .userDetails{
-   float: left;
- } */
-/* .setLabel {
-  text-align: right;
-  clear: both;
-  float:left;
-  margin-right:15px;
-} */
+
 .detailform {
   position: absolute;
   overflow-y: scroll;
@@ -335,57 +310,7 @@ legend {
 
 }
 
-.searchItem {
-  position: fixed;
-  top: 10%;
-  text-decoration: none;
-  left: 2%;
-  padding: 0em;
-  height: 3em;
-  z-index: 2;
-  color: rgba(193, 217, 188);
-  font-size: 1.3em;
-  font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
-}
 
-.search {
-  position: fixed;
-  background-color: rgba(243, 236, 236, 0.6);
-  top: 3%;
-  z-index: 2;
-  width: 35%;
-  height: 3em;
-  right: 35%;
-  /*https://cssgenerator.org/box-shadow-css-generator.html*/
-  box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-  -webkit-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-  -moz-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-}
-
-.searchbutton {
-  position: fixed;
-  background-color: rgba(243, 236, 236, 0.6);
-  top: 3%;
-  width: 5%;
-  right: 30%;
-  padding: 0em;
-  height: 3em;
-  z-index: 2;
-  /*https://cssgenerator.org/box-shadow-css-generator.html*/
-  box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-  -webkit-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-  -moz-box-shadow: 8px 9px 6px -3px rgba(123, 112, 112, 0.93);
-}
-
-.searchbutton:hover {
-  border-color: #96ccba;
-  color: blue;
-}
-
-.searchbutton:active {
-  border-color: #96ccba;
-  color: rgb(151, 206, 63);
-}
 #rightEyeButton,#leftEyeButton{
   visibility:hidden;
  
@@ -409,12 +334,6 @@ html {
   right: 0%;
   background-color: rgba(243, 236, 236, 0.9);
 
-
-  /*background: url(/olenka-kotyk2.png) no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;*/
 }
 
 
