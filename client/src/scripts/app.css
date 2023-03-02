@@ -471,24 +471,27 @@ h3 {
   margin-bottom: auto;
 }
 
-.navigationul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  font-style: oblique;
-  display: flex;
+.navigation-container {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
 }
 
-.floatli {
-  float: left;
-}
-
-.floata {
+.nav-link {
   display: block;
-  padding: 14px 16px;
+  padding: 8px;
+  border: 0.5px solid #7f5f87;
+  border-radius: 6%;
+  font-style: italic;
+  text-align: center;
   text-decoration: none;
+  color: #45a049;
 }
+
+
+
 
 .imgright,
 .imgleft {

@@ -346,7 +346,7 @@
   
   }
   .page{
-    padding-top: 6%;
+    padding-top: 7%;
     padding-bottom: 6%;
   }
   .content {
@@ -363,9 +363,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
- 
-
   }
+  .navigation-container {
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .nav-link {
+    
+    padding: 10px;
+    
+  }
+
   
 }

@@ -72,28 +72,14 @@ class Landing extends Component {
         return (
             <div className="page" >
                 <span data-role="navigation" className="" >
-                    <ul className="navigationul">
-                        <li className="floatli" >
-                            <a className="floata" href="#can">What iridology can do</a>
-                        </li>
-                        <li className="floatli" >
-                            <a className="floata" href="#reviews">Reviews</a>
-                        </li>
-                        <li className="floatli" >
-                            <a className="floata" href="#faq">Iridology FAQ</a>
-                        </li>
-
-                        <li className="floatli" >
-                            <a className="floata" href="#offer">Offer</a>
-                        </li>
-                        <li className="floatli" >
-                            <a className="floata" href="#links">Resources & links</a>
-                        </li>
-                        <li className="floatli" >
-                            <a className="floata" href="#contact">Contact</a>
-                        </li>
-
-                    </ul>
+                    <div className="navigation-container">
+                        <a className="nav-link" href="#can">What iridology can do</a>
+                        <a className="nav-link" href="#reviews">Reviews</a>
+                        <a className="nav-link" href="#faq">Iridology FAQ</a>
+                        <a className="nav-link" href="#offer">Offer</a>
+                        <a className="nav-link" href="#links">Resources & links</a>
+                        <a className="nav-link" href="#contact">Contact</a>
+                    </div>
 
                 </span>
 
@@ -107,7 +93,7 @@ class Landing extends Component {
                     <p className="itemp">
                         You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you experienced differnet symptoms and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
                         <br />
-                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to ah healthy and painfree life is long and this can be confusing. 
+                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to ah healthy and painfree life is long and this can be confusing.
 
                     </p>
 
@@ -179,7 +165,7 @@ class Landing extends Component {
                         <Link to="/readings" className="">
                             <button className="actionupload" >leave a review on your profile</button>
                         </Link>}
-                    
+
 
                 </fieldset>
                 <fieldset>
