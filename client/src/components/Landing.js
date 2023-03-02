@@ -71,7 +71,7 @@ class Landing extends Component {
     render() {
         return (
             <div className="page" >
-                <span data-role="navigation" className="" >
+               
                     <div className="navigation-container">
                         <a className="nav-link" href="#can">What iridology can do</a>
                         <a className="nav-link" href="#reviews">Reviews</a>
@@ -81,7 +81,7 @@ class Landing extends Component {
                         <a className="nav-link" href="#contact">Contact</a>
                     </div>
 
-                </span>
+                
 
                 <h1>
                     Iridology Readings

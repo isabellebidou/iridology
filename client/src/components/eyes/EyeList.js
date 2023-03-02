@@ -113,7 +113,7 @@ function EyeList({ eyes, fetchUserEyePics }) {
             Please provide at least one picture of each iris. To take pictures of your eyes for an iridology reading using a mirror, place a mirror in front of you and stand in front of a plain, light-colored background. Make sure you are away from windows and that you don't see the reflection of a window in your iris. Hold the camera or smartphone at eye level. You can use a secondary light at a 45 degre angle, make sure there is plenty of light in the iris, this angle will enable to see the depth of the iris. Focus on one eye in the reflection, ensuring the eye is fully open and the picture captures the entire iris. Repeat for the other eye. Take multiple pictures to ensure you have clear, high-quality images. It is very important that you provide a good quality of pictures.
           </p>
         }
-        {eyes.length >= 2 &&
+        {eyes.length >= 1 &&
           <>
             <button id="editeyes" className="editeyes" onClick={toggleEditMode}>{handleEditButtonToggleText()}</button>
             <button id="deleteeyes" className="deleteeyes" onClick={deletePics} style={{ visibility }} >Delete Selected</button>

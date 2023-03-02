@@ -2,7 +2,7 @@ const _ = require('lodash')
 
 
 
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const keys = require('../config/keys');
 const requireLogin = require('../middlewares/requireLogin');
@@ -11,8 +11,8 @@ const requireLogin = require('../middlewares/requireLogin');
 const { response } = require('express');
 const logError = require("../services/utils");
 
-module.exports = (app, db) => {
-  const Reading = db.model('readings');
+module.exports = (app) => {
+  const Reading = mongoose.model('readings');
 
 const sendTestEmail = () => {
   return new Promise((resolve, reject) => {

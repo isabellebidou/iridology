@@ -1,14 +1,14 @@
 const _ = require("lodash");
 
 const fs = require("fs");
-
+const mongoose = require('mongoose');
 const requireLogin = require("../middlewares/requireLogin");
 const logError = require("../services/utils");
 
 
-module.exports = (app, db) => {
+module.exports = (app) => {
 
-  const UserData = db.model("userdata");
+  const UserData = mongoose.model("userdata");
   app.get("/api/user_data", requireLogin, async (req, res) => {
     const userData = await UserData.find({ _user: req.user.id });
     res.send(userData);

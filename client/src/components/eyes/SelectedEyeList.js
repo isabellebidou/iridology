@@ -122,7 +122,7 @@ function SelectedEyeList() {
           })
         }
       </div>
-      {eyes.length >= 2 &&
+      {eyes.length >= 1 &&
         <>
           <button id="editeyes" className="editeyes" onClick={toggleEditMode}>{handleEditButtonToggleText()}</button>
           <button id="deleteeyes" className="deleteeyes" onClick={deletePics} style={{ visibility }} >Delete Selected</button>

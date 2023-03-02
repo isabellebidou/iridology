@@ -1,6 +1,7 @@
 const passport = require("passport");
 const logError = require("../services/utils");
 
+
 module.exports = (app) => {
   app.get(
     "/auth/google",

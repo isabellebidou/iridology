@@ -1,13 +1,13 @@
 const _ = require('lodash')
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireAdminAccess = require("../middlewares/requireAdminAccess");
 const logError = require("../services/utils");
 
 
 
-module.exports = (app, db) => {
-    const Offer = db.model('offers');
+module.exports = (app) => {
+    const Offer = mongoose.model('offers');
 
     app.get("/api/offers", async (req, res) => {
 

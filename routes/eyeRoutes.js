@@ -1,7 +1,6 @@
 const _ = require('lodash')
-
-const fs = require("fs");
 const mongoose = require('mongoose');
+const fs = require("fs");
 const nodemailer = require('nodemailer');
 const keys = require('../config/keys');
 const upload = require("../config/storage-config");
@@ -12,8 +11,8 @@ const logError = require("../services/utils");
 //const requireCredits = require("../middlewares/requireCredits");
 
 
-module.exports = (app, db) => {
-  const Eye = db.model('eyepics');
+module.exports = (app) => {
+  const Eye = mongoose.model('eyepics');
   //https://www.youtube.com/watch?v=MJhsVDpYzQs&ab_channel=Koding101
  
 

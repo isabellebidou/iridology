@@ -3,16 +3,16 @@ const logError = require("../services/utils");
 
 
 
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require("../middlewares/requireCredits");
 
 
-module.exports = (app, db) => {
-  const StarReview = db.model('starreviews');
-  const UserData = db.model("userdata");
-  const User = db.model('users');
+module.exports = (app) => {
+  const StarReview = mongoose.model('starreviews');
+  const UserData = mongoose.model("userdata");
+  const User = mongoose.model('users');
   app.get("/api/starreviews", async (req, res) => {
     const starreviews = await StarReview.find()
     res.send(starreviews);
