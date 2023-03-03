@@ -46,13 +46,6 @@ const db = async () => {
 const app = express();
 app.use(bodyParser.json());
 
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey],
-  })
-);
-
 
 
 if (process.env.NODE_ENV == 'production') {
@@ -71,8 +64,15 @@ const PORT = process.env.PORT || 8000;
 db().then(() => {
   app.listen(PORT, () => {
     console.log("listening for requests");
+    app.use(
+      cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        keys: [keys.cookieKey],
+      })
+    );
     app.use(passport.initialize());
     app.use(passport.session());
+
     require('./routes/authRoutes')(app);
     require('./routes/billingRoutes')(app);
     require('./routes/readingRoutes')(app);

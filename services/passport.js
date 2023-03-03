@@ -33,6 +33,7 @@ passport.use(
       //console.log('profile')
       //console.log(profile)
       const existingUser = await User.findOne({ googleId: profile.id })
+      //const existingUser = await User.findById( profile.id )
 
       if (existingUser) {
         // we already have a record with the given profile ID
