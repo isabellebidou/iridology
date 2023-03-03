@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { reduxForm } from 'redux-form';
 import { Component } from "react";
 import { connect } from "react-redux";
 import { fetchUserData } from "../../actions";
@@ -383,12 +382,12 @@ class UserDataFormEdit extends Component {
 function mapStateToProps({ userdata }, state) {
   return { userdata, state };
 }
-UserDataFormEdit = reduxForm({
+/*UserDataFormEdit = reduxForm({
   form: 'UserData',
   // validate,
   enableReinitialize: true,
   destroyOnUnmount: false
-})(UserDataFormEdit);
+})(UserDataFormEdit);*/
 
 /*export default connect(mapStateToProps,  fetchUserData)(reduxForm({
   form: 'userDataFormEdit',

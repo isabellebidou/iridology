@@ -1,11 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { reduxForm, Field } from "redux-form";
 import { Component } from "react";
 import { connect } from "react-redux";
 import fieldsArray from "./formFields";
 import formFields from "./formFields";
-import UserDataField from "./userDataField";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { logError } from "../../utils/utils";
@@ -15,7 +13,7 @@ import { logError } from "../../utils/utils";
 class UserDataFormNew extends Component {
 
   async componentDidMount() {
-   
+
   }
   constructor(props) {
     super(props);
@@ -53,8 +51,8 @@ class UserDataFormNew extends Component {
         this.setState({ fname: v });
         break;
       case "dob":
-          this.setState({ dob: v });
-          break;
+        this.setState({ dob: v });
+        break;
       case "height":
         this.setState({ height: v });
         break;
@@ -140,7 +138,7 @@ class UserDataFormNew extends Component {
           case "medication":
             return this.setState({ medication: data.medication });
           case "dob":
-              return this.setState({ dob: data.dob });
+            return this.setState({ dob: data.dob });
 
           default:
             return this.setState({ comments: data.comments });
@@ -155,7 +153,9 @@ class UserDataFormNew extends Component {
       this.updateStateValueWithData(field);
     }
   }
-  async handleClick() {  
+
+
+  async handleClick() {
     try {
       await axios.post("/api/userdata/", this.state).then((response) => {
         // handle success
@@ -175,17 +175,19 @@ class UserDataFormNew extends Component {
       <div>
         {formFields.map(({ name, label, type, compulsory }) => {
           return (
-            <Field
-              key={name}
-              name={name}
-              label={label}
-              type={type}
-              compulsory={compulsory}
-              component={UserDataField}
-              onChange={(e) => {
-                this.updateStateValue(e.target.name, e.target.value);
-              }}
-            />
+
+            <>
+              <label key={name + 'label'} htmlFor={name}>{label}</label>
+
+              <input
+                key={name + 'input'}
+                name={name}
+                type={type}
+                onChange={(e) => {
+                  this.updateStateValue(e.target.name, e.target.value);
+                }}
+              />
+            </>
           );
         })}
       </div>
@@ -194,7 +196,7 @@ class UserDataFormNew extends Component {
   }
 
   render() {
-    return <div>
+    return <div className="page">
       <fieldset>
         <legend>information</legend>
         <div className="col" key={333}>
@@ -217,19 +219,19 @@ class UserDataFormNew extends Component {
   }
 }
 
-function mapStateToProps( state) {
+function mapStateToProps(state) {
   return { state };
 }
-UserDataFormNew = reduxForm({
+/*UserDataFormNew = reduxForm({
   form: 'UserData',
   // validate,
   enableReinitialize: true,
   destroyOnUnmount: false
-})(UserDataFormNew);
+})(UserDataFormNew);*/
 
 
 export default withRouter(
-  connect(mapStateToProps, {  })(UserDataFormNew)
+  connect(mapStateToProps, {})(UserDataFormNew)
 );
 
 

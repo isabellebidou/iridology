@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { reducer as reduxForm } from "redux-form";
+//import { reducer as reduxForm } from "redux-form";
 import authReducer from "./authReducer";
 import readingsReducer from "./readingsReducer";
 import userDataReducer from "./userDataReducer";
@@ -8,7 +8,7 @@ import selectUserReducer from "./selectUserReducer";
 import eyesReducer from "./eyesReducer";
 export default combineReducers({
     auth : authReducer,
-    form : reduxForm,
+   // form : reduxForm,
     readings: readingsReducer,
     eyes: eyesReducer,
     userdata: userDataReducer,

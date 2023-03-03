@@ -5,7 +5,7 @@ import {
   SELECT_USER,
   FETCH_READINGS,
   FETCH_LINKS,
-  FETCH_FAQS,
+
 
   FETCH_USER_DATA,
 
@@ -30,8 +30,8 @@ export const fetchUserData = () => async (dispatch) => {
 };
 export const submitReading = (values, history) => async (dispatch) => {
   console.log('submitReading')
-  console.log(values)
-  const res = await axios.post("/api/readings", values);
+ // console.log(values)
+  await axios.post("/api/readings", values);
   history.push("/readings");
 }
 

@@ -36,6 +36,7 @@ const db = async () => {
   try {
     const conn = await mongoose.connect(keys.mongoURI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
+
   } catch (error) {
     console.log(error);
     process.exit(1);
@@ -51,35 +52,40 @@ app.use(
     keys: [keys.cookieKey],
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 if (process.env.NODE_ENV == 'production') {
   // express will serve up production assets
   app.use(express.static('client/build'));
-  
+
   // express will serve up the index.html file if it doesn't recognize the routes
   const path = require('path');
-  app.get('*', (req, res)=> {
+  app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   });
-  }
+}
 
 const PORT = process.env.PORT || 8000;
 //app.listen(PORT);
 db().then(() => {
   app.listen(PORT, () => {
-      console.log("listening for requests");
+    console.log("listening for requests");
+    app.use(passport.initialize());
+    app.use(passport.session());
+    require('./routes/authRoutes')(app);
+    require('./routes/billingRoutes')(app);
+    require('./routes/readingRoutes')(app);
+    require('./routes/eyeRoutes')(app);
+    require('./routes/userDataRoutes')(app);
+    require('./routes/usersRoutes')(app);
+    require('./routes/faqRoutes')(app);
+    require('./routes/linkRoutes')(app);
+    require('./routes/offerRoutes')(app);
+    require('./routes/starReviewRoutes')(app);
   })
+
+
 })
-require('./routes/authRoutes')(app);
-require('./routes/billingRoutes')(app);
-require('./routes/readingRoutes')(app);
-require('./routes/eyeRoutes')(app);
-require('./routes/userDataRoutes')(app);
-require('./routes/usersRoutes')(app);
-require('./routes/faqRoutes')(app);
-require('./routes/linkRoutes')(app);
-require('./routes/offerRoutes')(app);
-require('./routes/starReviewRoutes')(app);
+
+
