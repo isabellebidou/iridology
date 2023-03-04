@@ -4,7 +4,7 @@
   "description": "iridology website",
   "main": "index.js",
   "engines": {
-    "node": ">=18.13.0",
+    "node": ">=18.12.1",
     "npm": ">=9.3.1"
   },
   "scripts": {
