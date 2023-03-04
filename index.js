@@ -23,6 +23,7 @@ mongoose.set('strictQuery', false);
   );*/
 
 mongoose.connect(keys.mongoURI);
+const app = express();
 //const db = mongoose.connection;
 
 
@@ -37,27 +38,18 @@ const db = async () => {
     const conn = await mongoose.connect(keys.mongoURI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
 
+
   } catch (error) {
     console.log(error);
     process.exit(1);
   }
 }
 
-const app = express();
-app.use(bodyParser.json());
 
 
 
-if (process.env.NODE_ENV == 'production') {
-  // express will serve up production assets
-  app.use(express.static('client/build'));
 
-  // express will serve up the index.html file if it doesn't recognize the routes
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-  });
-}
+
 
 const PORT = process.env.PORT || 8000;
 //app.listen(PORT);
@@ -70,8 +62,21 @@ db().then(() => {
         keys: [keys.cookieKey],
       })
     );
+   
+app.use(bodyParser.json());
     app.use(passport.initialize());
     app.use(passport.session());
+
+    if (process.env.NODE_ENV == 'production') {
+      // express will serve up production assets
+      app.use(express.static('client/build'));
+    
+      // express will serve up the index.html file if it doesn't recognize the routes
+      const path = require('path');
+      app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+      });
+    }
 
     require('./routes/authRoutes')(app);
     require('./routes/billingRoutes')(app);
@@ -83,6 +88,7 @@ db().then(() => {
     require('./routes/linkRoutes')(app);
     require('./routes/offerRoutes')(app);
     require('./routes/starReviewRoutes')(app);
+
   })
 
 
