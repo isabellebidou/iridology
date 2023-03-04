@@ -62,22 +62,10 @@ db().then(() => {
         keys: [keys.cookieKey],
       })
     );
-   
-app.use(bodyParser.json());
+
+    app.use(bodyParser.json());
     app.use(passport.initialize());
     app.use(passport.session());
-
-    if (process.env.NODE_ENV == 'production') {
-      // express will serve up production assets
-      app.use(express.static('client/build'));
-    
-      // express will serve up the index.html file if it doesn't recognize the routes
-      const path = require('path');
-      app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-      });
-    }
-
     require('./routes/authRoutes')(app);
     require('./routes/billingRoutes')(app);
     require('./routes/readingRoutes')(app);
@@ -88,6 +76,19 @@ app.use(bodyParser.json());
     require('./routes/linkRoutes')(app);
     require('./routes/offerRoutes')(app);
     require('./routes/starReviewRoutes')(app);
+
+    if (process.env.NODE_ENV == 'production') {
+      // express will serve up production assets
+      app.use(express.static('client/build'));
+
+      // express will serve up the index.html file if it doesn't recognize the routes
+      const path = require('path');
+      app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+      });
+    }
+
+
 
   })
 
