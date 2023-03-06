@@ -15,15 +15,15 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
-
+//https://stackoverflow.com/questions/49635518/google-oauth2-is-not-working-on-mobile
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
-      proxy: true
-
+    //  callbackURL: '/auth/google/callback',
+    //  proxy: true
+      callbackURL: keys.callBack + "/auth/google/callback"
     },
     async (accessToken, refreshToken, profile, done) => {
       //console.log('accessToken')

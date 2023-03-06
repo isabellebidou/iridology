@@ -7,5 +7,6 @@ googleClientID: process.env.GOOGLE_CLIENT_ID,
     redirectDomain: process.env.REDIRECT_DOMAIN,
     stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-    nodemailer: process.env.NODEMAILER
+    nodemailer: process.env.NODEMAILER,
+    callBack: process.env.CALLBACK
 }
