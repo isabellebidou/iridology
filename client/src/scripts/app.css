@@ -625,12 +625,13 @@ button:hover,
 }
 
 a.button:active,
-button:hover,
-.button:hover {
-  border: 0.2em;
+button:active,
+a.button:active {
+  border: 0.3em;
   border-color: #96ccba;
-  color: #b794c0;
+  color: #aa25bc;
 }
+
 
 .actionbook {
   position: fixed;
@@ -933,3 +934,4 @@ dd {
   display: block;
 
 }
+

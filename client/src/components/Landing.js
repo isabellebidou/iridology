@@ -228,7 +228,7 @@ class Landing extends Component {
                     <legend><h2> Contact </h2></legend>
 
                     <span id="contact" >
-                        <p className="itemp">If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">email me</a></p>
+                        <p className="itemp">My name is Isabelle Bidou. If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">isa.bidou@gmail.com</a></p>
 
                     </span>
 

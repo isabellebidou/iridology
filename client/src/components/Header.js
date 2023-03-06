@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import MenuButton from "./MenuButton";
 import { fetchCookieValue } from "../actions";
-
-
+import { AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
+import { FaUsers } from "react-icons/fa";
+import { AiOutlineHome } from "react-icons/ai";
 
 class Header extends Component {
 
@@ -17,10 +19,11 @@ class Header extends Component {
 
   renderContent() {
 
-    const otherRoute = this.props.location.pathname === '/readings' ? '/' : '/readings';
-    const otherRouteName = this.props.location.pathname === '/readings' ? 'home' : 'profile';
+    //const otherRoute = this.props.location.pathname === '/readings' ? '/' : '/readings';
+    // const otherRouteName = this.props.location.pathname === '/readings' ? 'home' : 'profile';
     const isAdmin = this.props.auth && this.props.auth.type === 'admin';
     const isOnProfile = this.props.location.pathname === '/readings';
+    const isHome = this.props.location.pathname === '/';
     const isOnUsers = this.props.location.pathname === '/users';
 
 
@@ -29,9 +32,9 @@ class Header extends Component {
     switch (this.props.auth) {
       case null:
 
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google"/></a></div>
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google" /></a></div>
       case false:
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google"/></a></div>;
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google" /></a></div>;
 
       default:
         return (
@@ -39,17 +42,42 @@ class Header extends Component {
 
           <div className="authentication">
             {isAdmin && (
-              <a key={9} className="button" href="/users">users</a>)}
+              <a key={9} className="button" href="/users"><FaUsers
+                style={{ color: "#7f5f87" }}
+                key={'FaUsers'}
+
+              />
+
+              </a>
+            )}
+
+            {isHome === false &&
+              <Link key={3}
+                to={'/'}
+                className="button"
+              >
+                <AiOutlineHome
+                  style={{ color: "#7f5f87" }}
+                  key={'AiOutlineMenu'}
+                />
+              </Link>}
 
 
 
-            <Link key={3}
-              to={this.props.auth ? otherRoute : '/'}
-              className="button"
-            >
-              {otherRouteName}
-            </Link>
-            <a key={4} className="button" href="/api/logout">Logout</a>
+            {(this.props.auth && isOnProfile === false) &&
+              <Link key={3}
+                to={'/readings'}
+                className="button"
+              >
+                <AiOutlineUser
+                  style={{ color: "#7f5f87" }}
+                  key={'AiOutlineMenu'}
+                />
+              </Link>}
+            <a key={4} className="button" href="/api/logout"><AiOutlineLogout
+              style={{ color: "#7f5f87" }}
+              key={'AiOutlineMenu'}
+            /></a>
           </div>
 
         );
