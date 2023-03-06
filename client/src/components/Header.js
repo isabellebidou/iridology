@@ -42,15 +42,7 @@ class Header extends Component {
               <a key={9} className="button" href="/users">users</a>)}
 
 
-            {(isOnProfile || isOnUsers) && (
-              <Link key={66}
-                to={'/'}
-                className="button"
-              >
-                home
-              </Link>
 
-            )}
             <Link key={3}
               to={this.props.auth ? otherRoute : '/'}
               className="button"
@@ -70,7 +62,7 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <img className="logo" src="/iridologylogo.png" alt="logo"></img>
+        <a href="/"><img className="logo" src="/iridologylogo.png" alt="logo"></img></a>
         {cookie === true && <span>{this.renderContent()}</span>}
         {cookie === true && <span><MenuButton /></span>}
       </div>
