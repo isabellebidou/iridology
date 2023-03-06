@@ -4,17 +4,15 @@ import { Link } from "react-router-dom";
 //import Payments from "./Payments";
 import { withRouter } from 'react-router-dom';
 import MenuButton from "./MenuButton";
-import store from "./store";
+import { fetchCookieValue } from "../actions";
+
 
 
 class Header extends Component {
-  
-  /*componentDidMount() {
-    if (store.getState()) {
 
-    }
-
-  }*/
+  componentDidMount() {
+    this.props.fetchCookieValue();
+  }
 
 
   renderContent() {
@@ -24,13 +22,16 @@ class Header extends Component {
     const isAdmin = this.props.auth && this.props.auth.type === 'admin';
     const isOnProfile = this.props.location.pathname === '/readings';
     const isOnUsers = this.props.location.pathname === '/users';
-    const isLanding = this.props.location.pathname === '/';
+
+
+
+
     switch (this.props.auth) {
       case null:
 
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a></div>
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google"/></a></div>
       case false:
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a></div>;
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google"/></a></div>;
 
       default:
         return (
@@ -40,14 +41,14 @@ class Header extends Component {
             {isAdmin && (
               <a key={9} className="button" href="/users">users</a>)}
 
-            
-            {isOnProfile || isOnUsers &&(
-                          <Link key={66}
-                          to={'/'}
-                          className="button"
-                        >
-                          home
-                        </Link>
+
+            {(isOnProfile || isOnUsers) && (
+              <Link key={66}
+                to={'/'}
+                className="button"
+              >
+                home
+              </Link>
 
             )}
             <Link key={3}
@@ -65,19 +66,20 @@ class Header extends Component {
 
   }
   render() {
+    const { cookie } = this.props;
+
     return (
       <div className="header">
         <img className="logo" src="/iridologylogo.png" alt="logo"></img>
-        {this.renderContent()}
-        <MenuButton />
+        {cookie === true && <span>{this.renderContent()}</span>}
+        {cookie === true && <span><MenuButton /></span>}
       </div>
 
     );
   }
 }
-function mapStateToProps({ auth }) {
-  return { auth }
-
+function mapStateToProps({ auth, cookie }) {
+  return { auth, cookie }
 };
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(connect(mapStateToProps, { fetchCookieValue })(Header));
 

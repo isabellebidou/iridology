@@ -6,24 +6,24 @@ import UserData from './UserData';
 import EyeList from './eyes/EyeList';
 
 import Buttons from './Buttons';
-import Instructions from './Instructions';
 import StarReview from './StarReview';
 //import Landing from './Landing';
 
 
 
 
+
 const Dashboard = () => {
-    return(
+    return (
         <div className="page">
             <StarReview />
             <Buttons />
             <ReadingList />
             <UserData />
             <EyeList />
-            
-            
-            
+
+
+
 
         </div>
     )

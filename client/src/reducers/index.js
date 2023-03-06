@@ -6,6 +6,7 @@ import userDataReducer from "./userDataReducer";
 import usersReducer from "./usersReducer";
 import selectUserReducer from "./selectUserReducer";
 import eyesReducer from "./eyesReducer";
+import cookieReducer from "./cookieReducer";
 export default combineReducers({
     auth : authReducer,
    // form : reduxForm,
@@ -13,6 +14,7 @@ export default combineReducers({
     eyes: eyesReducer,
     userdata: userDataReducer,
     users: usersReducer,
-    selectedUser:  selectUserReducer
+    selectedUser:  selectUserReducer,
+    cookie: cookieReducer
 
 });

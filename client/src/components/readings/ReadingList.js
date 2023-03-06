@@ -37,7 +37,7 @@ function ReadingList() {
                         })
                     }
                 </div>
-                {items.length == 0 &&
+                {items.length === 0 &&
                     <p className='itemp'>You don't have any reading yet, fill in the required data before you book your reading</p>
                 }
             </fieldset>

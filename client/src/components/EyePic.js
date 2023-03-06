@@ -1,13 +1,6 @@
 import React from 'react';
 
 class EyePic extends React.Component {
-    componentDidMount() {
-
-        if (this.props.location.state) {
-            const id = this.props.location.state.id;
-            const src = this.props.location.state.src;
-        }
-    }
     
     render() {
         return (

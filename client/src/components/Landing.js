@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import FaqList from "./faqs/FaqList";
@@ -9,12 +8,22 @@ import LinkForm from "./links/LinkForm";
 import OfferList from "./offers/OfferList";
 import StarReviewList from "./starreviews/StarReviewList";
 import $ from 'jquery';
+//import CookieDisplay from "./CookieDisplay";
+import CookieConsent from "react-cookie-consent";
+import { updateCookieAcceptance } from '../actions';
+import { fetchCookieValue } from '../actions';
+
 
 
 
 
 
 class Landing extends Component {
+    componentDidMount() {
+        this.props.fetchCookieValue();
+
+    }
+
 
     handleClose(e) {
 
@@ -44,6 +53,17 @@ class Landing extends Component {
         }
 
     }
+    handleAccept = () => {
+        updateCookieAcceptance(true);
+        this.props.fetchCookieValue();
+        // this.renderButton()
+    };
+
+    handleDecline = () => {
+        updateCookieAcceptance(false);
+        $(".actionsign").hide();
+        $(".actionbook").hide();
+    };
 
     renderButton() {
         if (this.props.auth) {
@@ -69,19 +89,18 @@ class Landing extends Component {
 
     }
     render() {
+        const { cookie } = this.props;
         return (
             <div className="page" >
-               
-                    <div className="navigation-container">
-                        <a className="nav-link" href="#can">What iridology can do</a>
-                        <a className="nav-link" href="#reviews">Reviews</a>
-                        <a className="nav-link" href="#faq">Iridology FAQ</a>
-                        <a className="nav-link" href="#offer">Offer</a>
-                        <a className="nav-link" href="#links">Resources & links</a>
-                        <a className="nav-link" href="#contact">Contact</a>
-                    </div>
 
-                
+                <div className="navigation-container">
+                    <a className="nav-link" href="#can">What iridology can do</a>
+                    <a className="nav-link" href="#reviews">Reviews</a>
+                    <a className="nav-link" href="#faq">Iridology FAQ</a>
+                    <a className="nav-link" href="#offer">Offer</a>
+                    <a className="nav-link" href="#links">Resources & links</a>
+                    <a className="nav-link" href="#contact">Contact</a>
+                </div>
 
                 <h1>
                     Iridology Readings
@@ -151,7 +170,7 @@ class Landing extends Component {
                     </ul>
                     <img className="imgright" src="/iridologypic3.png" alt="eye"></img>
                     <p className="itemp">Stop wasting your time, book your your iridology reading today and get a real time insight into what is going on in your body. Just sign in, fill in a form with basic information, upload your eye pics and order your reading now.
-                        {this.renderButton()}</p>
+                    </p>
                     <br />
                 </div>
                 <fieldset>
@@ -214,18 +233,42 @@ class Landing extends Component {
                     </span>
 
                 </fieldset>
+                {(cookie === true || cookie === '' || cookie === null) && <span>{this.renderButton()}</span>}
                 <div >
-                    {this.renderButton()}
-                </div>
 
+                </div>
+                <CookieConsent
+                    location="bottom"
+                    buttonText="ok"
+                    cookieName="iridologyCookieConsent"
+                    style={{ background: "#2B373B" }}
+                    buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                    expires={150}
+                    enableDeclineButton
+                    onDecline={() => {
+
+                        this.handleDecline()
+                    }}
+                    onAccept={() => {
+                        this.handleAccept()
+
+                    }}
+                    overlay
+                >
+                    This website uses cookies for authentication with google OAuth and payment with Stripe, to enhance the user experience.{" "}
+                    If you consent to using cookies you can authentify with your google credentials and order a reading online. Alternatively you can send me an email or book a reading via fiverr.
+                    {" "}
+
+                </CookieConsent>
             </div>
         );
     }
 
 }
-function mapStateToProps({ auth }) {
-    return { auth }
+function mapStateToProps({ auth, cookie }) {
+
+    return { auth, cookie }
 
 };
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps, { fetchCookieValue })(Landing);

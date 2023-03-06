@@ -27,7 +27,7 @@ class MobileMenu extends Component {
         return (
             <ul id="mobilemenuul">
                 {!this.props.auth &&
-                    <a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" /></a>
+                    <a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google"/></a>
                 }
                 {(this.props.auth && isAdmin) &&
                     <li><Link key={6} to="/users" className="mobilemenuli button" >
