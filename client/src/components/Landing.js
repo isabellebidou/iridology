@@ -90,6 +90,11 @@ class Landing extends Component {
     }
     render() {
         const { cookie } = this.props;
+         // Get the browser locale
+    const browserLocale = navigator.language || navigator.userLanguage;
+
+    // Extract the country code from the locale
+    const countryCode = browserLocale.split('-')[1];
         return (
             <div className="page" >
 
@@ -257,6 +262,24 @@ class Landing extends Component {
                 >
                     This website uses cookies for authentication with google OAuth and payment with Stripe, to enhance the user experience.{" "}
                     If you consent to using cookies you can authentify with your google credentials and order a reading online. Alternatively you can send me an email or book a reading via fiverr.
+                    <br />
+                    {(countryCode != 'FR' || countryCode != 'fr') &&
+                        <span className="item">
+                            <Link key={'legalnoticelink'}
+                                to={'/legalnotice'}
+                            >
+                                Legal Notice
+                            </Link>
+                        </span>}
+                    {(countryCode === 'FR' || countryCode === 'fr') &&
+                        <span className="item">
+                            <Link key={'mentionslegaleslink'}
+                                to={'/mentionslegales'}
+                            >
+                                Mentions legales
+                            </Link>
+                        </span>}
+
                     {" "}
 
                 </CookieConsent>

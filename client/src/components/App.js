@@ -25,6 +25,8 @@ import LinkList from "./links/LinkList";
 import LinkForm from "./links/LinkForm";
 import Payment from "./Payment";
 import Completion from "./Completion";
+import LegalNotice from "./LegalNotice";
+import MentionsLegales from "./MentionsLegales";
 
 
 
@@ -63,6 +65,8 @@ class App extends Component {
             <Route exact path="/faq/add" component={FaqForm} />
             <Route exact path="/link/add" component={LinkForm} />
             <Route exact path="/admin" component={AdminDashboard} />
+            <Route exact path="/mentionslegales" component={MentionsLegales} />
+            <Route exact path="/legalnotice" component={LegalNotice} />
             <MobileMenu />
             
             <Footer />

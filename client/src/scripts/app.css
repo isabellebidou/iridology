@@ -417,7 +417,7 @@ h3 {
   left: 0%;
   text-align: center;
   margin: auto;
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin-bottom: 1%;
   padding-bottom: 2%;
   background: linear-gradient(rgba(243, 236, 236, 0.5),
@@ -651,7 +651,7 @@ a.button:active {
 
 .actionsign {
   position: fixed;
-  bottom: 2%;
+  bottom: 5%;
   right: 2em;
   background: linear-gradient(rgba(243, 236, 236, 1),
       rgba(243, 236, 236, 0.5));
