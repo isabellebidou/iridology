@@ -35,7 +35,7 @@ Par courrier : 52 avenue de Choisy, 75013 Paris, France<br />
             </p>
             <h2>Données personnelles
 </h2>
-            <p className='itemp'>TLe traitement de vos données à caractère personnel est régi par notre Charte du respect de la vie privée, disponible depuis la section "Charte de Protection des Données Personnelles", conformément au Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
+            <p className='itemp'>Le traitement de vos données à caractère personnel est régi par notre Charte du respect de la vie privée, disponible depuis la section "Charte de Protection des Données Personnelles", conformément au Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
 </p>
             <h2>Conditions Generales de vente
 </h2>

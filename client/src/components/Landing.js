@@ -115,7 +115,7 @@ class Landing extends Component {
 
 
                     <p className="itemp">
-                        You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you experienced differnet symptoms and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
+                        You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you experienced different symptoms and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
                         <br />
                         While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to ah healthy and painfree life is long and this can be confusing.
 
