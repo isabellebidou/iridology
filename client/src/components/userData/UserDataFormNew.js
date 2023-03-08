@@ -34,7 +34,13 @@ class UserDataFormNew extends Component {
       lname: "",
       fname: "",
       dob: null,
+      consent:false
     };
+  }
+  consent = (e) => {
+    this.setState({
+      consent: e.target.value});
+
   }
 
   updateValueSingle(e) {
@@ -156,14 +162,21 @@ class UserDataFormNew extends Component {
 
 
   async handleClick() {
-    try {
-      await axios.post("/api/userdata/", this.state).then((response) => {
-        // handle success
-        this.props.history.push("/readings");
-      });
-    } catch (error) {
-      logError(error);
+
+    if (this.state.consent) {
+      try {
+        await axios.post("/api/userdata/", this.state).then((response) => {
+          // handle success
+          this.props.history.push("/readings");
+        });
+      } catch (error) {
+        logError(error);
+      }
+      
+    } else {
+      alert('Please consent to the collection of your personal data');
     }
+
   }
 
 
@@ -202,6 +215,21 @@ class UserDataFormNew extends Component {
         <div className="col" key={333}>
           {this.renderUserData()}
         </div>
+        
+      </fieldset>
+      <p className="itemp">
+      <label key='consentlabel'>
+          <input
+          key='consentcheckbox'
+            type="checkbox"
+            name="consent"
+            checked={this.state.consent}
+            onChange={this.consent}
+          />
+          I consent to the collection and use of my personal data.
+        </label>
+      </p>
+      
 
 
 
@@ -213,8 +241,6 @@ class UserDataFormNew extends Component {
         }}>
           ok
         </button>
-      </fieldset>
-
     </div>;
   }
 }
