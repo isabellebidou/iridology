@@ -474,7 +474,7 @@ h3 {
 .navigation-container {
   margin-top: 3em;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
   gap: 10px;
 }
@@ -482,7 +482,7 @@ h3 {
 .nav-link {
   display: block;
   padding: 8px;
-  border: 0.5px solid #7f5f87;
+  border: 0.5px solid #c1adc6;
   border-radius: 6%;
   font-style: italic;
   text-align: center;

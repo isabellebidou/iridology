@@ -12,7 +12,7 @@ const LegalNotice = () => {
             </p>
             <h2>Editing the site</h2>
             <p className='itemp'>
-                This site, accessible at the URL <a href="https://iridology.herokuapp.com">https://iridology.herokuapp.com </a> (the “Site”), is published by:<br />
+                This site, accessible at the URL <a href="https://iridologyreadings.com/">https://iridologyreadings.com </a> (the “Site”), is published by:<br />
 
                 Isabelle Bidou, residing at 52 avenue de Choisy, 75013 Paris, France of French nationality (France), born on 28/10/1971, registered with the RCS of PARIS under number Paris 919846113,
 
