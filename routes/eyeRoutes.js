@@ -6,19 +6,31 @@ const keys = require('../config/keys');
 const upload = require("../config/storage-config");
 const requireLogin = require('../middlewares/requireLogin');
 const logError = require("../services/utils");
-//const zlib = require('zlib');
-//const { spawn } = require('child_process');
-//const requireCredits = require("../middlewares/requireCredits");
+const sharp = require('sharp')
+const { uploadFile, deleteFile, deleteSeveral, getObjectSignedUrl } = require('../services/s3.js');
+
 
 
 module.exports = (app) => {
   const Eye = mongoose.model('eyepics');
-  //https://www.youtube.com/watch?v=MJhsVDpYzQs&ab_channel=Koding101
- 
 
-const sendNewEyeUploadEmail = (file, user, side) => {
-  return new Promise((resolve, reject) => {
- 
+  function findPathPics(ids) {
+    return new Promise((resolve, reject) => {
+      Eye.find({ _id: { $in: ids } }, { picPath: 1, type: 1 })
+        .exec(function (err, docs) {
+          if (err) {
+            reject(err); // Reject the promise with the error
+          } else {
+            resolve(docs); // Resolve the promise with the `docs` array
+          }
+        });
+    });
+  }
+  //https://www.youtube.com/watch?v=MJhsVDpYzQs&ab_channel=Koding101
+
+  const sendNewEyeUploadEmail = (file, user, side) => {
+    return new Promise((resolve, reject) => {
+
 
       const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -34,10 +46,6 @@ const sendNewEyeUploadEmail = (file, user, side) => {
         to: 'isa.bidou@gmai.com',
         subject: 'new eye pic upload: ' + side,
         text: 'an eye pic was uploaded. filename : ' + file + ' user id: ' + user + ' eye side : ' + side,
-        /*attachments: [{
-          filename: outputFilePath,
-          path: outputFilePath
-        }]*/
       }
 
       transporter.sendMail(mail_option, (error, info) => {
@@ -48,40 +56,72 @@ const sendNewEyeUploadEmail = (file, user, side) => {
         return resolve({ message: `email sent successfully` })
       })
     });
-}
+  }
 
 
   app.delete("/api/user_eye_pics/delete", async (req, res) => {
-    //const idsToDelete = req.body.idsToDelete;
     const idsToDelete = req.body.idsToDelete.map((id) => mongoose.Types.ObjectId(id));
-
     try {
+      const pics = await findPathPics(idsToDelete);
+      deleteSeveral(pics);
       const result = await Eye.deleteMany({ _id: { $in: idsToDelete } });
       res.send(result);
     } catch (err) {
-      logError(err);
-      res.status(500).send("Failed to delete eye pics");
+      console.log(err);
+      res.send("Failed to delete eye pics");
     }
   });
+  
+
   app.get("/api/user_eye_pics", async (req, res) => {
+    try {
+      const eyes = await Eye.find({ _user: req.user.id });
+      const eyePromises = eyes.map(async (eye) => {
+        const path = await getObjectSignedUrl("eyepics/" + eye.picPath + '_resized');
+        eye.imageUrl = path;
+        return eye;
+      });
+      const eyesWithUrls = await Promise.all(eyePromises);
+      res.send(eyesWithUrls);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Internal Server Error' });
+    }
+  });
+  app.get("/api/raw_eye_pic/:id", async (req, res) => {
+    console.log(req.params.id)
+    try {
+      const eyepic = await Eye.find({ _id: req.params.id });
+      const eyePromises = eyepic.map(async (eye) => {
+        const path = await getObjectSignedUrl("eyepics/" + eye.picPath + '_raw');
+        return path;
+         
+      });
+      const url = await Promise.all(eyePromises);
+      console.log(url)
+      res.send(url);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Internal Server Error' });
+    }
+  });
 
-    const eyes = await Eye.find({ _user: req.user.id });
-
-
-    res.send(eyes);
-
-  })
 
   app.get("/api/user_eye_pics/:id", async (req, res) => {
-
-
-
-    const eyes = await Eye.find({ _user: req.params.id });
-
-
-    res.send(eyes);
-
-  })
+    try {
+      const eyes = await Eye.find({ _user: req.params.id });
+      const eyePromises = eyes.map(async (eye) => {
+        const path = await getObjectSignedUrl("eyepics/" + eye.picPath + '_resized');
+        eye.imageUrl = path;
+        return eye;
+      });
+      const eyesWithUrls = await Promise.all(eyePromises);
+      res.send(eyesWithUrls);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Internal Server Error' });
+    }
+  });
 
   //https://www.youtube.com/watch?v=NzROCbkvIE0
   app.post("/api/eyes", requireLogin, upload.single("testImage"), async (req, res) => {
@@ -107,8 +147,6 @@ const sendNewEyeUploadEmail = (file, user, side) => {
 
     try {
 
-
-      //const user = await req.user.save();
       res.send(eye);
 
 
@@ -117,168 +155,127 @@ const sendNewEyeUploadEmail = (file, user, side) => {
     }
 
   });
-
+  /////////////////////////////////////////////
   app.post("/api/eyes_left", requireLogin, upload.single("testImage"), async (req, res) => {
-    const { eyePic } = req.body;
 
-
+    const file = req.file
+    const side = 'left'
+    const user = req.user.id
+    const dateSent = Date.now()
+    const imageName = side + '_' + dateSent + '_' + user
+    const fileBuffer = await sharp(file.buffer)
+      .resize({ format: 'png', height: 180, width: 318, fit: "contain", background: { r: 244, g: 237, b: 237, alpha: 1 } }).flatten()
+      .toBuffer()
+    await uploadFile(fileBuffer, "eyepics/" + imageName + '_resized', file.mimetype)
+    await uploadFile(file.buffer, "eyepics/" + imageName + '_raw', file.mimetype)
     const eye = new Eye({
-      side: 'left',
-      _user: req.user.id,
-      dateSent: Date.now(),
-      pic: {
-        data: fs.readFileSync('uploads/' + req.file.filename),
-        contentType: 'image/png'
-      }
+      side: side,
+      _user: user,
+      dateSent: dateSent,
+      picPath: imageName,
+      type: file.mimetype
     });
 
-    eye.save().then((res) => {
-      sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
-    }).catch((err) => { logError(err) });
-
-    try {
-      res.send(eye);
-    } catch (error) {
-      res.status(422).send(error);
-    }
-
-  });
-
-  app.post("/api/eyes_left/:id", requireLogin, upload.single("testImage"), async (req, res) => {
-    const { eyePic } = req.body;
-
-    const eye = new Eye({
-
-      side: 'left',
-      _user: req.params.id,
-      dateSent: Date.now(),
-      //_reading:req.body.reading,
-      pic: {
-        data: fs.readFileSync('uploads/' + req.file.filename),
-        contentType: 'image/png'
+    eye.save().then(() => {
+      sendNewEyeUploadEmail(imageName, user, side)
+      try {
+        res.send(eye);
+      } catch (error) {
+        res.send(error);
       }
     });
-
-    eye.save().then((res) => {
-      sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
-    }).catch((err) => { logError(err) });
-
-
-    try {
-
-
-      //const user = await req.user.save();
-      //sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side)
-      res.send(eye);
-
-    } catch (error) {
-      res.status(422).send(error);
-    }
-
-  });
-
-  app.post("/api/eyes_right", requireLogin, upload.single("testImage"), async (req, res) => {
-    const { eyePic } = req.body;
-
-    const eye = new Eye({
-
-      side: 'right',
-      _user: req.user.id,
-      dateSent: Date.now(),
-      //_reading:req.body.reading,
-      pic: {
-        data: fs.readFileSync('uploads/' + req.file.filename),
-        contentType: 'image/png'
-      }
-    });
-
-    eye.save().then((res) => {
-      sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
-    }).catch((err) => { logError(err) });
-
-
-    try {
-
-
-      // const user = await req.user.save();
-      res.send(eye);
-      //sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side)
-
-    } catch (error) {
-      res.status(422).send(error);
-    }
-
-  });
-
-  app.post("/api/eyes_right/:id", requireLogin, upload.single("testImage"), async (req, res) => {
-    const { eyePic } = req.body;
-
-    const eye = new Eye({
-
-      side: 'right',
-      _user: req.params.id,
-      dateSent: Date.now(),
-      //_reading:req.body.reading,
-      pic: {
-        data: fs.readFileSync('uploads/' + req.file.filename),
-        contentType: 'image/png'
-      }
-    });
-
-    eye.save().then((res) => {
-      sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side).then(
-        fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
-    }).catch((err) => { logError(err) });
-
-
-    try {
-
-
-      // const user = await req.user.save();
-      res.send(eye);
-      //sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side)
-
-    } catch (error) {
-      res.status(422).send(error);
-    }
-
-  });
-
-  app.post("/api/upload/file", upload.single("testImage"), async (req, res) => {
-    const { eyePic } = req.body;
-
-    const eye = new Eye({
-
-      side: 'right',
-      _user: req.user.id,
-      dateSent: Date.now(),
-      //_reading:req.body.reading,
-      pic: {
-        data: fs.readFileSync('uploads/' + req.file.filename),
-        contentType: 'image/png'
-      }
-    });
-
-    eye.save().then((res) => {
-      fs.unlinkSync('uploads/' + req.file.filename);
-    }).catch((err) => { logError(err) });
-
-
-    try {
-
-
-      const user = await req.user.save();
-      res.send(user);
-
-    } catch (error) {
-      res.status(422).send(error);
-    }
-
   });
 
 
+   app.post("/api/eyes_left/:id", requireLogin, upload.single("testImage"), async (req, res) => {
+
+    const file = req.file
+    const side = 'left'
+    const user = req.params.id
+    const dateSent = Date.now()
+    const imageName = side + '_' + dateSent + '_' + user
+    const fileBuffer = await sharp(file.buffer)
+      .resize({ format: 'png', height: 180, width: 318, fit: "contain", background: { r: 244, g: 237, b: 237, alpha: 1 } }).flatten()
+      .toBuffer()
+    await uploadFile(fileBuffer, "eyepics/" + imageName + '_resized', file.mimetype)
+    await uploadFile(file.buffer, "eyepics/" + imageName + '_raw', file.mimetype)
+    const eye = new Eye({
+      side: side,
+      _user: user,
+      dateSent: dateSent,
+      picPath: imageName,
+      type: file.mimetype
+    });
+
+    eye.save().then(() => {
+      sendNewEyeUploadEmail(imageName, user, side)
+      try {
+        res.send(eye);
+      } catch (error) {
+        res.send(error);
+      }
+    });
+  });
+
+
+    app.post("/api/eyes_right", requireLogin, upload.single("testImage"), async (req, res) => {
+
+      const file = req.file
+      const side = 'right'
+      const user = req.user.id
+      const dateSent = Date.now()
+      const imageName = side + '_' + dateSent + '_' + user
+      const fileBuffer = await sharp(file.buffer)
+        .resize({ format: 'png', height: 180, width: 318, fit: "contain", background: { r: 244, g: 237, b: 237, alpha: 1 } }).flatten()
+        .toBuffer()
+      await uploadFile(fileBuffer, "eyepics/" + imageName + '_resized', file.mimetype)
+      await uploadFile(file.buffer, "eyepics/" + imageName + '_raw', file.mimetype)
+      const eye = new Eye({
+        side: side,
+        _user: user,
+        dateSent: dateSent,
+        picPath: imageName,
+        type: file.mimetype
+      });
+  
+      eye.save().then(() => {
+        sendNewEyeUploadEmail(imageName, user, side)
+        try {
+          res.send(eye);
+        } catch (error) {
+          res.send(error);
+        }
+      });
+    });
+
+   app.post("/api/eyes_right/:id", requireLogin, upload.single("testImage"), async (req, res) => {
+
+    const file = req.file
+    const side = 'right'
+    const user = req.params.id
+    const dateSent = Date.now()
+    const imageName = side + '_' + dateSent + '_' + user
+    const fileBuffer = await sharp(file.buffer)
+      .resize({ format: 'png', height: 180, width: 318, fit: "contain", background: { r: 244, g: 237, b: 237, alpha: 1 } }).flatten()
+      .toBuffer()
+    await uploadFile(fileBuffer, "eyepics/" + imageName + '_resized', file.mimetype)
+    await uploadFile(file.buffer, "eyepics/" + imageName + '_raw', file.mimetype)
+    const eye = new Eye({
+      side: side,
+      _user: user,
+      dateSent: dateSent,
+      picPath: imageName,
+      type: file.mimetype
+    });
+
+    eye.save().then(() => {
+      sendNewEyeUploadEmail(imageName, user, side)
+      try {
+        res.send(eye);
+      } catch (error) {
+        res.send(error);
+      }
+    });
+  });
 
 };

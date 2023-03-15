@@ -17,6 +17,8 @@
   "author": "isabelle bidou",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.290.0",
+    "@aws-sdk/s3-request-presigner": "^3.290.0",
     "body-parser": "^1.20.1",
     "concurrently": "^7.6.0",
     "cookie-session": "^2.0.0",
@@ -32,6 +34,7 @@
     "passport-google-oauth20": "^2.0.0",
     "react-final-form": "^6.5.9",
     "react-hook-form": "^7.41.0",
+    "sharp": "^0.31.3",
     "stripe": "^11.3.0",
     "uuid": "^9.0.0"
   }

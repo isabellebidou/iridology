@@ -23,11 +23,13 @@ function SelectedEyeList() {
   const fetchItems = async () => {
     if (store.getState().selectedUser) {
       const userId = store.getState().selectedUser;
-      const userData = await fetch(`/api/user_eye_pics/${userId}`);
-      const items = await userData.json();
+      const pics = await fetch(`/api/user_eye_pics/${userId}`);
+      const items = await pics.json();
       setEyes(items);
     }
   };
+ 
+
 
   const handleEditButtonToggleText = () => {
     return editMode ? 'Disable edit' : 'Enable edit';
@@ -85,13 +87,6 @@ function SelectedEyeList() {
       <div className="grid-container">
         {eyes.length > 0 &&
           eyes.map((eyePic) => {
-
-            const eyePicData = eyePic.pic.data.data;
-            const base64String = btoa(
-              new Uint8Array(eyePicData).reduce(function (data, byte) {
-                return data + String.fromCharCode(byte);
-              }, "")
-            );
             const date = new Date(eyePic.dateSent).toLocaleDateString();
             const name = userId+'-'+date+'-'+eyePic.side;
 
@@ -99,21 +94,23 @@ function SelectedEyeList() {
               <div className="" key={eyePic._id + '_container'} >
                 <div className="item photoThumbnail">
 
-                  <EyePic
-                    id="myImage"
-                    src={`data:${eyePic.contentType};base64,${base64String}`}
-                    alt={eyePic.side + " eye pic"}
-                    side={eyePic.side}
-                    dateSent={eyePic.dateSent}
+                  
 
-                  />
+                  <EyePic
+                      id={eyePic._id}
+                      src={eyePic.imageUrl}
+                      alt={eyePic.side + " eye pic "+eyePic.imageUrl}
+                      side={eyePic.side}
+                      dateSent={eyePic.dateSent}
+
+                    />
                   <input type={'checkbox'} value={eyePic._id} style={{ visibility }} onChange={handleSelected}></input>
                   <p className="item">
                     
                     {eyePic.side} eye pic sent on: {date}
                   </p>
 
-                  <a href={`data:${eyePic.contentType};base64,${base64String}`} download={`${name}-eye-pic.png`}>
+                  <a href={`https://isabelles3.s3.eu-west-1.amazonaws.com/eyepics/${eyePic.picPath}_raw`} download={`${name}-eye-pic.png`}>
                     Download {eyePic.side} Eye Pic
                   </a>
                 </div>

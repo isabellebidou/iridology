@@ -9,7 +9,11 @@ const eyepicSchema = new Schema ({
     pic: {
         data: Buffer,
         contentType:String
-    }
+    },
+    picPath: String,
+    type: String,
+    imageUrl:String,
+    rawUrl:String
     
 })
 

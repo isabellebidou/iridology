@@ -77,21 +77,22 @@ function EyeList({ eyes, fetchUserEyePics }) {
         <div className="grid-container" >
           {eyes.length > 0 &&
             eyes.map((eyePic) => {
-              const eyePicData = eyePic.pic.data.data;
-              const base64String = btoa(
-                new Uint8Array(eyePicData).reduce(function (data, byte) {
-                  return data + String.fromCharCode(byte);
-                }, "")
-              );
+              //const eyePicData = eyePic.pic.data.data;
+              //const base64String = btoa(
+               // new Uint8Array(eyePicData).reduce(function (data, byte) {
+                 // return data + String.fromCharCode(byte);
+                //}, "")
+             // );
 
               return (
                 <div  key={eyePic._id + '_container'} >
                   <div className="item photoThumbnail">
 
                     <EyePic
-                      id="myImage"
-                      src={`data:${eyePic.contentType};base64,${base64String}`}
-                      alt={eyePic.side + " eye pic"}
+                      id={eyePic._id}
+                      //src={`data:${eyePic.contentType};base64,${base64String}`}
+                      src={eyePic.imageUrl}
+                      alt={eyePic.side + " eye pic "+eyePic.imageUrl}
                       side={eyePic.side}
                       dateSent={eyePic.dateSent}
 

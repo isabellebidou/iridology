@@ -7,8 +7,6 @@ import {
   SELECT_USER,
   FETCH_READINGS,
   FETCH_LINKS,
-
-
   FETCH_USER_DATA,
   FETCH_COOKIE_VALUE,
   FETCH_USER_EYE_PICS,
@@ -32,11 +30,6 @@ export const fetchCookieValue=() => {
   } 
     cookieValue = store.getState().cookie;
 
-  
-  
-  
-  //console.log(previousCookieValue)
-  //console.log(cookieValue)
   
   return {
     type: FETCH_COOKIE_VALUE,
@@ -70,6 +63,7 @@ export const fetchUserEyePics = () => async (dispatch) => {
   const res = await axios.get("api/user_eye_pics");
   dispatch({ type: FETCH_USER_EYE_PICS, payload: res.data });
 };
+
 
 export const uploadLeftEyePic = (values, history) => async (dispatch) => {
   const res = await axios.post("/api/eyes_left", values);

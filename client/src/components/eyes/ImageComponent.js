@@ -14,20 +14,29 @@ class ImageComponent extends React.Component {
     };
   }
 
+  fetchRawUrl = async (picId) => {
+    const rawUrl = await fetch(`/api/raw_eye_pic/${picId}`);
+    return await rawUrl.json();
+  }
 
 
-  handleClick = () => {
+
+  handleClick = async () => {
+    const { id, side, dateSent } = this.props;
+    const rawUrl = await this.fetchRawUrl(id);
     this.props.history.push({
       pathname: '/eyepic',
       state: {
-        id: this.props.id,
-        src: this.props.src,
-        alt: this.props.alt,
-        side: this.props.side,
-        dateSent: this.props.dateSent
+        id,
+        src: rawUrl, // use the rawUrl from the action if available, fallback to the original src
+        alt: `${side} eye pic`,
+        side,
+        dateSent
       }
     });
   };
+
+
 
   render() {
     return (
@@ -46,4 +55,6 @@ class ImageComponent extends React.Component {
   }
 }
 
-export default withRouter(ImageComponent);
+
+
+export default (withRouter(ImageComponent));

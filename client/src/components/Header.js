@@ -52,7 +52,7 @@ class Header extends Component {
             )}
 
             {isHome === false &&
-              <Link key={3}
+              <Link key={3+'nothome'}
                 to={'/'}
                 className="button"
               >
