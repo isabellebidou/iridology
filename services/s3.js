@@ -38,7 +38,6 @@ function deleteSeveral(array) {
 
 
 function deleteFile(fileName) {
-   // console.log(`delete  ${fileName}`)
     const deleteParams = {
         Bucket: bucketName,
         Key: fileName,
@@ -48,7 +47,6 @@ function deleteFile(fileName) {
 }
 
 async function getObjectSignedUrl(key) {
-    //console.log('getObjectSignedUrl'+ key)
     const params = {
         Bucket: bucketName,
         Key: key
@@ -58,7 +56,6 @@ async function getObjectSignedUrl(key) {
     const command = new GetObjectCommand(params);
     const seconds = 60
     const url = await getSignedUrl(s3Client, command, { expiresIn: seconds });
-    //console.log('getObjectSignedUrl'+ url)
     return url
 }
 

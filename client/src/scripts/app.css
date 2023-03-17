@@ -490,7 +490,22 @@ h3 {
   color: #45a049;
 }
 
+.lymphaticpic{
+  float:right;
+  max-width: 40%;
+}
+.adrenalspic{
+  float: left;
+  max-width: 40%;
+  padding: 1.5em;
+}
+.me{
+  float:right;
+  max-width: 15%;
+  border-radius: 50%;
+  padding: 2em;
 
+}
 
 
 .imgright,

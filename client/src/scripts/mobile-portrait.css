@@ -126,7 +126,13 @@
     left: 1%;
     padding-top: 1em;
   }
-
+  .me{
+    
+   min-width: 40%;
+    border-radius: 50%;
+    padding: 1em;
+  
+  }
   .uploadjsonbutton {
     visibility: hidden;
   }

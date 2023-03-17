@@ -117,7 +117,7 @@ class Landing extends Component {
                     <p className="itemp">
                         You have been trying to get well for a while now. You've looked at plenty of YouTube videos you've tried plenty of different diets. You've tried to work out and you experienced different symptoms and then you give up and then you try again and it's never ending and you're not sure because one day you read that something is good for you and then the next this is the very thing that is bad for you! Now you feel frustrated, confused and overwhelmed with your symptoms.
                         <br />
-                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to ah healthy and painfree life is long and this can be confusing.
+                        While an iridology reading is not going to replace an appointment with the doctor, it might help you or your therapist draw an overall picture of your health and provide insight about the priorities and actions to put in place. Most of the time the road to a healthy and painfree life is long and this can be confusing.
 
                     </p>
 
@@ -133,18 +133,25 @@ class Landing extends Component {
                         I have Studied iridology with Dr Morse and Thierry Casasnovas. The type of iridology I have learnt focusses on the endoctrine and lymphatic systems.
 
                     </p>
+                    <div>
                     <h2>The lymphatic system</h2>
+                    <img className ="lymphaticpic"  src="/lymphaticsystem.png" alt="the lymphatic system"></img>
+
                     <p className="itemp">
                         The lymphatic system is a network of vessels, tissues, and organs that helps maintain fluid balance, filters waste and  toxins, and aids the body's immune response. It circulates lymph, a clear fluid that carries waste and immune cells, to the bloodstream for elimination.
                         The lymphatic system plays a very important role in detoxination and immunity.
                     </p>
+                    
+                    </div>
                     <h2>The endocrine system</h2>
+                    <img className="adrenalspic"  src="/adrenalglands.png" alt="the adrenal glands"></img>
                     <p className="itemp">
                         The endocrine system is a network of glands that secrete hormones to regulate various bodily functions such as growth, metabolism, sexual development and function, and response to stress. These hormones act as chemical messengers to target organs and tissues, regulating their activity.
                         <br />
                         In the context of a detox program an iridology reading will help you or your therapist:
 
                     </p>
+                   
                     <ul className="ulp">
                         <li>Uncover hidden health issues that may be contributing to toxic overload</li>
                         <li>Provide insight into a person's unique metabolic and constitutional makeup, which can inform personalized detox protocols</li>
@@ -232,10 +239,11 @@ class Landing extends Component {
                 <fieldset>
                     <legend><h2> Contact </h2></legend>
 
-                    <span id="contact" >
+                    <div id="contact" >
+                    <img className ="me"  src="/me.png" alt="isabelle bidou"></img>
                         <p className="itemp">My name is Isabelle Bidou. If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">isa.bidou@gmail.com</a></p>
 
-                    </span>
+                    </div>
 
                 </fieldset>
                 {(cookie === true || cookie === '' || cookie === null) && <span>{this.renderButton()}</span>}
@@ -263,7 +271,7 @@ class Landing extends Component {
                     This website uses cookies for authentication with google OAuth and payment with Stripe, to enhance the user experience.{" "}
                     If you consent to using cookies you can authentify with your google credentials and order a reading online. Alternatively you can send me an email or book a reading via fiverr.
                     <br />
-                    {(countryCode != 'FR' || countryCode != 'fr') &&
+                    {(countryCode !== 'FR' || countryCode !== 'fr') &&
                         <span className="item">
                             <Link key={'legalnoticelink'}
                                 to={'/legalnotice'}

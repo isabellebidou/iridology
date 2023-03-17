@@ -89,7 +89,6 @@ module.exports = (app) => {
     }
   });
   app.get("/api/raw_eye_pic/:id", async (req, res) => {
-    console.log(req.params.id)
     try {
       const eyepic = await Eye.find({ _id: req.params.id });
       const eyePromises = eyepic.map(async (eye) => {
@@ -98,7 +97,6 @@ module.exports = (app) => {
          
       });
       const url = await Promise.all(eyePromises);
-      console.log(url)
       res.send(url);
     } catch (error) {
       console.error(error);
