@@ -81,7 +81,7 @@ class Landing extends Component {
                 <span className="actionsign button" >
                     Sign in and book your reading today!<br />
                     <span className="closeWindow" onClick={this.handleClose}>x</span>
-                    <a href="/auth/google" ><img alt="google sign in" src="/btn_google_signin_dark_normal_web.png" /></a>
+                    <a href="/auth/google" ><img alt="google sign in" loading="lazy" title="sign in with google" src="/btn_google_signin_dark_normal_web.png" /></a>
                 </span>
             );
 
@@ -122,7 +122,7 @@ class Landing extends Component {
                     </p>
 
 
-                    <img className="imgright" src="/iridologypic.png" alt="iridologist"></img>
+                    <img className="imgright" src="/iridologypic.png" alt="iridologist" loading="lazy" title="iridologist" ></img>
 
                     <p className="itemp">
                         Iridology is the study of the iris, the colored part of the eye, as a means of identifying the areas of your body that need attention. The iris can reveal information about a person's genetic predispositions, organ function, and overall health.
@@ -135,7 +135,7 @@ class Landing extends Component {
                     </p>
                     <div>
                     <h2>The lymphatic system</h2>
-                    <img className ="lymphaticpic"  src="/lymphaticsystem.png" alt="the lymphatic system"></img>
+                    <img className ="lymphaticpic"  src="/lymphaticsystem.png" alt="the lymphatic system" loading="lazy" title="the lymphatic system" ></img>
 
                     <p className="itemp">
                         The lymphatic system is a network of vessels, tissues, and organs that helps maintain fluid balance, filters waste and  toxins, and aids the body's immune response. It circulates lymph, a clear fluid that carries waste and immune cells, to the bloodstream for elimination.
@@ -144,7 +144,7 @@ class Landing extends Component {
                     
                     </div>
                     <h2>The endocrine system</h2>
-                    <img className="adrenalspic"  src="/adrenalglands.png" alt="the adrenal glands"></img>
+                    <img className="adrenalspic"  src="/adrenalglands.png" alt="the adrenal glands" loading="lazy" title="adrenal glands"></img>
                     <p className="itemp">
                         The endocrine system is a network of glands that secrete hormones to regulate various bodily functions such as growth, metabolism, sexual development and function, and response to stress. These hormones act as chemical messengers to target organs and tissues, regulating their activity.
                         <br />
@@ -160,7 +160,7 @@ class Landing extends Component {
 
                     <span id="cant" ></span>
 
-                    <img className="imgleft" src="/iridologypic2.png" alt="eye"></img>
+                    <img className="imgleft" src="/iridologypic2.png" alt="eye" loading="lazy"></img>
                     <p className="itemp">Iridology readings CANNOT diagnose: diseases, blood sugar levels, B 12 levels, cancers, viruses, parasites,pregnancy ...</p>
 
 
@@ -180,7 +180,7 @@ class Landing extends Component {
                         <li>weak areas/organs, congestions in your body,</li>
                         <li>sulfur, drug deposits...</li>
                     </ul>
-                    <img className="imgright" src="/iridologypic3.png" alt="eye"></img>
+                    <img className="imgright" src="/iridologypic3.png" alt="eye" loading="lazy" title="eye"></img>
                     <p className="itemp">Stop wasting your time, book your your iridology reading today and get a real time insight into what is going on in your body. Just sign in, fill in a form with basic information, upload your eye pics and order your reading now.
                     </p>
                     <br />
@@ -240,7 +240,7 @@ class Landing extends Component {
                     <legend><h2> Contact </h2></legend>
 
                     <div id="contact" >
-                    <img className ="me"  src="/me.png" alt="isabelle bidou"></img>
+                    <img className ="me"  src="/me.png" alt="isabelle bidou" loading="lazy" title="Isabelle Bidou"></img>
                         <p className="itemp">My name is Isabelle Bidou. If you have questions, if you would like to book a reading and don't want to do it online... feel free to contact me. <a href="mailto:isa.bidou@gmail.com?subject=iridology information">isa.bidou@gmail.com</a></p>
 
                     </div>

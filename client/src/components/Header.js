@@ -32,9 +32,9 @@ class Header extends Component {
     switch (this.props.auth) {
       case null:
 
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google" /></a></div>
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" loading="lazy" title="sign in with google" alt="sign in with google" /></a></div>
       case false:
-        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" alt="sign in with google" /></a></div>;
+        return <div className="authentication"><a href="/auth/google"><img src="/btn_google_signin_dark_normal_web.png" loading="lazy" title="sign in with google"  alt="sign in with google" /></a></div>;
 
       default:
         return (
@@ -90,7 +90,7 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <a href="/"><img className="logo" src="/iridologylogo.png" alt="logo"></img></a>
+        <a href="/"><img className="logo" src="/iridologylogo.png" alt="logo" loading="lazy" title="logo"></img></a>
         {cookie === true && <span>{this.renderContent()}</span>}
         {cookie === true && <span><MenuButton /></span>}
       </div>
