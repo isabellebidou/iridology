@@ -81,7 +81,7 @@ class Landing extends Component {
                 <span className="actionsign button" >
                     Sign in and book your reading today!<br />
                     <span className="closeWindow" onClick={this.handleClose}>x</span>
-                    <a href="/auth/google" ><img alt="google sign in" loading="lazy" title="sign in with google" src="/btn_google_signin_dark_normal_web.png" /></a>
+                    <a href="/auth/google" ><img alt="google sign in" loading="eager" title="sign in with google" src="/btn_google_signin_dark_normal_web.png" /></a>
                 </span>
             );
 
@@ -108,7 +108,7 @@ class Landing extends Component {
                 </div>
 
                 <h1>
-                    Iridology Readings
+                    Iridology Readings for health and detox purposes
                 </h1>
                 <div className="col">
                     <h2>Why you need an iridology reading to help you on your journey to a healthy life</h2>
@@ -160,7 +160,7 @@ class Landing extends Component {
 
                     <span id="cant" ></span>
 
-                    <img className="imgleft" src="/iridologypic2.png" alt="eye" loading="lazy"></img>
+                    <img className="imgleft" src="/iridologypic2.png" alt="eye" loading="lazy" title="eye"></img>
                     <p className="itemp">Iridology readings CANNOT diagnose: diseases, blood sugar levels, B 12 levels, cancers, viruses, parasites,pregnancy ...</p>
 
 
