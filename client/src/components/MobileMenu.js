@@ -73,6 +73,19 @@ class MobileMenu extends Component {
                             key={'AiOutlineMenu'}
                         /></a>
                     </li>}
+
+                <li><Link key={3 + '/parasitedetox'}
+                    to={'/parasitedetox'}
+                    className="mobilemenuli button"
+                >
+                    GI track detox
+                </Link></li>
+                <li><Link key={3 + '/adrenalfatigue'}
+                    to={'/adrenalfatigue'}
+                    className="mobilemenuli button"
+                >
+                    Adrenal fatigue
+                </Link></li>
             </ul>
         )
     }

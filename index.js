@@ -5,6 +5,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 const enforce = require('express-sslify');
+
 require('./models/User');
 require('./models/EyePic');
 require('./models/UserData');
@@ -28,7 +29,10 @@ const app = express();
 // Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
 // a load balancer (e.g. Heroku). See further comments below
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+if (process.env.NODE_ENV && process.env.NODE_ENV === "production") {
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
 
 //const db = mongoose.connection;
 
