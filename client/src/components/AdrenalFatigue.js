@@ -130,7 +130,7 @@ class AdrenalFatigue extends Component {
 
                     <ul className="ulp">
                         <li> <a href="https://www.abcdelanature.com/p-44-glandes-surrenales-melange-regenere.html"> SurrénoBoost from ABC de la nature</a></li>
-                        <li> <a href="https://www.drrons.com/p/42-Adrenal-grassfed-New-Zealand-freeze-dried-organs-glands-180-capsules.aspx">New Zealand Adrenal Glandulars</a></li>
+                        <li> <a href="https://lddy.no/1fnvg">New Zealand Adrenal Glandulars</a></li>
                         <li> <a href="https://drmorsesherbalhealthclub.com/products/adrenal-support-2oz-tincture?_pos=1&_sid=d9fa9b3cf&_ss=r">Dr Morse's Adrenal formula: Adrenal Support in tincture</a></li>
                         <li> <a href="https://drmorsesherbalhealthclub.com/collections/signature-formulas/products/adrenal-support-90-capsules?_pos=1&_sid=d9fa9b3cf&_ss=r">Dr Morse's Adrenal formula: Adrenal Support in capsule form</a></li>
                         <li> <a href="https://en.anastore.com/articles/PC90_Cordyceps_Sinensis.php?affiliated_id=2877&epi=buy-cordyceps-button">Cordyceps</a></li>
