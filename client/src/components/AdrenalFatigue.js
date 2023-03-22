@@ -6,6 +6,7 @@ import $ from 'jquery';
 import CookieConsent from "react-cookie-consent";
 import { updateCookieAcceptance } from '../actions';
 import { fetchCookieValue } from '../actions';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -48,26 +49,37 @@ class AdrenalFatigue extends Component {
 
         // Extract the country code from the locale
         const countryCode = browserLocale.split('-')[1];
-        return (
+        return (<>
+            <Helmet>
+                <title>How to deal with Adrenal Fatigue and Burn out</title>
+                <meta name="description"
+                    content="Some information about adrenal fatigue and how to handle it with hormesis, rest, a change of habits, spiritual and emotional hyiene, and herbal remedies "
+
+                />
+                <link rel='canonical' href='/adrenalfatigue' />
+            </Helmet>
             <div className="page">
 
                 <div className="navigation-container" role="navigation">
                     <a className="nav-link" href="#symptoms">Symptoms of Adrenal fatigue</a>
                     <a className="nav-link" href="#why">Factors and causes of Adrenal fatigue</a>
-                    <a className="nav-link" href="#how">What can I do to get stronger</a>
+                    <a className="nav-link" href="#how">What can I do to get stronger?</a>
                     <a className="nav-link" href="#products">Supplements for adrenal glands</a>
-                    <a className="nav-link" href="#spititualhygiene">Spiritual hygiene</a>
-                    <a className="nav-link" href="#spiritualdetox">Tools for Spiritual detox</a>
+                    <a className="nav-link" href="#spititualhygiene">Spiritual and emotional hygiene</a>
+                    <a className="nav-link" href="#iridologyadrenal">Iridology and Adrenal fatigue</a>
                 </div>
 
                 <h1>
                     Adrenal Fatigue and Burn out
                 </h1>
+                <p className="disclaimerp">
+                Disclaimer: The content provided on this page is for informational and recreational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Only a licensed medical doctor can diagnose and prescribe medication or treatment. Any information provided on this page should not be relied upon for making decisions about your health or well-being. Before considering any treatment, it is essential to consult with your doctor or therapist to ensure that it is safe and suitable for your specific needs and medical history.
+                </p>
                 <div className="col">
 
                     <h2 id="symptoms">Symptoms of Adrenal fatigue</h2>
                     <p className="itemp" >
-                        There is a wide range of symptoms that may be attributed to adrenal fatigue such as chronique low energy, depression low tolerance to stress, intolerance to cold, When decision-making becomes impossible and when pink boots a strain on you. No energy in the morning to start the day and a paradoxical difficulty to unwind in the evening to relax and find sleep at bed time.
+                        There is a wide range of symptoms that may be attributed to adrenal fatigue such as chronique low energy, depression low tolerance to stress, intolerance to cold, When decision-making becomes impossible and when it puts a strain on you. No energy in the morning to start the day and a paradoxical difficulty to unwind in the evening to relax and find sleep at bed time.
                         When you find yourself exhausted in social situations and you see that they drain a lot of your energy when other people are actually doing okay. When you see that it takes you substantially longer to recover from stressful events than it used to in the past. When you see that you're just not bouncing back.
 
                     </p>
@@ -86,13 +98,14 @@ class AdrenalFatigue extends Component {
                         <li> Hormesis</li>
                         <li> rest</li>
                         <li> change the conditions that led to the adrenals depletion</li>
+                        <li> take natural remedies such as adaptogens or glandulars</li>
                     </ul>
                     <p className="itemp">
                         What is Hormesis? Hormesis is a biological phenomenon in which a low dose of a potentially harmful agent stimulates an adaptive response that results in improved health and increased resistance to future stressors.</p>
-                    <p className="itemp">   
+                    <p className="itemp">
                         In plain words that means that the body should be stimulated, challenged but always within its limits and those limits are different for everyone.
-                        Small challenges followed by periods of rest/ anabolism are necessary to improve adrenals function. The idea is to challenge those limits progressively and learn how to listen to our body and emotions not to be carried away and go too far.
-                        If you challenge yourself within your limits you get stronger, if you challenge yourself too much you are going to deplete your adrenals further and this is detrimental.</p>
+                        Small challenges followed by periods of rest/ anabolism are necessary to improve adrenals function, and the phase of recovery is as important as the active phase, you can never stress that enough. In a nutshell, the idea is to challenge those limits progressively and learn how to listen to our body and emotions not to be carried away and go too far.
+                        If you challenge yourself within your limits and get enough time to recover you get stronger, if you challenge yourself too much without rest you are going to deplete your adrenals further and this is detrimental. Only you know the limits if you tune into yourself and trust your instinct.</p>
                     <p className="itemp">
                         When people need to work on their adrenals, it is necessary to determine honestly what contributed/ contributes to the nervous strain their nervous system is/ was under. Is it strain at work? A family situation? Too much partying? Too much online gaming? Excess in a competitive physical activity? Unhealthy habits? College Exams?
                         Even in the cases where the adrenal state is a result of heredity, an effort will have to be made for the situation to improve. One way to start is learning to relax, unwind and adopting a healthy lifestyle with proper sleep, food and physical activity.
@@ -121,34 +134,38 @@ class AdrenalFatigue extends Component {
                         <li> <a href="https://drmorsesherbalhealthclub.com/products/adrenal-support-2oz-tincture?_pos=1&_sid=d9fa9b3cf&_ss=r">Dr Morse's Adrenal formula: Adrenal Support in tincture</a></li>
                         <li> <a href="https://drmorsesherbalhealthclub.com/collections/signature-formulas/products/adrenal-support-90-capsules?_pos=1&_sid=d9fa9b3cf&_ss=r">Dr Morse's Adrenal formula: Adrenal Support in capsule form</a></li>
                         <li> <a href="https://en.anastore.com/articles/PC90_Cordyceps_Sinensis.php?affiliated_id=2877&epi=buy-cordyceps-button">Cordyceps</a></li>
-                        <li> <a href="https://https://en.anastore.com/articles/NB60_eleutherococcus-siberian_ginseng.php?affiliated_id=2877&epi=buy-eleutero-button">Eleutherococcus</a></li>
-                        <li> <a href="https://https://en.anastore.com/articles/MS20_Schisandra_Chinensis.php?affiliated_id=2877&epi=buy-schisandra-button">Schisandra</a></li>
+                        <li> <a href="https://en.anastore.com/articles/NB60_eleutherococcus-siberian_ginseng.php?affiliated_id=2877&epi=buy-eleutero-button">Eleutherococcus</a></li>
+                        <li> <a href="https://en.anastore.com/articles/MS20_Schisandra_Chinensis.php?affiliated_id=2877&epi=buy-schisandra-button">Schisandra</a></li>
                         <li> <a href="https://en.anastore.com/articles/RR40_rhodiola_rosea.php?affiliated_id=2877&epi=buy-rhodiola-button">Rhodiola</a></li>
                         <li> <a href="https://en.anastore.com/articles/NA15_ashwagandha.php?affiliated_id=2877&epi=buy-ashwaganda-button">Ashwaganda</a></li>
                     </ul>
-                    <h2 id="spititualhygiene">Spriritual hygiene</h2>
+                    <h2 id="spititualhygiene">Spriritual and emotional hygiene</h2>
 
 
                     <p className="itemp">
-                        Yes you did the job. Do you have reformed your diet you have taken steps to reform your lifestyle, you've started a cleaning journey not only cleaning your bowels, your skin and your physical body.. Now is the time to go a little bit deeper.
-                        You've taken care of the toxins in your body, now is the time to take care of the toxins in your soul. What thoughts, behaviours and attitude are actually toxic? How  have  you caused harm to other people? what is toxic or what was toxic in your behaviour and your thought process?</p>
-                    <p className="itemp">     
-                        Now is the time to reflect and think about your thoughts, deeds. It's time To make amends, to repent. Once you find it in yourself to fully take responsibility and see yourself in your integrity both the good and not so good you can really start healing. Life is full of teachings it's not meant to hurt for no reason, there is a lesson to be learnt.
-                        you will start to heal when you gather the strength to look inside and look at the wounds that are hurting your soul. It certainly isn't about judging, it's about acknowledging what is and take responsibility. Think about your thought process as a very smooth healing touch filled with light and love.</p>
-                    <p className="itemp">   
-                        As my mentor Thierry Casasnovas explained In a video, talking about his personal experience of his healing process: he was reflecting about the wrongs he inflicted upon people in the past.  He tells how he made a list of the people he had wronged in the past and how he reached out to them to express he was sorry and to make amends and this is when he says he truly really started healing
-                        We live in a materialistic world that tends to remove, deprive the soul of its reality and it's wrong because your soul is really not only a part of you but may be the only real you. If you're reading these lines, chances are your soul is in pain.
+                        Yes you did the job. You have reformed your diet you have taken steps to reform your lifestyle, you've started a cleansing journey detoxifying your bowels, your skin and your physical body.. Now is the time to go a little bit deeper.
+                        You've started to take care of the toxins in your body, now is the time to take care of the toxins in your soul. What thoughts, behaviours and attitude of yours are actually toxic? How  have  you caused harm to other people? What is toxic or what was toxic in your behaviour and your thought process?</p>
+                    <p className="itemp">
+                        Now is the time to reflect and think about your thought process, patterns, deeds. It's time to make amends, to repent. Once you find it in yourself to fully take responsibility and see yourself in your integrity both the good and not so good you can really start healing. Life is full of teachings it's not meant to hurt for no reason, there is a lesson to be learnt.
+                        you will start to heal when you gather the strength to look inside and look at the wounds that are hurting your soul. It certainly isn't about judging, it's about acknowledging what is and take responsibility. Think about your exploration as a very smooth healing touch filled with light and love.</p>
+                    <p className="itemp">
+                        As my mentor, Thierry Casasnovas, explained in a video, talking about his personal experience of his healing process: he was reflecting about the wrongs he had inflicted upon people in the past.  He goes on explaining how he made a list of the people he had wronged in the past and how he reached out to them to express he was sorry and to make amends and this is when he recalls 'truly really starting healing',
+                        We live in a materialistic world that tends to remove, deprive the soul of its reality and it's wrong because your soul is really not only a part of you but may possibly be the only real you. If you're reading these lines, chances are your soul is in pain.
+                    </p>
+                    <p className="itemp">
+                        The principle behind hollistic healing is that a person is more than the association of a bunch of bones and organs and that no healing is possible if you only tend to the material side of things with reforming our diet and adopting a good physical exercice routine. A person with the perfect diet and perfect physical activity will still have to work on releasing trapped emotions and healing spiritual wounds. Healing is not 'done' when your buy a bottle of pills, it takes a deep comitment in many levels of your life.
+
                     </p>
 
-                    <h2 id="spiritualdetox">Tools for Spiritual detox</h2>
+                    <h2 id="spiritualdetox">Tools for Spiritual and emotional detox</h2>
 
                     <p className="itemp">
-                        There is a number of techniques and therapist that can help you on your spiritual journey detox, you might feel attracted to one another one it's just a matter of really feeling what resonates with you at a given time. You need to find something that feels right to you.
+                        There is a number of techniques and therapists that can help you on your spiritual and emotional journey detox, you might feel attracted to one, or another one. It's just a matter of really feeling what resonates with you at a given time. You need to find something that feels right to you.
                     </p>
                     <ul className="ulp">
                         <li>Repent: make a list of the people you have wronged and make amends</li>
                         <li>meditate</li>
-                        <li>get help from a therapist: energy therapist, reiki healer, chaman...</li>
+                        <li>get help from a therapist: energy therapist, healer, chaman...</li>
                         <li>dance, sing, start a theater class, paint, play a musical instrument, walk in nature, do some gardening, create : give your soul the space it needs to breath and express itself</li>
                         <li>pray, go on a pilgrimage, do charity work...</li>
 
@@ -158,17 +175,30 @@ class AdrenalFatigue extends Component {
 
 
                     <dl>
-                        <dt><a href="https://t.me/rgnr_fr">Thierry Casasnovas</a> has recorded many podcasts and videos about health and wellness (french)</dt>
-                        <dd><a href="https://youtu.be/JoJOdkTL7dE">Ce qui m'a réellement "sauvé la vie" !</a> is the video that inspired me so much about sprititual detox. This is the most important one in my opinion</dd>
-                        <dt><a href="https://boutique.santeglobale.world/">Christian Tal Schaller</a>  has written many books and recorded many audios about health and wellbeing. He provides audio recordings to help you manage emotions and heal past lives traumas.</dt>
+                        <dt><a href="https://www.rgnr.fr/">Thierry Casasnovas</a> </dt>
+                        <dd>has recorded many YouTube videos that are available on different chanels that provide in depth information about the physiology of the human body that is accessible and understandable by everyone (french)</dd>
+                        <dd><a href="https://youtu.be/JoJOdkTL7dE">Ce qui m'a réellement "sauvé la vie" !</a> is the video that inspired me so much about sprititual detox. This is the most inspiring one in the subject, in my opinion</dd>
+                        <dt><a href="https://boutique.santeglobale.world/">Christian Tal Schaller</a>  </dt>
+                        <dd>has written many books and recorded many audios, a lot of them available on YouTube about hollistic healing. He provides audio recordings to help you and give you simple keys and ways to manage your emotions and release past lives traumas.</dd>
                         <dd><a href="https://youtu.be/YjRj-toG5nE">la peur (fear)</a></dd>
                         <dd><a href="https://youtu.be/oYtU88KYf5o">La psychothérapie spirituelle pour guérir le passé</a></dd>
-                        <dt><a href="https://www.natachacalestreme.fr/">Natasha Calestreme</a> Has written two books that contain protocols you can use to heal your soul from wounds that come from your personal experience but also from people in your family and your ancestors he explains how the lack of energy that is impacting your life today might come from a past experience from your ancestors and you might be living, feeling pains that don't actually belong to you. (french)</dt>
+                        <dt><a href="https://www.natachacalestreme.fr/">Natasha Calestreme</a> </dt>
+                        <dd>Has written two books that contain protocols you can use to heal your soul from wounds that come from your personal experience but also from people in your family and your ancestors he explains how the lack of energy that is impacting your life today might come from one of your ancestors past experiences and that you might be living, feeling pains that don't actually belong to you. (french)</dd>
                         <dd> "la clef de votre energie" </dd>
                         <dd> "trouver ma place" </dd>
-                        <dt><a href="https://rachelfortun.wixsite.com/hypnose-rachel-paris">Rachel Fortun</a>  is a therapist who practices esoteric regressive hypnosis. This discipline unveils problems or pains related to an esoteric cause, so the removal of implants and energy cleaning can be performed  (french)</dt>
+                        <dt><a href="https://rachelfortun.wixsite.com/hypnose-rachel-paris">Rachel Fortun</a>  </dt>
+                        <dd>is a therapist who practices esoteric regressive hypnosis. This discipline unveils problems or pains related to an esoteric cause, so the removal of implants and energy cleaning can be performed. She provides therapy sessions. (french)</dd>
 
                     </dl>
+
+                    <h2>Iridology and Adrenal fatigue</h2>
+                    <div id='iridologyadrenal'>
+                    <img className="adrenalspic" src="/iridologyadrenal.png" alt="iris" loading="lazy" title="iris with stress circles and toxicity in the adrenals and kidney areas"></img>
+                        <p className="itemp">
+                        One of the typical markers of adrenal depletion doing an iridology reading would be spotting some toxicity in the kidney and adrenals areas of the iris.
+                        Another marker of adrenal depletion is the appearance of stress rings around the pupils those circles are the result of excessive dilation and striction of the of the pupil.
+                    </p>
+                    </div>
 
                 </div>
 
@@ -229,6 +259,7 @@ class AdrenalFatigue extends Component {
                     </CookieConsent>
                 </div>
             </div>
+        </>
 
         );
     }

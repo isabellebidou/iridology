@@ -6,9 +6,11 @@ import './scripts/mobile-landscape.css';
 import './scripts/mobile-portrait.css';
 
 import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { legacy_createStore ,applyMiddleware} from 'redux';
+
 import reduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
@@ -21,6 +23,8 @@ const store  = legacy_createStore(reducers,{},applyMiddleware(reduxThunk));
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
+    <HelmetProvider>
     <Provider store = {store}><App /></Provider>
+    </HelmetProvider>
 );
 //console.log(process.env.REACT_APP_STRIPE_KEY);

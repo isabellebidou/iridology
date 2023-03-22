@@ -110,6 +110,9 @@ class Landing extends Component {
                 <h1>
                     Iridology Readings for health and detox purposes
                 </h1>
+                <p className="disclaimerp">
+                Disclaimer: The content provided on this page is for informational and recreational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Only a licensed medical doctor can diagnose and prescribe medication or treatment. Any information provided on this page should not be relied upon for making decisions about your health or well-being. Before considering any treatment, it is essential to consult with your doctor or therapist to ensure that it is safe and suitable for your specific needs and medical history.
+                </p>
                 <div className="col">
                     <h2>Why you need an iridology reading to help you on your journey to a healthy life</h2>
 

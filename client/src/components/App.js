@@ -28,8 +28,6 @@ import Completion from "./Completion";
 import LegalNotice from "./LegalNotice";
 import MentionsLegales from "./MentionsLegales";
 import ParasiteDetox from "./ParasiteDetox";
-import SulfurDetox from "./SulfurDetox";
-import SiboDetox from "./SiboDetox";
 import AdrenalFatigue from "./AdrenalFatigue";
 
 
@@ -54,8 +52,6 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/readings" component={Dashboard} />
             <Route exact path="/parasitedetox" component={ParasiteDetox} />
-            <Route exact path="/sulfuredetox" component={SulfurDetox} />
-            <Route exact path="/sibodetox" component={SiboDetox} />
             <Route exact path="/adrenalfatigue" component={AdrenalFatigue} />
             <Route path="/payment" component={Payment } />
             <Route exact path="/completion" component={Completion } />
