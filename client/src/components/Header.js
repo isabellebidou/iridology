@@ -27,6 +27,12 @@ class Header extends Component {
     return (
 
       <div className="authentication">
+        <a key={9 + '/herbs'}
+          href='https://herb.iridologyreadings.com/'
+          className="button"
+        >
+          Isabelle's herbs
+        </a>
         <Link key={3 + '/parasitedetox'}
           to={'/parasitedetox'}
           className="button"
