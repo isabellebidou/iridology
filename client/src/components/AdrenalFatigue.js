@@ -7,6 +7,7 @@ import CookieConsent from "react-cookie-consent";
 import { updateCookieAcceptance } from '../actions';
 import { fetchCookieValue } from '../actions';
 import { Helmet } from 'react-helmet-async';
+import VanillaLazyLoad from "vanilla-lazyload";
 
 
 
@@ -14,20 +15,23 @@ import { Helmet } from 'react-helmet-async';
 
 
 class AdrenalFatigue extends Component {
+
+    constructor(props) {
+        super(props);
+        this.iframeRef = React.createRef();
+      }
     componentDidMount() {
         this.props.fetchCookieValue();
-
+        const lazyLoadInstance = new VanillaLazyLoad({
+            elements_selector: ".lazy",
+          });
     }
-
 
     handleClose(e) {
 
         $(".actionsign").slideToggle();
 
     }
-
-
-
 
     handleAccept = () => {
         updateCookieAcceptance(true);
@@ -73,7 +77,7 @@ class AdrenalFatigue extends Component {
                     Adrenal Fatigue and Burn out
                 </h1>
                 <p className="disclaimerp">
-                Disclaimer: The content provided on this page is for informational and recreational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Only a licensed medical doctor can diagnose and prescribe medication or treatment. Any information provided on this page should not be relied upon for making decisions about your health or well-being. Before considering any treatment, it is essential to consult with your doctor or therapist to ensure that it is safe and suitable for your specific needs and medical history.
+                    Disclaimer: The content provided on this page is for informational and recreational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Only a licensed medical doctor can diagnose and prescribe medication or treatment. Any information provided on this page should not be relied upon for making decisions about your health or well-being. Before considering any treatment, it is essential to consult with your doctor or therapist to ensure that it is safe and suitable for your specific needs and medical history.
                 </p>
                 <div className="col">
 
@@ -178,26 +182,34 @@ class AdrenalFatigue extends Component {
                         <dt><a href="https://www.rgnr.fr/">Thierry Casasnovas</a> </dt>
                         <dd>has recorded many YouTube videos that are available on different chanels that provide in depth information about the physiology of the human body that is accessible and understandable by everyone (french)</dd>
                         <dd><a href="https://youtu.be/JoJOdkTL7dE">Ce qui m'a réellement "sauvé la vie" !</a> is the video that inspired me so much about sprititual detox. This is the most inspiring one in the subject, in my opinion</dd>
+                        <div><iframe className="lazy" width="409" height="230" data-src="https://www.youtube.com/embed/JoJOdkTL7dE" title="Ce qui m&#39;a réellement &quot;sauvé la vie&quot; ! - www.regenere.org" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        </div>
                         <dt><a href="https://boutique.santeglobale.world/">Christian Tal Schaller</a>  </dt>
                         <dd>has written many books and recorded many audios, a lot of them available on YouTube about hollistic healing. He provides audio recordings to help you and give you simple keys and ways to manage your emotions and release past lives traumas.</dd>
                         <dd><a href="https://youtu.be/YjRj-toG5nE">la peur (fear)</a></dd>
                         <dd><a href="https://youtu.be/oYtU88KYf5o">La psychothérapie spirituelle pour guérir le passé</a></dd>
+                        <iframe className="lazy" width="409" height="230" data-src="https://www.youtube.com/embed/oYtU88KYf5o" title="La psychothérapie spirituelle pour guérir le passé" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
                         <dt><a href="https://www.natachacalestreme.fr/">Natasha Calestreme</a> </dt>
                         <dd>Has written two books that contain protocols you can use to heal your soul from wounds that come from your personal experience but also from people in your family and your ancestors he explains how the lack of energy that is impacting your life today might come from one of your ancestors past experiences and that you might be living, feeling pains that don't actually belong to you. (french)</dd>
                         <dd> "la clef de votre energie" </dd>
                         <dd> "trouver ma place" </dd>
+                        <iframe className="lazy" width="409" height="230" data-src="https://www.youtube.com/embed/FmZmTY5_Cbs" title="Présentation des thèmes de &quot;Trouver ma place&quot;" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
                         <dt><a href="https://rachelfortun.wixsite.com/hypnose-rachel-paris">Rachel Fortun</a>  </dt>
                         <dd>is a therapist who practices esoteric regressive hypnosis. This discipline unveils problems or pains related to an esoteric cause, so the removal of implants and energy cleaning can be performed. She provides therapy sessions. (french)</dd>
+                        <iframe className="lazy" width="409" height="230" data-src="https://www.youtube.com/embed/MAsl6s6Y9Do" title="LIVE Télépathie, médiumnité, énergétique, spirituel avec Rachel Fortun, invitée par Severine Cabrit." frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+
 
                     </dl>
 
                     <h2>Iridology and Adrenal fatigue</h2>
                     <div id='iridologyadrenal'>
-                    <img className="adrenalspic" src="/iridologyadrenal.png" alt="iris" loading="lazy" title="iris with stress circles and toxicity in the adrenals and kidney areas"></img>
+                        <img className="adrenalspic" src="/iridologyadrenal.png" alt="iris" loading="lazy" title="iris with stress circles and toxicity in the adrenals and kidney areas"></img>
                         <p className="itemp">
-                        One of the typical markers of adrenal depletion doing an iridology reading would be spotting some toxicity in the kidney and adrenals areas of the iris.
-                        Another marker of adrenal depletion is the appearance of stress rings around the pupils those circles are the result of excessive dilation and striction of the of the pupil.
-                    </p>
+                            One of the typical markers of adrenal depletion doing an iridology reading would be spotting some toxicity in the kidney and adrenals areas of the iris.
+                            Another marker of adrenal depletion is the appearance of stress rings around the pupils those circles are the result of excessive dilation and striction of the of the pupil.
+                        </p>
                     </div>
 
                 </div>

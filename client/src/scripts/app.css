@@ -83,7 +83,12 @@ input,
   top: 5%;
   right: 5%;
 }
-
+iframe{
+  padding: 1em;
+  display: block;
+  
+  
+}
 .loginbutton,
 .registerbutton,
 .usersbutton,

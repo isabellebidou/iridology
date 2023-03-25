@@ -19,7 +19,7 @@ class Footer extends Component {
       <div className="footer">
         <hr />
         <span className="item">Isabelle Bidou - copyright {new Date().getFullYear()}</span>
-        {(countryCode != 'FR' || countryCode != 'fr') &&
+        {(countryCode !== 'FR' || countryCode !== 'fr') &&
           <span className="item">
             <Link key={'legalnoticelink'}
               to={'/legalnotice'}
