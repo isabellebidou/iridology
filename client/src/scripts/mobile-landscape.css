@@ -43,7 +43,7 @@
     padding-bottom: 1em;
     padding-left: 1em;
   }
-  .grid-container {
+  .grid-container , .shop-grid-container{
     color: rgba(32, 162, 104, 0.89);
     margin: auto;
     display: grid;
@@ -252,5 +252,9 @@
 
  
 
+  }
+  .itemp{
+    padding-left: 2%;
+    padding-right: 2%;
   }
 }

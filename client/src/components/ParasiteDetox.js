@@ -53,6 +53,7 @@ class ParasiteDetox extends Component {
                 <link rel='canonical' href='/parasitedetox' />
             </Helmet>
             <div className="page">
+                <h1>Gastro Intestinal(GI) track detox</h1>
 
                 <div className="navigation-container">
                     <a className="nav-link" href="#why">Why you need to detoxify your GI track</a>

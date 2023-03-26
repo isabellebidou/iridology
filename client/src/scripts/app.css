@@ -75,7 +75,6 @@ input,
   padding: 2%;
   margin: auto;
 }
-
 .authentication,
 .edit {
   position: fixed;
@@ -134,7 +133,10 @@ input {
 
 }
 
+.productimg{
 
+
+}
 
 
 
@@ -526,6 +528,18 @@ h3 {
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
 
 }
+.imgsolo {
+  margin: 1em;
+  opacity: 0.7;
+  display: block;
+  margin: auto auto;
+  width: 30%;
+  height: auto;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+
+}
 
 
 
@@ -592,7 +606,17 @@ p {
   padding: 1em;
   overflow-y: auto;
 }
-
+.shop-grid-container {
+  margin: auto;
+  color: rgb(90, 149, 79);
+  display: grid;
+  align-content: center;
+  grid-template-columns: auto auto auto;
+  grid-gap: 5px;
+  /* background-color: #2196F3;  Comment this out later to remove the background color when not needed */
+  padding: 1em;
+  overflow-y: auto;
+}
 .sets-grid-container {
   margin: auto;
   color: rgba(248, 245, 245, 0.89);
@@ -610,8 +634,12 @@ label {
   /*background-color: rgba(255, 255, 255, 0.4);*/
   border-radius: 1%;
 }
+.affiliatelogo{
+  width: 20%;
+  padding: 2em;
+}
 .left{float:left}
-.right{float:rights}
+.right{float:right}
 .button,
 button {
   background-color: rgba(248, 245, 245, 0.89);

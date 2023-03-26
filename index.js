@@ -86,6 +86,7 @@ db().then(() => {
     require('./routes/linkRoutes')(app);
     require('./routes/offerRoutes')(app);
     require('./routes/starReviewRoutes')(app);
+    require('./routes/productRoutes')(app);
 
     if (process.env.NODE_ENV == 'production') {
       // express will serve up production assets

@@ -86,6 +86,12 @@ class MobileMenu extends Component {
                 >
                     Adrenal fatigue
                 </Link></li>
+                <li><Link key={4 + '/shop'}
+                    to={'/shop'}
+                    className="mobilemenuli button"
+                >
+                    affiliate shop
+                </Link></li>
                 <a key={9 + '/herbs'}
                     href='https://herb.iridologyreadings.com/'
                     className="mobilemenuli button"

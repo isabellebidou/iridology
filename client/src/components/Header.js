@@ -33,6 +33,12 @@ class Header extends Component {
         >
           Isabelle's herbs
         </a>
+        <Link key={4 + '/shop'}
+          to={'/shop'}
+          className="button"
+        >
+          Affiliate shop
+        </Link>
         <Link key={3 + '/parasitedetox'}
           to={'/parasitedetox'}
           className="button"

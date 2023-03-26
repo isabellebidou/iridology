@@ -29,6 +29,8 @@ import LegalNotice from "./LegalNotice";
 import MentionsLegales from "./MentionsLegales";
 import ParasiteDetox from "./ParasiteDetox";
 import AdrenalFatigue from "./AdrenalFatigue";
+import Shop from "./Shop";
+import ProductList from './products/ProductList';
 
 
 
@@ -51,6 +53,7 @@ class App extends Component {
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/readings" component={Dashboard} />
+            <Route exact path="/shop" component={Shop} />
             <Route exact path="/parasitedetox" component={ParasiteDetox} />
             <Route exact path="/adrenalfatigue" component={AdrenalFatigue} />
             <Route path="/payment" component={Payment } />

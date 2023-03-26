@@ -63,6 +63,7 @@ class AdrenalFatigue extends Component {
                 <link rel='canonical' href='/adrenalfatigue' />
             </Helmet>
             <div className="page">
+                <h1>Adrenal fatigue</h1>
 
                 <div className="navigation-container" role="navigation">
                     <a className="nav-link" href="#symptoms">Symptoms of Adrenal fatigue</a>
