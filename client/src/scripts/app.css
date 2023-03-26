@@ -637,6 +637,15 @@ label {
 .affiliatelogo{
   width: 20%;
   padding: 2em;
+  display: block;
+  margin: 0 auto;
+
+  
+
+}
+.affiliatelogocontainer{
+  width: 80%;
+
 }
 .left{float:left}
 .right{float:right}

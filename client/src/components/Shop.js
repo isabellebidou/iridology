@@ -24,16 +24,16 @@ const Shop = () => {
         <div className="page">
             <h1>Affiliate Shop</h1>
             <div className="navigation-container">
-                <a className="nav-link" href="#stones">ÅtayatÉ</a>
-                <a className="nav-link" href="#products">Anastore products</a>
-                <a className="nav-link" href="#morse">Dr Morse's Herbal formulas</a>
-                <a className="nav-link" href="#ron">Dr Ron's Adrenals glandulars</a>
+                <a className="nav-link" href="#stones"><img className="affiliatelogocontainer" src="https://cdn.shopify.com/s/files/1/0655/4094/8233/files/atayate_droit_corrige.png?v=1676308709&width=200" alt="atayate" loading="lazy" title="atayate logo" width></img></a>
+                <a className="nav-link" href="#products"><img className="affiliatelogocontainer" src="https://affiliation.anastore.com/en/images/logo_header.png" alt="anastore logo" loading="lazy" title="anastore logo" width></img></a>
+                <a className="nav-link" href="#morse"><img className=" affiliatelogocontainer" src="https://cdn.shopify.com/s/files/1/0725/6913/files/dr-morses-herbal-health-logo_200x.png?v=1613745566" alt="dr morse logo" loading="lazy" title="dr morse logo" width></img></a>
+                <a className="nav-link" href="#ron"><img className=" affiliatelogocontainer" src="https://www.drrons.com/images/Logo-Header.png" alt="dr ron logo" loading="lazy" title="dr ron logo" width></img></a>
 
 
             </div>
             <p className="disclaimerp">Disclaimer: The content provided on this page is for informational and recreational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Only a licensed medical doctor can diagnose and prescribe medication or treatment. Any information provided on this page should not be relied upon for making decisions about your health or well-being. Before considering any treatment, it is essential to consult with your doctor or therapist to ensure that it is safe and suitable for your specific needs and medical history.</p>
             <fieldset>
-                <legend><h2> ÅtayatÉ Stones  and bracelets</h2></legend>
+                <legend><h2> ÅtayatÉ Stones and bracelets</h2></legend>
                 <div>
                     <img className="affiliatelogo" src="https://cdn.shopify.com/s/files/1/0655/4094/8233/files/atayate_droit_corrige.png?v=1676308709&width=200" alt="atayate" loading="lazy" title="atayate logo" width></img>
                     <p className="itemp">
@@ -52,7 +52,8 @@ const Shop = () => {
 
                     <p className="itemp">
                         Anastore products are manufactured in France and Belgium and are delivered throughout Europe from distributions centres in Spain and France.
-                    </p></div>
+                    </p>
+                </div>
                 <span id="products" >
                 </span>
                 <ProductList />

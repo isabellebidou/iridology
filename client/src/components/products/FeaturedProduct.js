@@ -12,7 +12,7 @@ function FeaturedProduct() {
             'https://www.atayate.com/products/pierre-de-coherence?bg_ref=Poap8MPk0Z'
         ],
         description: [
-            'The Pierre de Coherence® is a technology of Light and Coherence of a Stone to the Field of Universal Coherence, which was de-covered and implemented by Marc Boucher de Lignon 30 years ago.The Pierre de Coherence® is a unique technology that validates the latest discoveries in quantum physics and epigenetics (consistent with the work of Dr. Bruce Lipton).   Thus, this technology put at the service of collective harmony, allows everyone to be consistent with himself and with the Universe. Stone preparation involves a careful selection to promote balance and harmony in the users body.'
+            'The Pierre de Coherence® (Consistency Stone) is a technology of Light and Coherence of a Stone to the Field of Universal Coherence, which was de-covered and implemented by Marc Boucher de Lignon 30 years ago.The Pierre de Coherence® is a unique technology that validates the latest discoveries in quantum physics and epigenetics (consistent with the work of Dr. Bruce Lipton).   Thus, this technology put at the service of collective harmony, allows everyone to be consistent with himself and with the Universe. Stone preparation involves a careful selection to promote balance and harmony in the users body.'
         ],
         'a:price': ['90 euros'],
         'a:image_link': [
