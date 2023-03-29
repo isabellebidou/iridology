@@ -24,7 +24,7 @@ function FeaturedProduct() {
         title: ['Bracelet de Cohérence®'],
         id: ['bracelet'],
         link: [
-            'https://www.atayate.com/colections/bracelets-de-coherence®'
+            'https://www.atayate.com/collections/bracelets-de-coherence®'
         ],
         description: [
             'Prestigious bracelets in gold and natural stone beads, created by Tayata and designed in our workshop.They exist as supports of Coherence, which you can always carry around.While for some the bracelet is easier to wear than a Stone, Coherence® Bracelets are a complement to your Coherence® Stone.We have created them to manifest the subtle and wonderful harmony of the Coherence that they bear and that acts upon your being'
