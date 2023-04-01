@@ -94,7 +94,10 @@
     margin-bottom: 10%;
 
   }
-
+  .video{
+    width:90% ;
+    height:auto 
+  }
   fieldset {
     padding-top: 0em;
   }

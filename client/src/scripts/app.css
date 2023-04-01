@@ -443,7 +443,10 @@ h3 {
 
 
 }
-
+.video{
+  width:"409" ;
+  height:"230" 
+}
 .maincontent {
   color: rgb(196, 17, 17);
   position: absolute;
