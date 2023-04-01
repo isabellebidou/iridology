@@ -93,7 +93,7 @@ const Shop = () => {
                 <Glandular />
 
             </fieldset>
-            <fieldset>
+            
                
 
                 <div>
@@ -106,7 +106,7 @@ const Shop = () => {
                 </span>
                 <AmazonProducts />
 
-            </fieldset>
+           
 
 
         </div>

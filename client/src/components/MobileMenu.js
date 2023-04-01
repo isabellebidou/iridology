@@ -90,7 +90,7 @@ class MobileMenu extends Component {
                     to={'/shop'}
                     className="mobilemenuli button"
                 >
-                    affiliate shop
+                    Affiliate shop
                 </Link></li>
                 <a key={9 + '/herbs'}
                     href='https://herb.iridologyreadings.com/'

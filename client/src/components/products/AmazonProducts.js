@@ -44,6 +44,7 @@ function AmazonProducts() {
                 <a className="nav-link" href="#sp"><img className=" affiliatelogocontainer" src="/spanishflag.png" alt="Spanish flag" loading="lazy" title="Spanish flag" ></img></a>
                 <a className="nav-link" href="#uk"><img className=" affiliatelogocontainer" src="/ukflag.png" alt="UK flag" loading="lazy" title="UK flag" ></img></a>
             </div>
+            <fieldset>
             <h2 id="us">Products shipping from the USA</h2>
             <div className="shop-grid-container">
 
@@ -65,7 +66,9 @@ function AmazonProducts() {
                     })
                 }
             </div>
-            <hr />
+            </fieldset>
+ 
+            <fieldset>
             <h2 id="fr">Products shipping from France</h2>
             <p className='itemp'>
                 Ceci est un programme d’affiliation. Je recevrai une commission si vous achetez l’un des articles via les liens ci-dessous.
@@ -92,7 +95,10 @@ function AmazonProducts() {
                     })
                 }
             </div>
-            <hr />
+            </fieldset>
+            
+      
+            <fieldset>
             <h2 id="sp">Products shipping from Spain</h2>
             <p className='itemp'>
                 Este es un programa de afiliados. Recibiré una comisión si usted compra cualquiera de los artículos a través de los enlaces de abajo
@@ -118,7 +124,9 @@ function AmazonProducts() {
                     })
                 }
             </div>
-            <hr />
+            </fieldset>
+   
+            <fieldset>
             <h2 id="uk">Products shipping from the UK</h2>
             <p className='itemp'>
                 This is an affiliate program. I will receive a commission if you buy any of the articles via the links below.
@@ -145,6 +153,7 @@ function AmazonProducts() {
                     })
                 }
             </div>
+            </fieldset>
         </section>
     );
 }
