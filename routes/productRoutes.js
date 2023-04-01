@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const logError = require("../services/utils");
 const morseformulas = require("../services/morseformulas.json");
+const amazonproducts = require("../services/amazonproducts.json");
 const https = require('https');
 const { parseStringPromise } = require('xml2js');
 const bodyParser = require("body-parser");
@@ -13,7 +14,7 @@ const options = {
 module.exports = (app) => {
     app.get("/api/products", async (req, res) => {
         const products = [];
-        const productNames = ['Moulin Peugeot Modèle Paris Antique','boswellia', 'astragale', 'Acérola', 'Vitamine D3 - 5 μg (200 UI)', 'Cranberry Bio - 360 mg ', 'Anis étoilé bio', 'Ginkgo Biloba - 60 mg / 120 gélules', 'Ginkgo Biloba - 60 mg / 240 gélules','Gotu Kola', 'Psyllium Bio en poudre', 'Citron', 'Cacao cru bio', 'Ashwagandha', 'Chardon-marie', 'Curcuma', 'Cannelle', 'Schisandra chinensis', 'Ashwagandha Bio','Aloe Vera Bio en gélules', 'CordycepsPrime', 'Rhodiola Bio', 'Rhodiola Rosea - 400 mg', 'Saule Blanc' ]
+        const productNames = ['Moulin Peugeot Modèle Paris Antique','boswellia', 'astragale', 'Acérola', 'Vitamine D3 - 5 μg (200 UI)', 'Cranberry Bio - 360 mg ', 'Anis étoilé bio', 'Ginkgo Biloba - 60 mg / 120 gélules', 'Ginkgo Biloba - 60 mg / 240 gélules','Gotu Kola', 'Psyllium Bio en poudre', 'Huile Essentielle de Citron Bio', 'Cacao cru bio', 'Ashwagandha', 'Chardon-marie', 'Curcuma', 'Cannelle', 'Schisandra chinensis', 'Ashwagandha Bio','Aloe Vera Bio en gélules', 'CordycepsPrime', 'Rhodiola Bio', 'Rhodiola Rosea - 400 mg', 'Saule Blanc' ]
 
         const request = https.request(options, async response => {
             let data = '';
@@ -45,8 +46,8 @@ module.exports = (app) => {
     app.get("/api/morseformulas", bodyParser.json(), async (req, res, next) => {
           try {
             morseformulas.sort((a, b) => {
-              if (a.herbName < b.herbName) return -1;
-              if (a.herbName > b.herbName) return 1;
+              if (a.title < b.title) return -1;
+              if (a.title > b.title) return 1;
               return 0;
             });
           } catch (e) {
@@ -59,6 +60,23 @@ module.exports = (app) => {
             logError(error)
         }
       });
+      app.get("/api/amazonproducts", bodyParser.json(), async (req, res, next) => {
+        try {
+            amazonproducts.sort((a, b) => {
+            if (a.title < b.title) return -1;
+            if (a.title > b.title) return 1;
+            return 0;
+          });
+        } catch (e) {
+          logError(e)
+          
+        }
+      try {
+          res.send(amazonproducts);
+      } catch (error) {
+          logError(error)
+      }
+    });
 };
 
 

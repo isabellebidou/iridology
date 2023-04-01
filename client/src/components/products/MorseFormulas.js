@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 
 
-function Glandular() {
+function MorseFormulas() {
 
     const [items, setItems] = useState([]);
     useEffect(() => {
@@ -31,7 +31,7 @@ function Glandular() {
                 {
                     items.map(product => {
                         return (
-                            <div className="itemp photoThumbnail" key={product.title} id={product.title}>
+                            <div className="itemp photoThumbnail" key = {product.title+Math.floor(Math.random() * 10)} id={product.title}>
                                 <img className="imgright" src={product.image} alt={product.title} loading="lazy" title={product.title} width="200"></img>
                                 <a href={product.url} key={product.title + 'link'} /// what to put here?
                                 >
@@ -50,5 +50,5 @@ function Glandular() {
     );
 }
 
-export default Glandular
+export default MorseFormulas
 

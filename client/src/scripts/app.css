@@ -513,7 +513,18 @@ h3 {
   padding: 2em;
 
 }
+.amazonproductpic {
+  margin: 1em;
+  opacity: 0.7;
+  display: block;
+  margin: auto auto;
+  width: auto;
+  max-height: 250px;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
 
+}
 
 .imgright,
 .imgleft {
@@ -645,6 +656,7 @@ label {
 }
 .affiliatelogocontainer{
   width: 80%;
+  opacity: 0.7;
 
 }
 .left{float:left}

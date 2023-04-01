@@ -30,7 +30,7 @@ import MentionsLegales from "./MentionsLegales";
 import ParasiteDetox from "./ParasiteDetox";
 import AdrenalFatigue from "./AdrenalFatigue";
 import Shop from "./Shop";
-import ProductList from './products/ProductList';
+
 
 
 
