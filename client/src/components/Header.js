@@ -101,7 +101,7 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <a href="/"><img className="logo" src="/iridologyby2.png" alt="logo" loading="eager" title="iridology by isabelle logo"></img></a>
+        <a href="/"><img className="logo" src="/iridologyby.png" alt="logo" loading="eager" title="iridology by isabelle logo"></img></a>
 
         {cookie === true && <span>{this.renderContent()}</span>}
         {cookie === true && <span><MenuButton /></span>}
