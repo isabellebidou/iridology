@@ -1,3 +1,11 @@
+
+:root {
+  --green: #49a049;
+  --greenhover: #96ccba;
+  --background: #F3ECEC;
+}
+
+
 body,#root
 {
 overflow:hidden;
@@ -14,7 +22,7 @@ p {
 }
 .userdatadl dd {
   font-size: larger;
-  color: #45a049;
+  color: var(--green)
 }
 
 .col {
@@ -53,7 +61,7 @@ hr {
   height: 100%;
   margin-top: 4%;
 
-  background-color: rgba(243, 236, 236, 0.9);
+  background-color: rgba(var(--background), 0.9);
 
 }
 
@@ -506,6 +514,15 @@ h3 {
   text-decoration: none;
   color: #45a049;
 }
+.nav-link_no_border {
+  display: block;
+  padding: 8px;
+  font-style: italic;
+  text-align: center;
+  text-decoration: none;
+  
+
+}
 
 .lymphaticpic{
   float:right;
@@ -667,6 +684,16 @@ label {
 .affiliatelogocontainer{
   width: 80%;
   opacity: 0.7;
+
+}
+.affiliateflagcontainer{
+  width: 100%;
+  opacity: 0.7;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  
 
 }
 .left{float:left}

@@ -39,10 +39,10 @@ function AmazonProducts() {
     return (
         <section>
             <div className="navigation-container">
-                <a className="nav-link" href="#us"><img className="affiliatelogocontainer" src="/usaflag.png" alt="USA flag" loading="lazy" title="USA flag" ></img></a>
-                <a className="nav-link" href="#fr"><img className="affiliatelogocontainer" src="/frenchflag.png" alt="French flag" loading="lazy" title="French flag" ></img></a>
-                <a className="nav-link" href="#sp"><img className=" affiliatelogocontainer" src="/spanishflag.png" alt="Spanish flag" loading="lazy" title="Spanish flag" ></img></a>
-                <a className="nav-link" href="#uk"><img className=" affiliatelogocontainer" src="/ukflag.png" alt="UK flag" loading="lazy" title="UK flag" ></img></a>
+                <a className="nav-link_no_border" href="#us"><img className="affiliateflagcontainer" src="/usaflag.png" alt="USA flag" loading="lazy" title="go to USA section" ></img></a>
+                <a className="nav-link_no_border" href="#fr"><img className="affiliateflagcontainer" src="/frenchflag.png" alt="French flag" loading="lazy" title="go to French section" ></img></a>
+                <a className="nav-link_no_border" href="#sp"><img className=" affiliateflagcontainer" src="/spanishflag.png" alt="Spanish flag" loading="lazy" title="go to Spanish section" ></img></a>
+                <a className="nav-link_no_border" href="#uk"><img className=" affiliateflagcontainer" src="/ukflag.png" alt="UK flag" loading="lazy" title="go to UK section" ></img></a>
             </div>
             <fieldset>
             <h2 id="us">Products shipping from the USA</h2>
