@@ -57,7 +57,7 @@ class ParasiteDetox extends Component {
 
                 <div className="navigation-container">
                     <a className="nav-link" href="#why">Why you need to detoxify your GI track</a>
-                    <a className="nav-link" href="#how">what can I do to detoxify my GI track?</a>
+                    <a className="nav-link" href="#how">4 Steps to detox your GI track</a>
                     <a className="nav-link" href="#hygiene">Colon and Small Intestines hygiene</a>
                     <a className="nav-link" href="#products">Remedies to help you detoxify</a>
                     <a className="nav-link" href="#iridologyGI">Iridology and the GI track</a>
@@ -100,7 +100,7 @@ class ParasiteDetox extends Component {
 
                     </p>
                     <div>
-                        <h2 id="how">What can I do to detox my GI track?</h2>
+                        <h2 id="how">4 Steps to detox your GI track</h2>
                         <img className="adrenalspic" src="/colon.png" alt="the colon and small intestines" loading="lazy" title="the colon and small intestines"></img>
 
                         <p className="itemp">
@@ -116,7 +116,7 @@ class ParasiteDetox extends Component {
                         <li> If you are at the beginning of your detox trip chances are that your GI track is inflamed and full of mucus and agglomulations. Purging and cleaning is very important</li>
                         <li> It might be very hard and take a long time to completely get rid of parasites at this stage you can use herbal remedies to get rid of the parasites</li>
                     </ul>
-                    <h2>Speed up bowel movement</h2>
+                    <h2>#1 Speed up bowel movement</h2>
 
 
                     <p className="itemp">
@@ -131,17 +131,18 @@ class ParasiteDetox extends Component {
                     </dl>
 
 
-                    <h2>Intermitent fasting, minimally processed organic food and juicing</h2>
+                    <h2>#2 Diet Adjustments: Intermitent fasting, minimally processed organic food and juicing</h2>
+                    <p className="itemp">Stay away from refined sugars</p>
                     <p className="itemp">
                         Reducing the burden you put on your GI track is essential, adopting intermittent fasting will have a good effect on your digestion because it enables your system to clean it self.</p>
                     <p className="itemp">
-                        If you are used to eating  highly processed food you might want to reconsider and eat good quality minimally processed products with organic fruit and vegetables, good quality animal products (grassfed meat, non pasteurized raw dairy...) if and when you consume them. </p>
+                        If you are used to eating highly processed food you might want to reconsider and eat good quality minimally processed products with organic fruit and vegetables, good quality animal products (grassfed meat, non pasteurized raw dairy...) if and when you consume them. </p>
                     <p className="itemp">
                         If your GI track is inflamed you might want to avoid eating large amounts of raw vegetables because the fiber they contain might irritate your bowel walls, Alternatively you will benefit greatly of the alcalizing effect of the same raw vegetables juiced.
                     </p>
                     <img className="imgright" src="/worm.png" alt="worm" loading="lazy" title="worm"></img>
 
-                    <h2 id="hygiene">Colon and Small Intestines hygiene</h2>
+                    <h2 id="hygiene">#3 Colon and Small Intestines hygiene procedures</h2>
 
                     <p className="itemp">
                         In an ideal environment with the ideal diet the GI track cleans itself, the trouble is that if you constantly have a fridge with food at your disposal and if you constantly have cravings and you're eating too often and not giving your GI track enough time to rest, the GI track misses the opportunity to clean itself and waste accumulates on the walls.
@@ -158,6 +159,9 @@ class ParasiteDetox extends Component {
                         <li>a set of colonics with a health practitioner (colon)</li>
                         <li>enemas with distilled water or decoctions of plants using an <a href="https://www.amazon.com/Enema-Kit-Home-and-Travel/dp/B07TXVFTT3 " > enema kit </a>(colon)</li>
                         <li>castor oil purge (small intestines and colon)</li>
+                    </ul>
+                    <h2 id="hygiene">#4 Supplements and remedies</h2>
+                    <ul className="ulp" id="products">
                         <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-g-general-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's Parasite G formula</a> for parasite detoxing</li>
                         <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-m-micro-organisms-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's Parasite M formula</a> for micro-organisms detoxing</li>
                         <li><a href="https://drmorsesherbalhealthclub.com/products/gi-broom-360-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's GI broom formula</a> for cleasing the GI track</li>

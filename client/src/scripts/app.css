@@ -3,6 +3,8 @@
   --green: #49a049;
   --greenhover: #96ccba;
   --background: #F3ECEC;
+  --strongpink: #cd2ca0;
+  --darkpurple: #7f5f87;
 }
 
 
@@ -188,7 +190,7 @@ input {
 } */
 fieldset {
 
-  border: 1px dotted green;
+
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -201,7 +203,8 @@ legend {
   color: rgba(193, 217, 188);
   font-size: 1.5em;
   z-index: 1.5;
-  font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  font-family: "Dancing Script","Brush Script MT", "Lucida Console", Monaco, monospace;
+
 }
 
 .detailinput {
@@ -295,7 +298,7 @@ legend {
   color: rgba(25, 98, 194, 0.356);
   font-size: 1em;
   z-index: 1.5;
-  font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  font-family: "Dancing Script","Brush Script MT", "Lucida Console", Monaco, monospace;
 }
 .closePopupWindow {
   position: fixed;
@@ -344,7 +347,8 @@ legend {
   font-size: 1.5em;
   text-decoration: none;
   z-index: 1;
-  font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  font-family: "Dancing Script","Brush Script MT", "Lucida Console", Monaco, monospace;
+
 }
 
 html {
@@ -366,12 +370,14 @@ h1 {
 h1,
 h2,
 h3 {
-  color: green
+  color: var(--green);
+  
 }
 
 h2,
 h3 {
   font-size: larger;
+  
 }
 
 .header {
@@ -398,8 +404,9 @@ h3 {
   font-size: 3em;
   top: 1%;
   z-index: 1;
-  font-family: "Brush Script MT", "Lucida Console", Monaco, monospace;
+  font-family: "Dancing Script","Brush Script MT", "Lucida Console", Monaco, monospace;
 }
+
 
 .authentication>*,
 #addcredits {

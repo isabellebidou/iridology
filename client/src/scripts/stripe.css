@@ -3,7 +3,7 @@
 :root {
   --light-grey: #f6f9fc;
   --dark-terminal-color: #0a2540;
-  --accent-color: #635bff;
+  --accent-color: #7f5f87;
   --radius: 3px;
 }
 
@@ -50,11 +50,11 @@ small {
 fieldset,
 input,
 select {
-  border: 1px solid #efefef;
+  border: 1px solid #f3ecec;
 }
 
 #payment-form {
-  border: #f6f9fc solid 1px;
+  border: #f3ecec solid 1px;
   border-radius: var(--radius);
   padding: 20px;
   margin: 20px 0;
@@ -65,8 +65,8 @@ select {
 #messages {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New";
   display: none; /* hide initially, then show once the first message arrives */
-  background-color: #0a253c;
-  color: #00d924;
+  background-color: #7f58f7;
+  color: #45a049;
   padding: 20px;
   margin: 20px 0;
   border-radius: var(--radius);

@@ -19,12 +19,12 @@ class AdrenalFatigue extends Component {
     constructor(props) {
         super(props);
         this.iframeRef = React.createRef();
-      }
+    }
     componentDidMount() {
         this.props.fetchCookieValue();
         const lazyLoadInstance = new VanillaLazyLoad({
             elements_selector: ".lazy",
-          });
+        });
     }
 
     handleClose(e) {
@@ -68,7 +68,7 @@ class AdrenalFatigue extends Component {
                 <div className="navigation-container" role="navigation">
                     <a className="nav-link" href="#symptoms">Symptoms of Adrenal fatigue</a>
                     <a className="nav-link" href="#why">Factors and causes of Adrenal fatigue</a>
-                    <a className="nav-link" href="#how">What can I do to get stronger?</a>
+                    <a className="nav-link" href="#how">4 steps to combat Adrenal Fatigue</a>
                     <a className="nav-link" href="#products">Supplements for adrenal glands</a>
                     <a className="nav-link" href="#spititualhygiene">Spiritual and emotional hygiene</a>
                     <a className="nav-link" href="#iridologyadrenal">Iridology and Adrenal fatigue</a>
@@ -98,30 +98,33 @@ class AdrenalFatigue extends Component {
 
                     </p>
                     <img className="imgright" src="/fatigue.png" alt="tired woman" loading="lazy" title="tired woman"></img>
-                    <h2 id="how">What can I do to get stronger?</h2>
+                    <h2 id="how">4 steps to combat Adrenal Fatigue</h2>
                     <ul className="ulp">
+                        <li> Rest</li>
+                        <li> Change the conditions that led to the adrenals depletion</li>
                         <li> Hormesis</li>
-                        <li> rest</li>
-                        <li> change the conditions that led to the adrenals depletion</li>
-                        <li> take natural remedies such as adaptogens or glandulars</li>
+                        <li> Take natural remedies such as adaptogens or glandulars</li>
                     </ul>
+                    <h2>#1: Rest</h2>
+                    <p className="itemp">
+                    Rest is essential for managing adrenal fatigue because the adrenal glands are responsible for producing hormones that regulate our body's response to stress. Chronic stress can cause the adrenals to become overworked, leading to fatigue, anxiety, and other symptoms. Rest allows the adrenals to recover and regenerate, promoting hormone balance and overall well-being.
+                    </p>
+                    <h2>#2: reform the conditions/ environment that led to the state of depletion</h2>
+                    <p className="itemp">
+                        When people need to work on their adrenals, it is necessary to determine honestly what contributed/ contributes to the nervous strain their nervous system is/ was under. Is it strain at work? A family situation? Too much partying? Too much online gaming? Excess in a competitive physical activity? Unhealthy habits? College Exams?
+                        Even in the cases where the adrenal state is a result of heredity, an effort will have to be made for the situation to improve. One way to start is learning to relax, unwind and adopting a healthy lifestyle with proper sleep, food and physical activity.
+                    </p>
+                    <h2>#3: Hormesis</h2>
                     <p className="itemp">
                         What is Hormesis? Hormesis is a biological phenomenon in which a low dose of a potentially harmful agent stimulates an adaptive response that results in improved health and increased resistance to future stressors.</p>
                     <p className="itemp">
                         In plain words that means that the body should be stimulated, challenged but always within its limits and those limits are different for everyone.
                         Small challenges followed by periods of rest/ anabolism are necessary to improve adrenals function, and the phase of recovery is as important as the active phase, you can never stress that enough. In a nutshell, the idea is to challenge those limits progressively and learn how to listen to our body and emotions not to be carried away and go too far.
                         If you challenge yourself within your limits and get enough time to recover you get stronger, if you challenge yourself too much without rest you are going to deplete your adrenals further and this is detrimental. Only you know the limits if you tune into yourself and trust your instinct.</p>
-                    <p className="itemp">
-                        When people need to work on their adrenals, it is necessary to determine honestly what contributed/ contributes to the nervous strain their nervous system is/ was under. Is it strain at work? A family situation? Too much partying? Too much online gaming? Excess in a competitive physical activity? Unhealthy habits? College Exams?
-                        Even in the cases where the adrenal state is a result of heredity, an effort will have to be made for the situation to improve. One way to start is learning to relax, unwind and adopting a healthy lifestyle with proper sleep, food and physical activity.
-                    </p>
-
-                    <p className="itemp">
 
 
-                    </p>
                     <div>
-                        <h2 id="products">Supplements for adrenal glands</h2>
+                        <h2 id="products">#4: Supplements for adrenal glands</h2>
                         <img className="adrenalspic" src="/adrenalglands.png" alt="the adrenal glands" loading="lazy" title="the lymphatic system"></img>
 
                         <p className="itemp">
@@ -181,24 +184,24 @@ class AdrenalFatigue extends Component {
 
                     <div>
                         <h2><a href="https://www.rgnr.fr/">Thierry Casasnovas</a> </h2>
-                        <p className = "itemp">has recorded many YouTube videos that are available on different chanels that provide in depth information about the physiology of the human body that is accessible and understandable by everyone (french)</p>
-                        <p className = "itemp"><a href="https://youtu.be/JoJOdkTL7dE">Ce qui m'a réellement "sauvé la vie" !</a> is the video that inspired me so much about sprititual detox. This is the most inspiring one in the subject, in my opinion</p>
+                        <p className="itemp">has recorded many YouTube videos that are available on different chanels that provide in depth information about the physiology of the human body that is accessible and understandable by everyone (french)</p>
+                        <p className="itemp"><a href="https://youtu.be/JoJOdkTL7dE">Ce qui m'a réellement "sauvé la vie" !</a> is the video that inspired me so much about sprititual detox. This is the most inspiring one in the subject, in my opinion</p>
                         <div><iframe className="lazy video" width="409" height="230" data-src="https://www.youtube.com/embed/JoJOdkTL7dE" title="Ce qui m&#39;a réellement &quot;sauvé la vie&quot; ! - www.regenere.org" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                         </div>
                         <h2><a href="https://boutique.santeglobale.world/">Christian Tal Schaller</a>  </h2>
-                        <p className = "itemp">has written many books and recorded many audios, a lot of them available on YouTube about hollistic healing. He provides audio recordings to help you and give you simple keys and ways to manage your emotions and release past lives traumas.</p>
-                        <p className = "itemp"><a href="https://youtu.be/YjRj-toG5nE">la peur (fear)</a></p>
-                        <p className = "itemp"><a href="https://youtu.be/oYtU88KYf5o">La psychothérapie spirituelle pour guérir le passé</a></p>
+                        <p className="itemp">has written many books and recorded many audios, a lot of them available on YouTube about hollistic healing. He provides audio recordings to help you and give you simple keys and ways to manage your emotions and release past lives traumas.</p>
+                        <p className="itemp"><a href="https://youtu.be/YjRj-toG5nE">la peur (fear)</a></p>
+                        <p className="itemp"><a href="https://youtu.be/oYtU88KYf5o">La psychothérapie spirituelle pour guérir le passé</a></p>
                         <iframe className="lazy video" width="409" height="230" data-src="https://www.youtube.com/embed/oYtU88KYf5o" title="La psychothérapie spirituelle pour guérir le passé" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                         <h2><a href="https://www.natachacalestreme.fr/">Natasha Calestreme</a> </h2>
-                        <p className = "itemp">Has written two books that contain protocols you can use to heal your soul from wounds that come from your personal experience but also from people in your family and your ancestors he explains how the lack of energy that is impacting your life today might come from one of your ancestors past experiences and that you might be living, feeling pains that don't actually belong to you. (french)</p>
-                        <p className = "itemp"> "la clef de votre energie" </p>
-                        <p className = "itemp"> "trouver ma place" </p>
+                        <p className="itemp">Has written two books that contain protocols you can use to heal your soul from wounds that come from your personal experience but also from people in your family and your ancestors he explains how the lack of energy that is impacting your life today might come from one of your ancestors past experiences and that you might be living, feeling pains that don't actually belong to you. (french)</p>
+                        <p className="itemp"> "la clef de votre energie" </p>
+                        <p className="itemp"> "trouver ma place" </p>
                         <iframe className="lazy video" width="409" height="230" data-src="https://www.youtube.com/embed/FmZmTY5_Cbs" title="Présentation des thèmes de &quot;Trouver ma place&quot;" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                         <h2><a href="https://rachelfortun.wixsite.com/hypnose-rachel-paris">Rachel Fortun</a>  </h2>
-                        <p className = "itemp">is a therapist who practices esoteric regressive hypnosis. This discipline unveils problems or pains related to an esoteric cause, so the removal of implants and energy cleaning can be performed. She provides therapy sessions. (french)</p>
+                        <p className="itemp">is a therapist who practices esoteric regressive hypnosis. This discipline unveils problems or pains related to an esoteric cause, so the removal of implants and energy cleaning can be performed. She provides therapy sessions. (french)</p>
                         <iframe className="lazy video" width="409" height="230" data-src="https://www.youtube.com/embed/MAsl6s6Y9Do" title="LIVE Télépathie, médiumnité, énergétique, spirituel avec Rachel Fortun, invitée par Severine Cabrit." frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
 
