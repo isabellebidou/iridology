@@ -544,6 +544,7 @@ h3 {
   float:right;
   max-width: 15%;
   border-radius: 50%;
+  border-color: var(--darkpurple);;
   padding: 2em;
 
 }
