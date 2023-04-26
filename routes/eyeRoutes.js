@@ -140,7 +140,7 @@ module.exports = (app) => {
     eye.save().then((res) => {
       sendNewEyeUploadEmail(req.file.filename, req.user.id, eye.side, 'uploads/' + req.file.filename).then(
         fs.unlinkSync('uploads/' + req.file.filename)).catch((err) => { logError(err) });
-    }).catch((err) => { //logError(err) });
+    }).catch((err) => {  });
 
 
     try {
