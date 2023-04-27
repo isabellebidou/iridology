@@ -175,7 +175,7 @@ module.exports = (app) => {
     });
 
     eye.save().then(() => {
-      sendNewEyeUploadEmail(imageName, user, side)
+    //  sendNewEyeUploadEmail(imageName, user, side)
       try {
         res.send(eye);
       } catch (error) {
@@ -206,7 +206,7 @@ module.exports = (app) => {
     });
 
     eye.save().then(() => {
-      sendNewEyeUploadEmail(imageName, user, side)
+      //sendNewEyeUploadEmail(imageName, user, side)
       try {
         res.send(eye);
       } catch (error) {
@@ -237,7 +237,7 @@ module.exports = (app) => {
       });
   
       eye.save().then(() => {
-        sendNewEyeUploadEmail(imageName, user, side)
+        //sendNewEyeUploadEmail(imageName, user, side)
         try {
           res.send(eye);
         } catch (error) {
@@ -267,7 +267,7 @@ module.exports = (app) => {
     });
 
     eye.save().then(() => {
-      sendNewEyeUploadEmail(imageName, user, side)
+      //sendNewEyeUploadEmail(imageName, user, side)
       try {
         res.send(eye);
       } catch (error) {
