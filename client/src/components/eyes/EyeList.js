@@ -15,7 +15,7 @@ function EyeList({ eyes, fetchUserEyePics }) {
 
   useEffect(() => {
     fetchUserEyePics();
-  }, [fetchUserEyePics]);
+  }, [fetchUserEyePics, eyes]);
 
   const [visibility, setVisibility] = useState("hidden");
   const [editMode, setEditMode] = useState(false);
