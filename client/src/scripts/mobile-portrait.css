@@ -397,6 +397,10 @@
     padding-left: 0%;
     padding-right: 0%;
   }
+  .item{
+    max-width: 100%;
+  }
+
   
 
   

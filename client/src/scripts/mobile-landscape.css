@@ -257,4 +257,8 @@
     padding-left: 2%;
     padding-right: 2%;
   }
+  .item{
+    max-height: 100%;
+    max-width: 100%;
+  }
 }
