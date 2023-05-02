@@ -26,7 +26,8 @@ module.exports = (app) => {
         });
         link.save().then((res) => {
 
-        }).catch((err) => { logError(err) });
+        }).catch((err) => { //logError(err) 
+        });
         try {
             res.send(link);
         } catch (error) {

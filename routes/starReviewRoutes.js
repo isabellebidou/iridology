@@ -30,7 +30,8 @@ module.exports = (app) => {
     });
     starreview.save().then((res) => {
 
-    }).catch((err) => { logError(err) });
+    }).catch((err) => { //logError(err)
+     });
     try {
 
       req.user.hasReviews = true;

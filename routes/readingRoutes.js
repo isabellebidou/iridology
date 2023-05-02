@@ -39,7 +39,7 @@ const sendTestEmail = () => {
     }
     transporter.sendMail(mail_option, (error, info) => {
       if (error) {
-        logError(error)
+        //logError(error)
         return reject({message: `an error has occured`})
       }
       return resolve({message: `email sent successfully`})
@@ -50,7 +50,7 @@ const sendTestEmail = () => {
 
 }
 
-const sendNewReadingEmail = (offer, user, order) => {
+/*const sendNewReadingEmail = (offer, user, order) => {
   return new Promise((resolve, reject) => {
     var transporter = nodemailer.createTransport({
       service:'gmail',
@@ -68,7 +68,7 @@ const sendNewReadingEmail = (offer, user, order) => {
     }
     transporter.sendMail(mail_option, (error, info) => {
       if (error) {
-        logError(error)
+        //logError(error)
         return reject({message: `an error has occured`})
       }
       return resolve({message: `email sent successfully`})
@@ -77,7 +77,7 @@ const sendNewReadingEmail = (offer, user, order) => {
 
   })
 
-}
+}*/
 app.get("/api/testemail",  (req, res) => {
 
   sendTestEmail()
@@ -98,7 +98,7 @@ app.get("/api/testemail",  (req, res) => {
       const readings = await Reading.find({ dateCompleted: { $ne: null }, _user: req.user.id });
       res.send(readings);
     } catch (err) {
-      logError(err);
+      //logError(err);
       res.status(500).send('Server error');
     }
 
@@ -127,13 +127,13 @@ app.get("/api/testemail",  (req, res) => {
         }
       ]).exec((err, users) => {
         if (err) {
-          logError(err);
+          //logError(err);
         } else {
           res.send(users);
         }
       });
     } catch (err) {
-      logError(err);
+      //logError(err);
       res.status(500).send('Server error');
     }
     res.send(readings);
@@ -155,11 +155,12 @@ app.get("/api/testemail",  (req, res) => {
     reading.save().then((res) => {
       
 
-    }).catch((err) => { logError(err) });
+    }).catch((err) => { //logError(err) 
+    });
     try {
 
       req.user.numberOfReadings += 1;
-      sendNewReadingEmail(offerId,req.user.id, reading._id)
+      //sendNewReadingEmail(offerId,req.user.id, reading._id)
       const user = await req.user.save();
       res.send(reading);
 

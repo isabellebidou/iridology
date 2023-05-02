@@ -25,7 +25,8 @@ module.exports = (app) => {
         });
         offer.save().then((res) => {
 
-        }).catch((err) => { logError(err) });
+        }).catch((err) => { //logError(err) 
+        });
         try {
             res.send(offer);
         } catch (error) {

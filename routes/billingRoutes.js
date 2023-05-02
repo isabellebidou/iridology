@@ -69,8 +69,8 @@ module.exports = app => {
 
       const paymentIntent = await stripe.paymentIntents.create({
         currency: "usd",
-        amount: 8000,
-        description: '80 euros for 1 credit',
+        amount: 9500,
+        description: '95 euros for 1 credit',
         automatic_payment_methods: { enabled: true },
         customer: customerId,
       });

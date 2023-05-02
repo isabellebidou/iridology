@@ -51,13 +51,13 @@ module.exports = (app) => {
               return 0;
             });
           } catch (e) {
-            logError(e)
+            //logError(e)
             
           }
         try {
             res.send(morseformulas);
         } catch (error) {
-            logError(error)
+            //logError(error)
         }
       });
       app.get("/api/amazonproducts", bodyParser.json(), async (req, res, next) => {
@@ -68,13 +68,13 @@ module.exports = (app) => {
             return 0;
           });
         } catch (e) {
-          logError(e)
+          //logError(e)
           
         }
       try {
           res.send(amazonproducts);
       } catch (error) {
-          logError(error)
+          //logError(error)
       }
     });
 };

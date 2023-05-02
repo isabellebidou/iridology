@@ -51,7 +51,8 @@ module.exports = (app) => {
   
     try {
       
-      userdata.save().then((res) => {}).catch((err) => {logError(err)});
+      userdata.save().then((res) => {}).catch((err) => {//logError(err)
+      });
       res.send(userdata);
       
     } catch (error) {

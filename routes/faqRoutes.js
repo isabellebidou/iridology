@@ -24,7 +24,8 @@ module.exports = (app) => {
         });
         faq.save().then((res) => {
 
-        }).catch((err) => { logError(err) });
+        }).catch((err) => { //logError(err)
+         });
         try {
             res.send(faq);
         } catch (error) {

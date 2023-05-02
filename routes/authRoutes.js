@@ -22,7 +22,7 @@ module.exports = (app) => {
       req.logout();
     res.redirect("/");
     } catch (error) {
-      logError(error)
+      //logError(error)
     }
     
   });
@@ -34,7 +34,7 @@ module.exports = (app) => {
       }
       res.send(req.user);
     } catch (error) {
-      logError(error)
+      //logError(error)
       
     }
     
