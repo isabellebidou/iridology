@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const keys = require('../config/keys');
 const requireLogin = require('../middlewares/requireLogin');
+const { uploadFile, deleteFile, deleteSeveral, getObjectSignedUrl } = require('../services/s3.js');
+const upload = require("../config/storage-config");
 
 
 const { response } = require('express');
@@ -14,82 +16,90 @@ const logError = require("../services/utils");
 module.exports = (app) => {
   const Reading = mongoose.model('readings');
 
-const sendTestEmail = () => {
-  return new Promise((resolve, reject) => {
+  const sendTestEmail = () => {
+    return new Promise((resolve, reject) => {
 
-    var transporter = nodemailer.createTransport({
-      service:'gmail',
-      auth:{
-        type: 'OAuth2',
-        user:'isa.bidou@gmail.com',
-        pass: keys.nodemailer,
-        clientId: keys.googleClientID,
-        clientSecret: keys.googleClientSecret,
-        refreshToken: keys.refreshToken
-      },
-      from: 'isa.bidou@gmail.com',
-    })
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: 'isa.bidou@gmail.com',
+          pass: keys.nodemailer,
+          clientId: keys.googleClientID,
+          clientSecret: keys.googleClientSecret,
+          refreshToken: keys.refreshToken
+        },
+        from: 'isa.bidou@gmail.com',
+      })
 
-    const mail_option = {
-      from:'isa.bidou@gmai.com',
-      to: 'isa.bidou@gmai.com',
-      subject: 'new reading booked !',
-      text: 'a reading was booked'
+      const mail_option = {
+        from: 'isa.bidou@gmai.com',
+        to: 'isa.bidou@gmai.com',
+        subject: 'new reading booked !',
+        text: 'a reading was booked'
 
-    }
-    transporter.sendMail(mail_option, (error, info) => {
-      if (error) {
-        //logError(error)
-        return reject({message: `an error has occured`})
       }
-      return resolve({message: `email sent successfully`})
+      transporter.sendMail(mail_option, (error, info) => {
+        if (error) {
+          //logError(error)
+          return reject({ message: `an error has occured` })
+        }
+        return resolve({ message: `email sent successfully` })
+
+      })
 
     })
+
+  }
+
+  /*const sendNewReadingEmail = (offer, user, order) => {
+    return new Promise((resolve, reject) => {
+      var transporter = nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+          user:'isa.bidou@gmail.com',
+          pass: keys.nodemailer
+        }
+      })
+  
+      const mail_option = {
+        from:'isa.bidou@gmai.com',
+        to: 'isa.bidou@gmai.com',
+        subject: 'new reading booked',
+        text: 'a reading was booked. offer id: '+ offer + ' user id: '+user+ ' reading id: '+order
+      }
+      transporter.sendMail(mail_option, (error, info) => {
+        if (error) {
+          //logError(error)
+          return reject({message: `an error has occured`})
+        }
+        return resolve({message: `email sent successfully`})
+  
+      })
+  
+    })
+  
+  }*/
+  app.get("/api/testemail", (req, res) => {
+
+    sendTestEmail()
+      .then(response => res.send(response.message))
+      .catch(error => res.status(500).send(error.message))
 
   })
-
-}
-
-/*const sendNewReadingEmail = (offer, user, order) => {
-  return new Promise((resolve, reject) => {
-    var transporter = nodemailer.createTransport({
-      service:'gmail',
-      auth:{
-        user:'isa.bidou@gmail.com',
-        pass: keys.nodemailer
-      }
-    })
-
-    const mail_option = {
-      from:'isa.bidou@gmai.com',
-      to: 'isa.bidou@gmai.com',
-      subject: 'new reading booked',
-      text: 'a reading was booked. offer id: '+ offer + ' user id: '+user+ ' reading id: '+order
-    }
-    transporter.sendMail(mail_option, (error, info) => {
-      if (error) {
-        //logError(error)
-        return reject({message: `an error has occured`})
-      }
-      return resolve({message: `email sent successfully`})
-
-    })
-
-  })
-
-}*/
-app.get("/api/testemail",  (req, res) => {
-
-  sendTestEmail()
-  .then(response => res.send(response.message))
-  .catch(error => res.status(500).send(error.message))
-
-})
 
   app.get("/api/readings", requireLogin, async (req, res) => {
 
     const readings = await Reading.find(({ _user: req.user.id }))
-    res.send(readings);
+    const readingPromises = readings.map(async (reading) => {
+      // const path = await getObjectSignedUrl( video.videoPath );
+      //https://youtu.be/EIYrhbBk7do?list=PL0X6fGhFFNTcU-_MCPe9dkH6sqmgfhy_M
+      if (reading.pdfPath) { reading.pdfUrl = await getObjectSignedUrl(reading.pdfPath); }
+
+      return reading;
+    });
+    const readingsWithUrls = await Promise.all(readingPromises);
+    res.send(readingsWithUrls);
 
   })
 
@@ -103,7 +113,34 @@ app.get("/api/testemail",  (req, res) => {
     }
 
   })
+  app.post("/api/document_upload", requireLogin, upload.single("document"), async (req, res) => {
+    console.log(req.file)
 
+    const reading = await Reading.findById(req.body.readingId);
+    const pdfName = 'pdf/' + req.user.id + '/' + req.body.readingId;
+    await uploadFile(req.file.buffer, pdfName, req.file.mimetype)
+    reading.pdfPath = pdfName;
+    reading.dateCompleted = Date.now();
+
+    await reading.save();
+    try {
+      res.send(reading);
+    } catch (error) {
+      res.status(422).send(error);
+    }
+
+  });
+  app.get("/api/download_pdf/:path", requireLogin, async (req, res) => {
+    try {
+
+      const url = await getObjectSignedUrl(req.params.path);
+      console.log(url)
+      res.send(url)
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("An error occurred while downloading the PDF.");
+    }
+  });
 
   app.get("/api/readings/pending", requireLogin, async (req, res) => {
     try {
@@ -141,7 +178,15 @@ app.get("/api/testemail",  (req, res) => {
   })
   app.get("/api/readings/:id", requireLogin, async (req, res) => {
     const readings = await Reading.find({ _user: req.params.id });
-    res.send(readings);
+    const readingPromises = readings.map(async (reading) => {
+      // const path = await getObjectSignedUrl( video.videoPath );
+      //https://youtu.be/EIYrhbBk7do?list=PL0X6fGhFFNTcU-_MCPe9dkH6sqmgfhy_M
+      if (reading.pdfPath) { reading.pdfUrl = await getObjectSignedUrl(reading.pdfPath); }
+
+      return reading;
+    });
+    const readingsWithUrls = await Promise.all(readingPromises);
+    res.send(readingsWithUrls);
 
   })
   app.post("/api/readings", requireLogin, async (req, res) => {
@@ -153,7 +198,7 @@ app.get("/api/testemail",  (req, res) => {
       dateSent: Date.now()
     });
     reading.save().then((res) => {
-      
+
 
     }).catch((err) => { //logError(err) 
     });

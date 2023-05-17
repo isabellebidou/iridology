@@ -29,18 +29,30 @@ class UserList extends Component {
 
         <div key={user._id} className=" " onClick={() => this.handleClick(user._id)}>
 
-          <p className="itemp photoThumbnail">
+          <p className="itemp photoThumbnail bkground">
 
-            type: {user.type} email: {user.email}
-            
-            <br />id: {user._id}
-            {user.data.length > 0 &&
-            <span>
-            <br />{user.data[0].fname} {user.data[0].lname} 
-            <br />dob: {new Date(user.data[0].dob).toLocaleDateString()}
+            type: {user.type} <br />email: {user.email}<br />
 
-            <br />
-            </span>}
+            user id: {user._id}<br />
+            {user.readings.length >0 &&
+            <h2>Readings booked</h2>
+    }
+            <ul>
+              {user.readings.map((reading) => (
+                <li key={reading._id}>
+                  <span>Expectations: {reading.expectations}</span> <br />
+                  <span>date booked: {new Date(reading.dateSent).toLocaleDateString()}</span> <br />
+                  {!reading.dateCompleted &&
+                    <span className="flag">New Feedback booked! </span>
+                  }
+                  {reading.dateCompleted &&
+                    <span>date Completed: {new Date(reading.dateCompleted).toLocaleDateString()}</span>
+                  }
+
+                  {/* Render other properties as needed */}
+                </li>
+              ))}
+            </ul>
           </p>
 
         </div>
@@ -55,7 +67,11 @@ class UserList extends Component {
     return (
       <div className="page">
 
-        <div className="grid-container">{this.renderUsers()}</div>
+        <fieldset>
+          <legend><h2> Users Dashboard </h2></legend>
+
+          <div className="grid-container">{this.renderUsers()}</div>
+        </fieldset>
 
       </div>
     );

@@ -8,7 +8,9 @@ const readingSchema = new Schema ({
     _offer: {type:Schema.Types.ObjectId, ref: 'Offer' },
     dateSent: Date,
     dateCompleted: {type: Date, default:null},
-    expectations:String
+    expectations:String,
+    pdfPath : String,
+    pdfUrl: String
     
 })
 

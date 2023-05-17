@@ -66,7 +66,7 @@ class App extends Component {
             <ProtectedRoute exact path="/eyes/new" component={Eyes} />
             <ProtectedRoute exact path="/users/dashboard" component={SelectedUserDashboard} />
            
-            <Route exact path="/users" component={UserList} />
+            <Route exact path="/users" component={AdminDashboard} />
             <Route exact path="/faq/list" component={FaqList} />
             <Route exact path="/link/list" component={LinkList} />
             <Route exact path="/faq/add" component={FaqForm} />

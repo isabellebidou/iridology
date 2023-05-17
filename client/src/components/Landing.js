@@ -21,6 +21,9 @@ import { fetchCookieValue } from '../actions';
 class Landing extends Component {
     componentDidMount() {
         this.props.fetchCookieValue();
+        $(".logo").removeClass("logo").addClass("logo_mounted");
+
+       
 
     }
 
@@ -91,6 +94,7 @@ class Landing extends Component {
     render() {
         const { cookie } = this.props;
          // Get the browser locale
+
     const browserLocale = navigator.language || navigator.userLanguage;
 
     // Extract the country code from the locale

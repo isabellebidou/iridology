@@ -20,22 +20,27 @@ function ReadingList() {
                 <legend><h2> Iridology Readings </h2></legend>
                 <div className="grid-container">
 
-                    {items.length > 0 &&
+
+                {items.length > 0 &&
                         items.map(reading => {
                             return (
-
-
                                 <div key={reading._id} className="item photoThumbnail">
+                                    
+                                    <br />{reading.expectations} <br />reading ordered on:{' '}
+                                    {new Date(reading.dateSent).toLocaleDateString()}
 
-                                    {reading.expectations} reading ordered on: {new Date(reading.dateSent).toLocaleDateString()}
+                                    {reading.pdfPath && reading.pdfUrl && (
+                                            <div>
 
+                                                <a href={reading.pdfUrl}>
+                                                    document ready
+                                                </a>
+                                               
+                                            </div>
+                                        )}
                                 </div>
-
-
                             );
-
-                        })
-                    }
+                        })}
                 </div>
                 {items.length === 0 &&
                     <p className='itemp'>You don't have any reading yet, fill in the required data before you book your reading</p>
