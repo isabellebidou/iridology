@@ -123,11 +123,11 @@ class ParasiteDetox extends Component {
                         Reduce your intake or avoid grains and starches because they are inflammatory (gluten) and act like glue inside your bowels. You can use some plants that accelerate motility like cascara sagrada or triphala. Dr Morse has a range of formulas called GI renew that you can choose from according to the number of bowel movements you have per day: </p>
                     <dl>
                         <dt>Dr Morse's GI renew formulas</dt>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-1-normal-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 1</a> Intended for those with normal bowel movements with proper diet (10% discount)</dd>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-2-mild-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 2</a> Beneficial for those that move their bowels once per day and need gentle moving power (10% discount)</dd>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-3-moderate-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 3</a> Suggested if bowels are not moving every day or if one occasionally misses a day (10% discount)</dd>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-4-strong-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 4</a> Consistently moving bowels every other day (10% discount)</dd>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-5-super-mover-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 5</a> Bowel movements occur every two days or more (10% discount)</dd>
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-1-normal-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 1</a> Intended for those with normal bowel movements with proper diet (discount)</dd>
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-2-mild-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 2</a> Beneficial for those that move their bowels once per day and need gentle moving power (discount)</dd>
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-3-moderate-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 3</a> Suggested if bowels are not moving every day or if one occasionally misses a day (discount)</dd>
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-4-strong-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 4</a> Consistently moving bowels every other day (discount)</dd>x
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-5-super-mover-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 5</a> Bowel movements occur every two days or more (discount)</dd>
                     </dl>
 
 
@@ -162,9 +162,9 @@ class ParasiteDetox extends Component {
                     </ul>
                     <h2 id="hygiene">#4 Supplements and remedies</h2>
                     <ul className="ulp" id="products">
-                        <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-g-general-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's Parasite G formula</a> for parasite detoxing</li>
-                        <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-m-micro-organisms-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's Parasite M formula</a> for micro-organisms detoxing</li>
-                        <li><a href="https://drmorsesherbalhealthclub.com/products/gi-broom-360-capsules?sca_ref=3405638.5oYeVyhXwf">get a 10% discount on Dr. Morse 's GI broom formula</a> for cleasing the GI track</li>
+                        <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-g-general-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a discount on Dr. Morse 's Parasite G formula</a> for parasite detoxing</li>
+                        <li><a href="https://drmorsesherbalhealthclub.com/products/parasite-m-micro-organisms-90-capsules?sca_ref=3405638.5oYeVyhXwf">get a discount on Dr. Morse 's Parasite M formula</a> for micro-organisms detoxing</li>
+                        <li><a href="https://drmorsesherbalhealthclub.com/products/gi-broom-360-capsules?sca_ref=3405638.5oYeVyhXwf">get a discount on Dr. Morse 's GI broom formula</a> for cleasing the GI track</li>
                         <li><a href="https://www.abcdelanature.com/p-29-coup-de-balai-melange-regenere.html">abc de la nature: coup de balais</a> for for cleasing the GI track</li>
                         <li><a href="https://www.abcdelanature.com/p-70-parasites-melange-plantes.html">abc de la nature: Parasites (Intestins)</a> for parasites and micro-organisms</li>
                         <li>bentonite/montmorillonite clay with water away from meals</li>
