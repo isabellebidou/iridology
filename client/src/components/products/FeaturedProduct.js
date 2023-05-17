@@ -27,7 +27,7 @@ function FeaturedProduct() {
             'https://www.atayate.com/collections/bracelets-de-coherence®'
         ],
         description: [
-            'Prestigious bracelets natural stone beads, created by Tayata and designed in our workshop.They exist as supports of Coherence, which you can always carry around.While for some the bracelet is easier to wear than a Stone, Coherence® Bracelets are a complement to your Coherence® Stone.We have created them to manifest the subtle and wonderful harmony of the Coherence that they bear and that acts upon your being'
+            'Prestigious bracelets in natural stone beads, created by Tayata and designed in our workshop.They exist as supports of Coherence, which you can always carry around.While for some the bracelet is easier to wear than a Stone, Coherence® Bracelets are a complement to your Coherence® Stone.We have created them to manifest the subtle and wonderful harmony of the Coherence that they bear and that acts upon your being'
         ],
         'a:price': ['75 euros'],
         'a:image_link': [
