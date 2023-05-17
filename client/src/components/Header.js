@@ -9,11 +9,14 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
+import Logo from "./Logo";
 
+// <a href="/"><img className="logo" src="/seagul.png" alt="logo" loading="eager" title="iridology by isabelle logo"></img></a>
 class Header extends Component {
 
   componentDidMount() {
     this.props.fetchCookieValue();
+
   }
 
 
@@ -101,7 +104,8 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <a href="/"><img className="logo" src="/seagul.png" alt="logo" loading="eager" title="iridology by isabelle logo"></img></a>
+        
+       <Logo />
 
         {cookie === true && <span>{this.renderContent()}</span>}
         {cookie === true && <span><MenuButton /></span>}

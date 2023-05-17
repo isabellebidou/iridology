@@ -27,17 +27,18 @@ class UserList extends Component {
     return this.props.users.map(user => {
       return (
 
-        <div key={user._id} className=" " onClick={() => this.handleClick(user._id)}>
+        <div key={user._id} className="bkground" onClick={() => this.handleClick(user._id)} >
 
-          <p className="itemp photoThumbnail bkground">
+          <p className="itemp photoThumbnail ">
 
             type: {user.type} <br />email: {user.email}<br />
 
             user id: {user._id}<br />
+            </p>
             {user.readings.length >0 &&
-            <h2>Readings booked</h2>
+            <h2 className="itemp">Readings booked</h2>
     }
-            <ul>
+            <ul className=" itemp">
               {user.readings.map((reading) => (
                 <li key={reading._id}>
                   <span>Expectations: {reading.expectations}</span> <br />
@@ -53,7 +54,7 @@ class UserList extends Component {
                 </li>
               ))}
             </ul>
-          </p>
+          
 
         </div>
 

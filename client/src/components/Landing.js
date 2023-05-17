@@ -21,7 +21,7 @@ import { fetchCookieValue } from '../actions';
 class Landing extends Component {
     componentDidMount() {
         this.props.fetchCookieValue();
-        $(".logo").removeClass("logo").addClass("logo_mounted");
+       // $(".logo").removeClass("logo").addClass("logo_mounted");
 
        
 

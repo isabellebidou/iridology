@@ -336,33 +336,19 @@ legend {
 }
 
 .logo {
-
-  -webkit-transition-duration: 4s;
-	-moz-transition-duration: 4s;
-	-o-transition-duration: 4s;
-	transition-duration: 4s;
+  transition: 4s;
   margin-top: 0.2%;
   margin-left: 0%;
   height: 2%;
-  opacity: 2%;
-  
-  
-  
-
+  opacity: 0.02;
 }
-.logo_mounted {
-  -webkit-transition-duration: 4s;
-	-moz-transition-duration: 4s;
-	-o-transition-duration: 4s;
-	transition-duration: 4s;
 
+.logo_mounted {
+  transition: 4s;
   margin-top: 0.2%;
   margin-left: 4%;
-  opacity: 100%;
+  opacity: 1;
   height: 98%;
-  
-  
-
 }
 
 
