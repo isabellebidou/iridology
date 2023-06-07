@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { AiFillFilePdf } from "react-icons/ai";
 
 
 
@@ -33,7 +34,10 @@ function ReadingList() {
                                             <div>
 
                                                 <a href={reading.pdfUrl}>
-                                                    document ready
+                                                <AiFillFilePdf
+                                                    style={{ color: "#7f5f87" }}
+                                                    key={'AiOutlineMenu'}
+                                                />
                                                 </a>
                                                
                                             </div>
