@@ -69,7 +69,11 @@ const Shop = () => {
                     <img className=" affiliatelogo" src="https://cdn.shopify.com/s/files/1/0725/6913/files/dr-morses-herbal-health-logo_200x.png?v=1613745566" alt="dr morse logo" loading="lazy" title="dr morse logo" ></img>
 
                     <p className="itemp">
-                        Click on the links below to order and get a 10% discount. Alternatively you can use the coupon : AF.UPPROMOTE.COM to order from Dr. Morse's website directly.
+                        You can use the coupon : <span className="coupon">AF.UPPROMOTE.COM</span> to order from Dr. Morse's website directly. Please visit : 
+                        <a href="https://drmorsesherbalhealthclub.com/">Dr Morse's herbal health club</a>
+                        <br /> 
+                        Alternatively  you can click on the links below to order.
+                        <br /> 
                         Beware, the formulas are shipping from the US. International shipping costs DO NOT include Import fees, Duties, or Taxes. Not shipping to all countries.
                     </p></div>
 

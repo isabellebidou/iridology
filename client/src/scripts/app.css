@@ -1066,4 +1066,9 @@ dd {
   display: block;
 
 }
+.coupon {
+  font-size: large;
+  color: var(--green);
+  background-color: var(--background)
 
+}
