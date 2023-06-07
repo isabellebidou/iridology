@@ -47,8 +47,8 @@ function AmazonProducts() {
             <fieldset>
                 <h2 id="us">Products shipping from the USA</h2>
                 <p className="itemp">
-                    follow this link to look for <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=e22b79e6d0e5957f3b1583fb268441f7&camp=1789&creative=9325&node=23675621011">Supplements</a>
-                    <br />follow this link to look for <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=0c0973c425489d37f8cb72fd0ea2a1dc&camp=1789&creative=9325&node=3760941">Health Care</a>
+                    follow this link to look for <a target="_blank" rel="noreferrer" href="https://www.amazon.com/b?_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=e22b79e6d0e5957f3b1583fb268441f7&camp=1789&creative=9325&node=23675621011">Supplements</a>
+                    <br />follow this link to look for <a target="_blank" rel="noreferrer" href="https://www.amazon.com/b?_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=0c0973c425489d37f8cb72fd0ea2a1dc&camp=1789&creative=9325&node=3760941">Health Care</a>
                     <br />or choose from the my special selection below:
                 </p>
                 <div className="shop-grid-container">

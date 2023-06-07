@@ -11,7 +11,6 @@ import Dashboard from "./Dashboard";
 import SelectedUserDashboard from "./SelectedUserDashboard";
 import ReadingNew from "./readings/ReadingNew";
 import UserData from "./UserData";
-import UserList from "./users/UserList";
 import UserDataFormEdit from "./userData/UserDataFormEdit";
 import UserDataFormNew from "./userData/UserDataFormNew";
 import Eyes from "./Eyes";

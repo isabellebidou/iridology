@@ -126,7 +126,7 @@ class ParasiteDetox extends Component {
                         <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-1-normal-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 1</a> Intended for those with normal bowel movements with proper diet (discount)</dd>
                         <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-2-mild-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 2</a> Beneficial for those that move their bowels once per day and need gentle moving power (discount)</dd>
                         <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-3-moderate-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 3</a> Suggested if bowels are not moving every day or if one occasionally misses a day (discount)</dd>
-                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-4-strong-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 4</a> Consistently moving bowels every other day (discount)</dd>x
+                        <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-4-strong-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 4</a> Consistently moving bowels every other day (discount)</dd>
                         <dd><a href="https://drmorsesherbalhealthclub.com/products/gi-renew-5-super-mover-90-capsules?sca_ref=3405638.5oYeVyhXwf">GI renew 5</a> Bowel movements occur every two days or more (discount)</dd>
                     </dl>
 
