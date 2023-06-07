@@ -35,6 +35,22 @@
                 "description": "",
                 "image": "https://m.media-amazon.com/images/I/61QeKfT+BuL._AC_SX679_.jpg",
                 "country": "US"
+            },
+
+            {
+                "url":"https://www.amazon.com/Nettle-Leaf-Organic-Oz-Bag/dp/B00807ANXE/ref=sr_1_14?crid=170ZXUY4C58EW&amp;keywords=nettle+powder+organic&amp;qid=1686168816&amp;sprefix=nettle+powder%252Caps%252C158&amp;sr=8-14&_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=d7c8f5813635fba44cf7bc7302e6bc1c&camp=1789&creative=9325",
+                "title": "nettle powder",
+                "description": "",
+                "image": "https://m.media-amazon.com/images/I/51Vl1sg4t1L._AC_.jpg",
+                "country": "US"
+            },
+
+            {
+                "url":"https://www.amazon.com/Argiletz-Ultra-Ventilated-Green-Clay-300G/dp/B002AKDNFM/ref=sr_1_1_sspa?crid=3VJ02NRB3HN9B&amp;keywords=green+clay+powder&amp;qid=1686169209&amp;sprefix=green+clay%252Caps%252C159&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1&_encoding=UTF8&tag=iridologyread-20&linkCode=ur2&linkId=19639eaeb133e2d4bd7427dc9a856409&camp=1789&creative=9325",
+                "title": "Argiletz Laboratoires Ultra-Ventilated Green Clay",
+                "description": "",
+                "image": "https://m.media-amazon.com/images/I/31R3guuq9qL.jpg",
+                "country": "US"
             }
         ]
     },
@@ -58,7 +74,7 @@
                 "url": "https://www.amazon.fr/Wormwood-Complexe-Vermouth-Laboratoire-V%25C3%25A9g%25C3%25A9tarien/dp/B09SLBKCBB/ref=sr_1_1_sspa?crid=2XZK45JR67JXQ&amp;keywords=black+walnut+hull&amp;qid=1680263379&amp;sprefix=black+walnut+%252Caps%252C114&amp;sr=8-1-spons&amp;sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&amp;psc=1&_encoding=UTF8&tag=iridologyread-21&linkCode=ur2&linkId=2ef3c79293ab233d6ed525881fde1bc1&camp=1642&creative=6746",
                 "title": "Complexe de Noix Noire Verte et de Vermouth",
                 "description": "",
-                "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41zURCy6zLL._AC_.jpg",
+                "image": "https://m.media-amazon.com/images/I/41zURCy6zLL._AC_.jpg",
                 "country": "FR"
             },
             {
