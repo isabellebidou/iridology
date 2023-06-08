@@ -6,6 +6,7 @@ import MorseFormulas from './products/MorseFormulas';
 import AmazonProducts from './products/AmazonProducts';
 import { Helmet } from 'react-helmet-async';
 import Coupon from "./Coupon";
+import { AiFillVideoCamera } from "react-icons/ai";
 
 
 
@@ -41,8 +42,11 @@ const Shop = () => {
                 <div>
                     <img className="affiliatelogo" src="https://cdn.shopify.com/s/files/1/0655/4094/8233/files/atayate_droit_corrige.png?v=1676308709&width=200" alt="atayate" loading="lazy" title="atayate logo" ></img>
                     <p className="itemp">
-                        Hammanh, Marc Boucher de Ligon, puts in coherence stones and bracelets specially for you. You will be redirected to his site where you can place a pre order.
-                    </p></div>
+                        Hammanh, Marc Boucher de Ligon, puts in coherence stones and bracelets specially for you.
+                    </p>
+                    <p className="itemp"> For further information have a look at the video: <a href="https://youtu.be/GnrAHBxt64Y">Êtes-vous en Cohérence ? Les Pierres de Cohérence - ÅtayatÉ <AiFillVideoCamera style={{ color: "#7f5f87" }} /></a> </p>
+                    
+                </div>
                 <span id="stones" >
                 </span>
                 <FeaturedProduct />
@@ -71,13 +75,16 @@ const Shop = () => {
                     <img className=" affiliatelogo" src="https://cdn.shopify.com/s/files/1/0725/6913/files/dr-morses-herbal-health-logo_200x.png?v=1613745566" alt="dr morse logo" loading="lazy" title="dr morse logo" ></img>
 
                     <p className="itemp">
+
                         You can use the Coupon :
                         <Coupon
                             text='AF.UPPROMOTE.COM'
-                        ></Coupon> to order from Dr. Morse's website directly. Please visit :
+                        ></Coupon> To order from Dr. Morse's website directly USING the coupon visit :
                         <a href="https://drmorsesherbalhealthclub.com/">Dr Morse's herbal health club</a>
                         <br />
-                        Alternatively  you can click on the links below to order.
+                        <br />
+                        OR <br />you can click on the links below to order without using the coupon.
+                        <br />
                         <br />
                         Beware, the formulas are shipping from the US. International shipping costs DO NOT include Import fees, Duties, or Taxes. Not shipping to all countries.
                     </p></div>

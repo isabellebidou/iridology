@@ -23,7 +23,7 @@ class Coupon extends React.Component {
     render() {
         const { copied } = this.state;
         return (
-            <div>
+            
                 <span className="coupon" onClick={this.copyText}>
                     {this.props.text}
                     {copied ? (
@@ -32,7 +32,7 @@ class Coupon extends React.Component {
                         <AiOutlineCopy style={{ color: "#7f5f87" }} />
                     )}
                 </span>
-            </div>
+            
         );
     }
 }

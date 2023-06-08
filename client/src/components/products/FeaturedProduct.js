@@ -12,7 +12,7 @@ function FeaturedProduct() {
             'https://www.atayate.com/collections/pierres-de-coherence'
         ],
         description: [
-            'The Pierre de Coherence® (Consistency Stone) is a technology of Light and Coherence of a Stone to the Field of Universal Coherence, which was de-covered and implemented by Marc Boucher de Lignon 30 years ago.The Pierre de Coherence® is a unique technology that validates the latest discoveries in quantum physics and epigenetics (consistent with the work of Dr. Bruce Lipton).   Thus, this technology put at the service of collective harmony, allows everyone to be consistent with himself and with the Universe. Stone preparation involves a careful selection to promote balance and harmony in the users body.'
+            'The Pierre de Coherence® (Consistency Stone) is a technology of Light and Coherence of a Stone to the Field of Universal Coherence. This technology allows everyone to be consistent with himself and with the Universe.'
         ],
         'a:price': ['90 euros'],
         'a:image_link': [
@@ -27,7 +27,7 @@ function FeaturedProduct() {
             'https://www.atayate.com/collections/bracelets-de-coherence®'
         ],
         description: [
-            'Prestigious bracelets in natural stone beads, created by Tayata and designed in our workshop.They exist as supports of Coherence, which you can always carry around.While for some the bracelet is easier to wear than a Stone, Coherence® Bracelets are a complement to your Coherence® Stone.We have created them to manifest the subtle and wonderful harmony of the Coherence that they bear and that acts upon your being'
+            'Prestigious bracelets in natural stone beads, created by Tayata. They exist as supports of Coherence, which you can always carry around.'
         ],
         'a:price': ['75 euros'],
         'a:image_link': [
