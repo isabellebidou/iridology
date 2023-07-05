@@ -44,7 +44,7 @@ module.exports = (app) => {
     });
 
     app.get("/api/morseformulas", bodyParser.json(), async (req, res, next) => {
-          try {
+          /*try {
             morseformulas.sort((a, b) => {
               if (a.title < b.title) return -1;
               if (a.title > b.title) return 1;
@@ -53,7 +53,7 @@ module.exports = (app) => {
           } catch (e) {
             //logError(e)
             
-          }
+          }*/
         try {
             res.send(morseformulas);
         } catch (error) {

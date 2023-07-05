@@ -2,31 +2,31 @@
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-renew-1-normal-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Renew #1 - Normal (90 Capsules)",
-        "description":"Intended for those with normal bowel movements with proper diet",
+        "description":"Motility - Intended for those with normal bowel movements with proper diet",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIR1.jpg?v=1612973641"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-renew-2-mild-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Renew #2 - Mild (90 Capsules)",
-        "description":"Beneficial for those that move their bowels once per day and need gentle moving power",
+        "description":"Motility - Beneficial for those that move their bowels once per day and need gentle moving power",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIR2_2af08762-52ff-46d7-bf10-e047104ec112.jpg?v=1612973658"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-renew-3-moderate-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Renew #3 - Moderate (90 Capsules)",
-        "description":"Suggested if bowels are not moving every day or if one occasionally misses a day",
+        "description":"Motility - Suggested if bowels are not moving every day or if one occasionally misses a day",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIR3CAPS_8248f320-dd3e-4038-903e-6d26dbe00cd9.jpg?v=1643651691"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-renew-4-strong-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Renew #4 - Strong (90 Capsules)",
-        "description":"Consistently moving bowels every other day",
+        "description":"Motility - Consistently moving bowels every other day",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIR4CAPS_2af06a43-22ec-49ca-8092-8578744cc99f.jpg?v=1643651707"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-renew-5-super-mover-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Renew #5 - Super Mover (90 Capsules)",
-        "description":"Bowel movements occur every two days or more",
+        "description":"Motility - Bowel movements occur every two days or more",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIR5CAPS_dd75c790-9193-4f38-8fb1-84d73c8f450d.jpg?v=1643651719"
     },
     {
@@ -38,14 +38,20 @@
     {
         "url": "https://drmorsesherbalhealthclub.com/products/gi-broom-360-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "GI Broom (360 Capsules)",
-        "description":"",
+        "description":"cleaning",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/GIBroomCAPS.jpg?v=1678301564"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/parasite-g-general-90-capsules?sca_ref=3405638.5oYeVyhXwf",
         "title": "Parasite G - General (90 Capsules)",
-        "description":"",
+        "description":"cleaning",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/PARA-G_5cf01fb8-dd98-4536-b54d-2d5fe7c2c028.jpg?v=1613663563"
+    },
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/parasite-m-micro-organisms-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Parasite M - Micro Organisms (90 Capsules)",
+        "description":"cleaning",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/PARA-M_9c88a6e9-3ac4-46f3-a962-5feefa615cc0.jpg?v=1612973840"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/parasite-g-general-2oz-tincture?sca_ref=3405638.5oYeVyhXwf",
@@ -54,29 +60,76 @@
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/PARA-G.jpg?v=1613663514"
     },
     {
-        "url": "https://drmorsesherbalhealthclub.com/products/copy-of-kidneys-bladder-iv-diuretic-90-capsules?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Kidneys & Bladder IV - Diuretic (90 Capsules)",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-IV.jpg?v=1612973745"
-    },
-    {
-        "url": "https://drmorsesherbalhealthclub.com/products/copy-of-kidneys-bladder-iv-diuretic-90-capsules?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Kidneys & Bladder IV - Diuretic (90 Capsules)",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-IV.jpg?v=1612973745"
-    },
-    {
-        "url": "https://drmorsesherbalhealthclub.com/products/kidneys-bladder-3-2oz-tincture?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Kidneys & Bladder 3 - Cleanser (2oz Tincture)",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KB3TINC.jpg?v=1658324573"
+        "url": "https://drmorsesherbalhealthclub.com/products/kidneys-bladder-1-cleanser-90-capsules-wholesale?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Kidneys & Bladder 1 - Cleanser (90 Capsules)",
+        "description":"prepare the body for elimination",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KB1CAPS_7860db97-d034-4a38-a418-92f77a565b9f.jpg?v=1676671861"
     },
     {
         "url": "https://drmorsesherbalhealthclub.com/products/kidneys-bladder-i-cleanser-2oz-tincture?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Kidneys & Bladder 1 - Cleanser (2oz Tincture)",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KB1TINC.jpg?v=1643651541"
+        "title": "Kidneys & Bladder I - cleanser tinctures",
+        "description":"prepare the body for elimination",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-IV.jpg?v=1612973745"
     },
+    
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/kidneys-bladder-3-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Kidneys & Bladder 3 - Cleanser (90 Capsules)",
+        "description":"prepare the body for elimination",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-IV.jpg?v=1612973745"
+    },
+    
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/kidneys-bladder-ii-diuretic-90-capsules-wholesale?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Kidneys & Bladder II - Diuretic (90 Capsules), Wholesale",
+        "description":"prepare - diuretic",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-II_971f5bb0-b547-4354-b7e2-dc58e93a2886.jpg?v=1676671928"
+    },
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/copy-of-kidneys-bladder-iv-diuretic-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Kidneys & Bladder IV - Diuretic (90 Capsules), Wholesale",
+        "description":"prepare - diuretic",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/KID-IV.jpg?v=1612973745"
+    },
+    
+
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/lymphatic-system-1-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Lymphatic System 1 (90 Capsules), Wholesale",
+        "description":"deep cleansing",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/LS1CAPS_521c0805-9378-4006-b365-3eaf0e74b0d7.jpg?v=1676671889"
+    },
+
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/lymphatic-system-spleen-moderate-90-capsules-1?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Lymphatic System 2 (90 Capsules), Wholesale",
+        "description":"deep cleansing",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/LS1CAPS_521c0805-9378-4006-b365-3eaf0e74b0d7.jpg?v=1676671889"
+    },
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/lymphatic-system-iv-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Lymphatic System 3 (90 Capsules), Wholesale",
+        "description":"deep cleansing",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/LS1CAPS_521c0805-9378-4006-b365-3eaf0e74b0d7.jpg?v=1676671889"
+    },
+        {
+        "url": "https://drmorsesherbalhealthclub.com/products/lymphatic-system-iv-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Lymphatic System 4 (90 Capsules), Wholesale",
+        "description":"deep cleansing",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/LS4CAPS.jpg?v=1648827477"
+    },
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/adrenal-support-90-capsules?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Adrenal Support (90 Capsules)",
+        "description":"Strenghening",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/ASCAPS.jpg?v=1658323083"
+    }  ,
+    {
+        "url": "https://drmorsesherbalhealthclub.com/products/endocrine-support-2oz-tincture?sca_ref=3405638.5oYeVyhXwf",
+        "title": "Endocrine Glands (2oz Tincture)",
+        "description":"Strenghening",
+        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/ENDOTINC.jpg?v=1651004935"
+    }  ,
     {
         "url": "https://drmorsesherbalhealthclub.com/products/kidney-tea-7oz-loose-blend?sca_ref=3405638.5oYeVyhXwf",
         "title": "Kidney Tea (7oz Loose Blend)",
@@ -86,25 +139,7 @@
     {
         "url": "https://drmorsesherbalhealthclub.com/products/heal-all-tea-7oz-loose-blend?sca_ref=3405638.5oYeVyhXwf",
         "title": "Heal-All Tea (7oz Loose Blend)",
-        "description":"",
+        "description":"all purpose",
         "image":"https://cdn.shopify.com/s/files/1/0725/6913/files/StandUpPouchMockup_1100x.jpg?v=1685674490"
-    },
-    {
-        "url": "https://dr-morse.myshopify.com/products/lymphatic-iv-2oz-glycerin-wholesale?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Lymphatic System 1 (90 Capsules), Wholesale",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/LS1CAPS_521c0805-9378-4006-b365-3eaf0e74b0d7.jpg?v=1676671889"
-    },
-    {
-        "url": "https://dr-morse.myshopify.com/products/lymphatic-iv-2oz-glycerin-wholesale?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Lymphatic System 4 (2oz Glycerin), Wholesale",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/Image_coming_soon_d54ed9ce-9f6f-4f35-a038-f28105615710.png?v=1676671920"
-    },
-    {
-        "url": "https://drmorsesherbalhealthclub.com/products/endocrine-support-2oz-tincture?sca_ref=3405638.5oYeVyhXwf",
-        "title": "Endocrine Glands (2oz Tincture)",
-        "description":"",
-        "image":"https://cdn.shopify.com/s/files/1/0725/6913/products/ENDOTINC.jpg?v=1651004935"
     }
 ]
