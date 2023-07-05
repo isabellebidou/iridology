@@ -45,7 +45,7 @@ const Shop = () => {
                         Hammanh, Marc Boucher de Ligon, puts in coherence stones and bracelets specially for you.
                     </p>
                     <p className="itemp"> For further information have a look at the video: <a href="https://youtu.be/GnrAHBxt64Y">Êtes-vous en Cohérence ? Les Pierres de Cohérence - ÅtayatÉ <AiFillVideoCamera style={{ color: "#7f5f87" }} /></a> </p>
-                    
+
                 </div>
                 <span id="stones" >
                 </span>
@@ -87,7 +87,23 @@ const Shop = () => {
                         <br />
                         <br />
                         Beware, the formulas are shipping from the US. International shipping costs DO NOT include Import fees, Duties, or Taxes. Not shipping to all countries.
-                    </p></div>
+                    </p>
+                    <p className="itemp">
+                        example of a 6 weeks detox program in 3 simple steps:
+                        <ul>
+                            <li>step 1 (week 1 and 2 ): select one of the GI renew formulas and
+                                either GI broom or Parasite G and or Parasite M</li>
+                            <li>step 2 (week 3 and 4): pick one of the Kidneys and Bladder formulas</li>
+                            <li>step 3 (week 5 and 6) : pick one of the lymphatic System formulas</li>
+                        </ul>
+
+
+
+
+
+                    </p>
+
+                </div>
 
                 <span id="morse" >
                 </span>
