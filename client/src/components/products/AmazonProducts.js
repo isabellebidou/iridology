@@ -84,13 +84,13 @@ function AmazonProducts() {
                 <h2>Exemple de cure detox en trois étapes sur 6 semaines</h2>
                 <ul className='ulp'>
                     <li>Etape 1 pour les semaines 1 et 2 :
-                    Argile verte loin des repas, cascara sagrada, AntiPar qui contient de l’absinthe, du clou de girofle, de la cannelle, du curcuma et de l’ortie
+                    Argile verte loin des repas, cascara sagrada, AntiPar qui contient de l’absinthe, du clou de girofle, de la cannelle, du curcuma et de l’ortie.
                     Ajouter ou alterner avec la griffe de chat, pau d’arco ou brou de noix. </li>
                     <li>Etape 2 pour les semaines 3 et 4 :
-                    continuer argile verte loin des repas, cascara sagrada. Ajouter: comprimés ou  capsules d’ortie, de pissenlit et de chiendent</li>
+                    continuer argile verte loin des repas, cascara sagrada. Ajouter: comprimés ou  capsules d’ortie et/ou pissenlit et/ou chiendent</li>
                     <li>Etape 3 pour les semaines 5 et 6 :
                     comprimés ou  capsules de :
-                    gratteron, plantain et souci officinal</li>
+                    gratteron et/ou plantain et/ou souci officinal</li>
                 </ul>
                 <div className="shop-grid-container">
                     {
