@@ -81,6 +81,17 @@ function AmazonProducts() {
                     Utilisez ce lien pour acheter <a target="_blank" rel="noreferrer" href="https://www.amazon.fr/b?_encoding=UTF8&tag=iridologyread-21&linkCode=ur2&linkId=fe2a246b8b804265eb350b46cd80a7ac&camp=1642&creative=6746&node=212045031">Supplements, plantes, compléments alimentaires</a>
                     <br /> ou choisissez parmi les articles ci-dessous:
                 </p>
+                <h2>Exemple de cure detox en trois étapes sur 6 semaines</h2>
+                <ul className='ulp'>
+                    <li>Etape 1 pour les semaines 1 et 2 :
+                    Argile verte loin des repas, cascara sagrada, AntiPar qui contient de l’absinthe, du clou de girofle, de la cannelle, du curcuma et de l’ortie
+                    Ajouter ou alterner avec la griffe de chat, pau d’arco ou brou de noix. </li>
+                    <li>Etape 2 pour les semaines 3 et 4 :
+                    continuer argile verte loin des repas, cascara sagrada. Ajouter: comprimés ou  capsules d’ortie, de pissenlit et de chiendent</li>
+                    <li>Etape 3 pour les semaines 5 et 6 :
+                    comprimés ou  capsules de :
+                    gratteron, plantain et souci officinal</li>
+                </ul>
                 <div className="shop-grid-container">
                     {
                         frItems.map(product => {
