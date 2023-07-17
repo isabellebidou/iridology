@@ -86,7 +86,7 @@ const Shop = () => {
                         OR <br />you can click on the links below to order without using the coupon.
                         <br />
                         <br />
-                        Beware, the formulas are shipping from the US. International shipping costs DO NOT include Import fees, Duties, or Taxes. Not shipping to all countries.
+                        Beware, the formulas are shipping from the US. International shipping costs DO NOT COVER Import fees, Duties, or Taxes. International buyers will have to pay additional taxes. Not shipping to all countries.
                     </p>
                     <p className="itemp">
                         example of a 6 weeks detox program in 3 simple steps:

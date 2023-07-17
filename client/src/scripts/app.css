@@ -217,7 +217,7 @@ legend {
 
 .detailinput {
   display: inline-block;
-  *display: inline;
+
   /* for IE7*/
   zoom: 1;
   /* for IE7*/
@@ -227,7 +227,7 @@ legend {
 
 .detailinputThick {
   display: inline-block;
-  *display: inline;
+
   /* for IE7*/
   zoom: 1;
   /* for IE7*/
@@ -238,7 +238,7 @@ legend {
 
 .detaillabel {
   display: inline-block;
-  *display: inline;
+
   /* for IE7*/
   zoom: 1;
   /* for IE7*/
@@ -281,7 +281,7 @@ legend {
 .textarea {
   border: 2px solid;
   display: inline-block;
-  *display: inline;
+
   /* for IE7*/
   zoom: 1;
   /* for IE7*/
@@ -710,6 +710,7 @@ label {
 .affiliatelogocontainer{
   width: 80%;
   opacity: 0.7;
+  background-color: rgba(var(--background), 0.9);
 
 }
 .affiliateflagcontainer{
