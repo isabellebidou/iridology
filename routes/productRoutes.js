@@ -14,7 +14,7 @@ const options = {
 module.exports = (app) => {
     app.get("/api/products", async (req, res) => {
         const products = [];
-        const productNames = ['Moulin Peugeot Modèle Paris Antique','boswellia', 'astragale', 'Acérola', 'Vitamine D3 - 5 μg (200 UI)', 'Cranberry Bio - 360 mg ', 'Anis étoilé bio', 'Ginkgo Biloba - 60 mg / 120 gélules', 'Ginkgo Biloba - 60 mg / 240 gélules','Gotu Kola', 'Psyllium Bio en poudre', 'Huile Essentielle de Citron Bio', 'Cacao cru bio', 'Ashwagandha', 'Chardon-marie', 'Curcuma', 'Cannelle', 'Schisandra chinensis', 'Ashwagandha Bio','Aloe Vera Bio en gélules', 'CordycepsPrime', 'Rhodiola Bio', 'Rhodiola Rosea - 400 mg', 'Saule Blanc' ]
+        const productNames = ['Moulin Peugeot Modèle Paris Antique','Detox-Fort','boswellia', 'astragale', 'Acérola', 'Vitamine D3 - 5 μg (200 UI)', 'Cranberry Bio - 360 mg ', 'Anis étoilé bio', 'Ginkgo Biloba - 60 mg / 120 gélules', 'Ginkgo Biloba - 60 mg / 240 gélules','Gotu Kola', 'Psyllium Bio en poudre', 'Huile Essentielle de Citron Bio', 'Cacao cru bio', 'Ashwagandha', 'Chardon-marie', 'Curcuma', 'Cannelle', 'Schisandra chinensis', 'Ashwagandha Bio','Aloe Vera Bio en gélules', 'CordycepsPrime', 'Rhodiola Bio', 'Rhodiola Rosea - 400 mg', 'Saule Blanc' ]
 
         const request = https.request(options, async response => {
             let data = '';

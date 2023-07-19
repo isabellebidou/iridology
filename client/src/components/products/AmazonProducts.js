@@ -90,7 +90,7 @@ function AmazonProducts() {
                     continuer argile verte loin des repas, cascara sagrada. Ajouter: comprimés ou  capsules d’ortie et/ou pissenlit et/ou chiendent</li>
                     <li>Etape 3 pour les semaines 5 et 6 :
                     comprimés ou  capsules de :
-                    gratteron et/ou plantain et/ou souci officinal</li>
+                    gratteron et/ou plantain et/ou souci officinal et/ou fenugrec</li>
                 </ul>
                 <div className="shop-grid-container">
                     {
