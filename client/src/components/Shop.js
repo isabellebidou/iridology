@@ -78,7 +78,7 @@ const Shop = () => {
 
                         You can use the Coupon :
                         <Coupon
-                            text='AF.UPPROMOTE.COM'
+                            text='ISABELLEBIDOU'
                         ></Coupon> To order from Dr. Morse's website directly USING the coupon visit :
                         <a href="https://drmorsesherbalhealthclub.com/">Dr Morse's herbal health club</a>
                         <br />
