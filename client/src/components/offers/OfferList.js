@@ -37,8 +37,8 @@ function OfferList() {
                                     {offer.description}
 
                                     <br />
-                                    {offer.price &&
-                                        <span>{offer.price} $</span>}
+                                    
+                                        <span>{offer.price} $</span>
 
                                 </div>
                             </div>

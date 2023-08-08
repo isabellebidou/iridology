@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Payment from "../Payment";
+import { Link, useHistory } from "react-router-dom";
+/*import Payment from "../Payment";*/
+
 import { logError } from "../../utils/utils";
 
 const ReadingNew = () => {
-
+  const history = useHistory();
   const [expectations, setExpectations] = useState('');
   const [offers, setOffers] = useState([]);
   const [offerId, setOfferId] = useState('');
@@ -25,6 +26,7 @@ const ReadingNew = () => {
     // 1) payment  /api/create-payment-intent
 
     try {
+      console.log('new readings')
       axios.post("/api/readings", {  expectations, offerId})
       .then(function (response) {
         // handle success
@@ -37,6 +39,7 @@ const ReadingNew = () => {
       })
         .finally(function () {
           // always executed
+          history.push("/readings");
         });
     } catch (error) {
       logError(error)
@@ -48,6 +51,9 @@ const ReadingNew = () => {
 
     <div className="page">
       <form onSubmit={handleSubmit}>
+
+
+
 
         <select id="offerSelect" name="offerselect" value={offerId} onChange={(e) => {
           setOfferId(e.target.value);
@@ -71,14 +77,18 @@ const ReadingNew = () => {
           }}
         />
 
-        <Link to="/readings" className="leftbutton">
-        <button >{" cancel "}</button>
+        <Link to="/readings" >
+        <button className="button">{" cancel "}</button>
         </Link>
+
+      
+        <input type="submit" value="Book reading" className="button"/>
+   
       </form>
-      <Payment 
+      {/*<Payment 
       expectations={expectations}
       offerId={offerId}
-      />
+        />*/}
     </div>
 
   );
